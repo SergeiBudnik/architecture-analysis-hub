@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_FoodDelivery_Public" targetNamespace="https://github.com/SergeiBudnik/architecture-analysis-hub">
+ <bpmn:process id="Process_Food_Delivery_Demo" name="Food Delivery — Sanitized Learning Example" isExecutable="false">
+ <bpmn:startEvent id="start" name="New order received"><bpmn:outgoing>flow1</bpmn:outgoing></bpmn:startEvent>
+<bpmn:exclusiveGateway id="method" name="Card payment?"><bpmn:incoming>flow1</bpmn:incoming><bpmn:outgoing>flow2</bpmn:outgoing><bpmn:outgoing>flow3</bpmn:outgoing></bpmn:exclusiveGateway>
+<bpmn:serviceTask id="card" name="Process card payment"><bpmn:incoming>flow2</bpmn:incoming><bpmn:outgoing>flow4</bpmn:outgoing></bpmn:serviceTask>
+<bpmn:exclusiveGateway id="result" name="Payment successful?"><bpmn:incoming>flow4</bpmn:incoming><bpmn:outgoing>flow5</bpmn:outgoing><bpmn:outgoing>flow6</bpmn:outgoing></bpmn:exclusiveGateway>
+<bpmn:endEvent id="cancel" name="Order cancelled"><bpmn:incoming>flow5</bpmn:incoming></bpmn:endEvent>
+<bpmn:userTask id="restaurant" name="Confirm order"><bpmn:incoming>flow3</bpmn:incoming><bpmn:incoming>flow6</bpmn:incoming><bpmn:outgoing>flow7</bpmn:outgoing></bpmn:userTask>
+<bpmn:parallelGateway id="fork" name=""><bpmn:incoming>flow7</bpmn:incoming><bpmn:outgoing>flow8</bpmn:outgoing><bpmn:outgoing>flow9</bpmn:outgoing></bpmn:parallelGateway>
+<bpmn:userTask id="prepare" name="Prepare order"><bpmn:incoming>flow8</bpmn:incoming><bpmn:outgoing>flow14</bpmn:outgoing></bpmn:userTask>
+<bpmn:serviceTask id="assign" name="Assign courier"><bpmn:incoming>flow9</bpmn:incoming><bpmn:incoming>flow12</bpmn:incoming><bpmn:outgoing>flow10</bpmn:outgoing></bpmn:serviceTask>
+<bpmn:userTask id="accept" name="Courier accepts"><bpmn:incoming>flow10</bpmn:incoming><bpmn:outgoing>flow11</bpmn:outgoing></bpmn:userTask>
+<bpmn:exclusiveGateway id="accepted" name="Accepted?"><bpmn:incoming>flow11</bpmn:incoming><bpmn:outgoing>flow12</bpmn:outgoing><bpmn:outgoing>flow13</bpmn:outgoing></bpmn:exclusiveGateway>
+<bpmn:parallelGateway id="join" name=""><bpmn:incoming>flow13</bpmn:incoming><bpmn:incoming>flow14</bpmn:incoming><bpmn:outgoing>flow15</bpmn:outgoing></bpmn:parallelGateway>
+<bpmn:userTask id="pickup" name="Pick up at restaurant"><bpmn:incoming>flow15</bpmn:incoming><bpmn:outgoing>flow16</bpmn:outgoing></bpmn:userTask>
+<bpmn:userTask id="deliver" name="Deliver order"><bpmn:incoming>flow16</bpmn:incoming><bpmn:outgoing>flow17</bpmn:outgoing></bpmn:userTask>
+<bpmn:userTask id="check" name="Customer checks order"><bpmn:incoming>flow17</bpmn:incoming><bpmn:outgoing>flow18</bpmn:outgoing></bpmn:userTask>
+<bpmn:exclusiveGateway id="correct" name="Items correct?"><bpmn:incoming>flow18</bpmn:incoming><bpmn:outgoing>flow19</bpmn:outgoing><bpmn:outgoing>flow20</bpmn:outgoing></bpmn:exclusiveGateway>
+<bpmn:endEvent id="delivered" name="Order delivered"><bpmn:incoming>flow19</bpmn:incoming></bpmn:endEvent>
+<bpmn:userTask id="complaint" name="Contact support"><bpmn:incoming>flow20</bpmn:incoming><bpmn:outgoing>flow21</bpmn:outgoing></bpmn:userTask>
+<bpmn:endEvent id="complaintEnd" name="Complaint recorded"><bpmn:incoming>flow21</bpmn:incoming></bpmn:endEvent>
+ <bpmn:sequenceFlow id="flow1" sourceRef="start" targetRef="method"/>
+<bpmn:sequenceFlow id="flow2" sourceRef="method" targetRef="card" name="Yes"/>
+<bpmn:sequenceFlow id="flow3" sourceRef="method" targetRef="restaurant" name="Cash"/>
+<bpmn:sequenceFlow id="flow4" sourceRef="card" targetRef="result"/>
+<bpmn:sequenceFlow id="flow5" sourceRef="result" targetRef="cancel" name="No"/>
+<bpmn:sequenceFlow id="flow6" sourceRef="result" targetRef="restaurant" name="Yes"/>
+<bpmn:sequenceFlow id="flow7" sourceRef="restaurant" targetRef="fork"/>
+<bpmn:sequenceFlow id="flow8" sourceRef="fork" targetRef="prepare"/>
+<bpmn:sequenceFlow id="flow9" sourceRef="fork" targetRef="assign"/>
+<bpmn:sequenceFlow id="flow10" sourceRef="assign" targetRef="accept"/>
+<bpmn:sequenceFlow id="flow11" sourceRef="accept" targetRef="accepted"/>
+<bpmn:sequenceFlow id="flow12" sourceRef="accepted" targetRef="assign" name="No"/>
+<bpmn:sequenceFlow id="flow13" sourceRef="accepted" targetRef="join" name="Yes"/>
+<bpmn:sequenceFlow id="flow14" sourceRef="prepare" targetRef="join"/>
+<bpmn:sequenceFlow id="flow15" sourceRef="join" targetRef="pickup"/>
+<bpmn:sequenceFlow id="flow16" sourceRef="pickup" targetRef="deliver"/>
+<bpmn:sequenceFlow id="flow17" sourceRef="deliver" targetRef="check"/>
+<bpmn:sequenceFlow id="flow18" sourceRef="check" targetRef="correct"/>
+<bpmn:sequenceFlow id="flow19" sourceRef="correct" targetRef="delivered" name="Yes"/>
+<bpmn:sequenceFlow id="flow20" sourceRef="correct" targetRef="complaint" name="No"/>
+<bpmn:sequenceFlow id="flow21" sourceRef="complaint" targetRef="complaintEnd"/>
+ </bpmn:process>
+ <bpmndi:BPMNDiagram id="Diagram_FoodDelivery_Public"><bpmndi:BPMNPlane id="Plane_FoodDelivery_Public" bpmnElement="Process_Food_Delivery_Demo">
+ <bpmndi:BPMNShape id="Shape_start" bpmnElement="start"><dc:Bounds x="60" y="250" width="36" height="36"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Shape_method" bpmnElement="method"><dc:Bounds x="220" y="250" width="50" height="50"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Shape_card" bpmnElement="card"><dc:Bounds x="365" y="135" width="150" height="78"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Shape_result" bpmnElement="result"><dc:Bounds x="580" y="135" width="50" height="50"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Shape_cancel" bpmnElement="cancel"><dc:Bounds x="790" y="90" width="36" height="36"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Shape_restaurant" bpmnElement="restaurant"><dc:Bounds x="790" y="300" width="150" height="78"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Shape_fork" bpmnElement="fork"><dc:Bounds x="1000" y="300" width="50" height="50"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Shape_prepare" bpmnElement="prepare"><dc:Bounds x="1170" y="215" width="150" height="78"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Shape_assign" bpmnElement="assign"><dc:Bounds x="1170" y="385" width="150" height="78"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Shape_accept" bpmnElement="accept"><dc:Bounds x="1370" y="385" width="150" height="78"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Shape_accepted" bpmnElement="accepted"><dc:Bounds x="1530" y="385" width="50" height="50"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Shape_join" bpmnElement="join"><dc:Bounds x="1715" y="300" width="50" height="50"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Shape_pickup" bpmnElement="pickup"><dc:Bounds x="1865" y="300" width="150" height="78"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Shape_deliver" bpmnElement="deliver"><dc:Bounds x="2060" y="300" width="150" height="78"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Shape_check" bpmnElement="check"><dc:Bounds x="2260" y="300" width="150" height="78"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Shape_correct" bpmnElement="correct"><dc:Bounds x="2445" y="300" width="50" height="50"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Shape_delivered" bpmnElement="delivered"><dc:Bounds x="2640" y="200" width="36" height="36"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Shape_complaint" bpmnElement="complaint"><dc:Bounds x="2640" y="410" width="150" height="78"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Shape_complaintEnd" bpmnElement="complaintEnd"><dc:Bounds x="2840" y="410" width="36" height="36"/></bpmndi:BPMNShape>
+ <bpmndi:BPMNEdge id="Edge_flow1" bpmnElement="flow1"><di:waypoint x="78" y="268"/><di:waypoint x="245" y="275"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Edge_flow2" bpmnElement="flow2"><di:waypoint x="245" y="275"/><di:waypoint x="440" y="174"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Edge_flow3" bpmnElement="flow3"><di:waypoint x="245" y="275"/><di:waypoint x="865" y="339"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Edge_flow4" bpmnElement="flow4"><di:waypoint x="440" y="174"/><di:waypoint x="605" y="160"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Edge_flow5" bpmnElement="flow5"><di:waypoint x="605" y="160"/><di:waypoint x="808" y="108"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Edge_flow6" bpmnElement="flow6"><di:waypoint x="605" y="160"/><di:waypoint x="865" y="339"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Edge_flow7" bpmnElement="flow7"><di:waypoint x="865" y="339"/><di:waypoint x="1025" y="325"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Edge_flow8" bpmnElement="flow8"><di:waypoint x="1025" y="325"/><di:waypoint x="1245" y="254"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Edge_flow9" bpmnElement="flow9"><di:waypoint x="1025" y="325"/><di:waypoint x="1245" y="424"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Edge_flow10" bpmnElement="flow10"><di:waypoint x="1245" y="424"/><di:waypoint x="1445" y="424"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Edge_flow11" bpmnElement="flow11"><di:waypoint x="1445" y="424"/><di:waypoint x="1555" y="410"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Edge_flow12" bpmnElement="flow12"><di:waypoint x="1555" y="410"/><di:waypoint x="1245" y="424"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Edge_flow13" bpmnElement="flow13"><di:waypoint x="1555" y="410"/><di:waypoint x="1740" y="325"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Edge_flow14" bpmnElement="flow14"><di:waypoint x="1245" y="254"/><di:waypoint x="1740" y="325"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Edge_flow15" bpmnElement="flow15"><di:waypoint x="1740" y="325"/><di:waypoint x="1940" y="339"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Edge_flow16" bpmnElement="flow16"><di:waypoint x="1940" y="339"/><di:waypoint x="2135" y="339"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Edge_flow17" bpmnElement="flow17"><di:waypoint x="2135" y="339"/><di:waypoint x="2335" y="339"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Edge_flow18" bpmnElement="flow18"><di:waypoint x="2335" y="339"/><di:waypoint x="2470" y="325"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Edge_flow19" bpmnElement="flow19"><di:waypoint x="2470" y="325"/><di:waypoint x="2658" y="218"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Edge_flow20" bpmnElement="flow20"><di:waypoint x="2470" y="325"/><di:waypoint x="2715" y="449"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Edge_flow21" bpmnElement="flow21"><di:waypoint x="2715" y="449"/><di:waypoint x="2858" y="428"/></bpmndi:BPMNEdge>
+ </bpmndi:BPMNPlane></bpmndi:BPMNDiagram>
+</bpmn:definitions>
