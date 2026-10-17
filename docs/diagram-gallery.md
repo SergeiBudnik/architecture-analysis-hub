@@ -9,25 +9,25 @@ Four visual summaries are provided below. These compact diagrams are for **orien
 
 ## A2A / QR / Deep Link
 
-![A2A QR and deep link orchestration](/architecture-analysis-hub/img/a2a-overview.svg)
+<img src="/architecture-analysis-hub/img/a2a-overview.svg" alt="A2A QR and deep link orchestration" />
 
 [Full case study](payments/a2a-qr-deeplink.md) · [Editable PlantUML HLD](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/a2a-qr-deeplink-hld.puml)
 
 ## Card Acquiring & Processing
 
-![Card acquiring network authorization participants](/architecture-analysis-hub/img/acquiring-overview.svg)
+<img src="/architecture-analysis-hub/img/acquiring-overview.svg" alt="Card acquiring network authorization participants" />
 
 [Full case study](payments/acquiring-processing.md) · [Editable authorization sequence](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/acquiring-authorization-sequence.puml)
 
 ## Clearing, Settlement & Merchant Funding
 
-![Payment clearing settlement and merchant funding](/architecture-analysis-hub/img/clearing-overview.svg)
+<img src="/architecture-analysis-hub/img/clearing-overview.svg" alt="Payment clearing settlement and merchant funding" />
 
 [Financial lifecycle case study](payments/clearing-settlement-reconciliation.md) · [Worked reconciliation example](payments/reconciliation-worked-example.md) · [Editable HLD](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/clearing-settlement-hld.puml)
 
 ## Kafka and Event-Driven Payment Processing
 
-![Kafka outbox relay topics inbox and notification](/architecture-analysis-hub/img/kafka-overview.svg)
+<img src="/architecture-analysis-hub/img/kafka-overview.svg" alt="Kafka outbox relay topics inbox and notification" />
 
 [Kafka architecture](payments/event-driven-processing.md) · [Offset recovery walkthrough](payments/kafka-offset-recovery.md) · [Editable event-driven HLD](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/event-driven-payment-hld.puml)
 
