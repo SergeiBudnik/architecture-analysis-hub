@@ -5,6 +5,14 @@ sidebar_position: 6
 
 # Release Notes
 
+## 2026-10-17 — Three more sanitized examples from STORAGE
+
+- Added [Service Booking HLD](examples/service-booking-hld.md), adapted from the second HLD example with internal component identifiers removed.
+- Added [Food Ordering Database Design](examples/restaurant-database-design.md), adapting the source's seven core entities and explicitly removing unsafe payment-card storage fields.
+- Added [Email Notification MQ Listener](examples/email-notification-consumer.md), with an anonymized integration, bounded retry and DLQ discussion.
+- Added three matching editable PlantUML diagrams.
+- Updated the source-library publication inventory. Original DOCX, XLSX, BPMN, Visio and draw.io files remain under review.
+
 ## 2026-10-17 — CC BY 4.0 public content license
 
 - Published [License & Attribution](license.md) and a scoped repository [CC BY 4.0 license notice](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/LICENSE.md).

@@ -13,7 +13,8 @@ A public library of **systems analysis, solution architecture and payment proces
 - [Download Editable Templates](downloads.md) — eight Word-compatible RTF files (BRD, SRS, HLD, API, backend, frontend, database and event-driven).
 - [Architecture Diagram Gallery](diagram-gallery.md) — four illustrated system views with links to editable PlantUML sources.
 - [Find a Resource](/search) — quick search by title and technical topic.
-- [Full Catalogue](templates/catalogue.md) — analysis templates, guides and filled examples.
+- [Full Catalogue](templates/catalogue.md) — analysis templates, guides and six adapted examples.
+- [Source Publication Roadmap](source-publication-roadmap.md) — which original STORAGE files have been adapted and why raw files are under review.
 
 ## Explore by discipline
 

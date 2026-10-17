@@ -18,6 +18,6 @@ HLA differs from low-level design: it describes major building blocks and their 
 
 ## Additional topics
 
-The source library also covers **API design**, **API parameterization**, **database design**, and editable diagrams. These will be added after individual review.
+The source library also covers **API design**, **API parameterization**, **database design**, and editable diagrams. Some have now been published as reviewed web adaptations. See the [Service Booking HLD](../examples/service-booking-hld.md), [Food Ordering Database Model](../examples/restaurant-database-design.md), and [API Design Guide](api-design-patterns.md). Raw source files remain under review.
 
 *Source: author's architecture collection.*

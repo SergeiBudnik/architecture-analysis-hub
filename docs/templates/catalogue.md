@@ -53,11 +53,16 @@ Markdown sources and new RTF templates can be downloaded via the linked reposito
 
 ## Worked examples
 
+Six source-based educational examples are now public. Their original Word files have **not** been uploaded; links below lead to carefully adapted web editions.
+
 | Example | Source artifact |
 |---|---|
 | [Travel Booking Platform — filled BRD](../examples/travel-platform-brd.md) | `BRD_EXAMPLE.docx` |
 | [Employee XLSX Export — API specification and sequence](../examples/employee-export-api.md) | `API_EXAMPLE.docx` |
 | [Travel Plan — hotel removal backend flow](../examples/travel-plan-delete-backend.md) | `BACK_SRS_EXAMPLE_1.docx` |
+| [Service Booking Platform — HLD and component model](../examples/service-booking-hld.md) | `HIGH _LEVEL_ARCITECTURE_EXAMPLE_2.docx` (anonymized) |
+| [Food Ordering — database model and ERD](../examples/restaurant-database-design.md) | `DATABASE_DESIGN_EXAMPLE.docx` (security-corrected) |
+| [Email Notification — MQ listener and retry/DLQ](../examples/email-notification-consumer.md) | `MQ_SRS_EXAMPLE.docx` (anonymized) |
 
 **Reuse:** Public, author-owned educational adaptations and downloads are available under [CC BY 4.0](../license.md). The original STORAGE archive is not included.
 
