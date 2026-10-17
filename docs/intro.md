@@ -5,15 +5,24 @@ sidebar_position: 1
 ---
 # Architecture & Analysis Hub
 
-This resource organizes practical materials for business analysis, systems analysis and solution architecture.
+A public library of **systems analysis, solution architecture and payment processing reference materials** curated by Sergei Budnik.
 
-The initial taxonomy follows the author's existing library: requirements gathering, architecture and system design, development specifications, and release notes.
+## Start here
 
-## How to navigate
+- [Payment Architecture](payments/overview.md) — A2A/QR/Deep Link, acquiring, clearing and settlement, Kafka/event-driven reliability.
+- [Download Editable Templates](downloads.md) — eight Word-compatible RTF files (BRD, SRS, HLD, API, backend, frontend, database and event-driven).
+- [Architecture Diagram Gallery](diagram-gallery.md) — four illustrated system views with links to editable PlantUML sources.
+- [Find a Resource](/search) — quick search by title and technical topic.
+- [Full Catalogue](templates/catalogue.md) — analysis templates, guides and filled examples.
 
-- Start with [Requirements & Analysis](requirements/overview.md) for BRD, SRS, use cases, user stories and BPMN.
-- Continue to [Architecture & Design](architecture/overview.md) for HLA, API and database design.
-- Use [Engineering Specifications](engineering/overview.md) for implementation-facing artifacts.
-- Check the [Template Catalogue](templates/catalogue.md) for publication status.
+## Explore by discipline
 
-**Release status:** This is a curated preview. Source documents and diagrams are being reviewed before public release.
+- [Requirements & Analysis](requirements/overview.md) — BRD, SRS, use cases, user stories and BPMN.
+- [Architecture & Design](architecture/overview.md) — HLD, API design and data design.
+- [Engineering Specifications](engineering/overview.md) — implementation-level documentation and sequences.
+
+## For readers and reviewers
+
+Each published reference is a **learning or design-review example**. The payment designs are generalized and fictional, not customer systems. Source Word, Visio, draw.io and BPMN documents have **not** been released wholesale. See [About the Author](about-the-author.md) and [Feedback & Contributions](contribute.md).
+
+**Project history:** All released changes are date-stamped in [Release Notes](release-notes.md) and GitHub commits.

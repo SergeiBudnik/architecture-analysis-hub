@@ -5,6 +5,15 @@ sidebar_position: 6
 
 # Release Notes
 
+## 2026-10-17 — Reusable resources and site navigation
+
+- Published eight sanitized, editable **Word-compatible RTF templates** for requirements, HLD, API, backend/frontend, database and event-driven integration.
+- Added a dedicated [Downloads page](downloads.md), author page and feedback guidelines.
+- Added topic/title-based resource search and improved top navigation.
+- Published a [Diagram Gallery](diagram-gallery.md) with four simplified SVG architecture flows linked to editable PlantUML sources.
+- Enabled Mermaid diagram rendering in Docusaurus for explanatory sequence/state figures.
+- Retained the original authored source archive privately rather than uploading unreviewed binary files.
+
 ## 2026-10-17 — Event-driven payments and Kafka recovery
 
 - Published [Event-Driven Payment Processing](payments/event-driven-processing.md), covering Kafka topology, topic keys, outbox/inbox, merchant notifications and processor recovery.

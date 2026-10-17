@@ -22,3 +22,13 @@ Website after deployment: https://SergeiBudnik.github.io/architecture-analysis-h
 ## Licensing and adoption
 
 No open content license has yet been assigned to the original document library. Do not redistribute unreleased documents. External adoption and feedback will be documented when independently verifiable.
+
+## Public library contents
+
+- [Payment Architecture cases](https://sergeibudnik.github.io/architecture-analysis-hub/docs/payments/overview)
+- [8 editable Word-compatible RTF templates](https://sergeibudnik.github.io/architecture-analysis-hub/docs/downloads)
+- [Architecture diagrams](https://sergeibudnik.github.io/architecture-analysis-hub/docs/diagram-gallery)
+- [Search resources](https://sergeibudnik.github.io/architecture-analysis-hub/search)
+- [About the Author](https://sergeibudnik.github.io/architecture-analysis-hub/docs/about-the-author)
+
+RTF templates are newly formatted, sanitized adaptations; original binary source material has not been uploaded. No scheme-certified reference or independently verified usage metrics are implied. Redistribution terms await a specific public license decision.

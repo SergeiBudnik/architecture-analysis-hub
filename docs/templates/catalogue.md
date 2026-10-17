@@ -3,7 +3,9 @@ title: Template Catalogue
 sidebar_position: 5
 ---
 
-# Downloadable-style Templates & Practical Guides
+# Template Catalogue & Practical Guides
+
+**Want an editable Word-compatible file?** Start with [eight downloadable RTF templates](../downloads.md). These open in Word or LibreOffice and can be saved as DOCX.
 
 These are **public, editable Markdown templates and guides**, adapted from Sergei Budnik's authored STORAGE library (2025). Click a title to open it; use **Edit this page** only if available, or copy the template text into your own document.
 
@@ -38,7 +40,7 @@ These are **public, editable Markdown templates and guides**, adapted from Serge
 
 **12 public materials** are available in web-readable form. Original Word, Excel, BPMN, draw.io and Visio downloads remain under individual review; they are **not yet published**. Selected worked examples are available below.
 
-A Markdown source file may be downloaded from the corresponding GitHub repository. Public release does not imply independent use or recognition by others.
+Markdown sources and new RTF templates can be downloaded via the linked repository. The full, original source archive is not published. Public release does not imply independent use or recognition by others.
 
 ## Architecture case studies
 
