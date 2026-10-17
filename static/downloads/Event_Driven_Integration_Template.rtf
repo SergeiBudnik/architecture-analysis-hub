@@ -1,0 +1,29 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0 Arial;}}{\colortbl;\red24\green76\blue98;}\paperw11906\paperh16838\margl1240\margr1240\margt1080\margb1080
+\pard\sa250\b\fs34\cf1 Event-Driven Integration Specification\cf0\b0\par
+\pard\sa200\fs19 Original editable teaching template | Sergei Budnik | October 2026\par
+\pard\sa180\i\fs18 Adapted from the author's private template library; no real customer data. Replace all bracketed placeholders.\i0\par
+\pard\sb220\sa110\b\fs25\cf1 Document control\cf0\b0\par
+\pard\li200\sa100\fs20 Producer: [SERVICE] Consumer: [SERVICE] | Topic: [TOPIC]\par
+\pard\sb220\sa110\b\fs25\cf1 1. Event business semantics\cf0\b0\par
+\pard\li200\sa100\fs20 Event type and source of truth: [NAME]\par
+\pard\li200\sa100\fs20 Trigger and ordering boundary: [RULES]\par
+\pard\sb220\sa110\b\fs25\cf1 2. Envelope and schema\cf0\b0\par
+\pard\li200\sa100\fs20 eventId, eventType, version, aggregateId, occurredAt, correlationId\par
+\pard\li200\sa100\fs20 Payload schema: [VERSIONED JSON/AVRO/PROTOBUF]\par
+\pard\sb220\sa110\b\fs25\cf1 3. Kafka topology\cf0\b0\par
+\pard\li200\sa100\fs20 Topic | Key | Partitions | Retention | Consumer group | ACLs\par
+\pard\sb220\sa110\b\fs25\cf1 4. Transactional consistency\cf0\b0\par
+\pard\li200\sa100\fs20 Outbox DB transaction: [STATE + EVENT]\par
+\pard\li200\sa100\fs20 Consumer inbox dedupe key: [SCOPE]\par
+\pard\li200\sa100\fs20 Offset commit point: [AFTER DURABLE DB WORK]\par
+\pard\sb220\sa110\b\fs25\cf1 5. Retry/recovery\cf0\b0\par
+\pard\li200\sa100\fs20 Transient errors: [BACKOFF]\par
+\pard\li200\sa100\fs20 Permanent errors / DLQ: [QUARANTINE / OWNER]\par
+\pard\li200\sa100\fs20 Unknown external financial outcome: [STATUS INQUIRY, NOT BLIND REPLAY]\par
+\pard\sb220\sa110\b\fs25\cf1 6. Reliability and security\cf0\b0\par
+\pard\li200\sa100\fs20 Late/out-of-order events; schema compatibility; replay policy\par
+\pard\li200\sa100\fs20 Observability: lag, outbox age, DLQ, duplicate suppression\par
+\pard\sb220\sa110\b\fs25\cf1 7. Fault-injection tests\cf0\b0\par
+\pard\li200\sa100\fs20 Crash before DB commit; after DB commit; before offset; rebalance; provider timeout\par
+\pard\sb220\sa160\fs17\i Version 1.0. All examples and identifiers are fictional. Review before applying in production.\i0\par
+}

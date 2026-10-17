@@ -1,0 +1,30 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0 Arial;}}{\colortbl;\red24\green76\blue98;}\paperw11906\paperh16838\margl1240\margr1240\margt1080\margb1080
+\pard\sa250\b\fs34\cf1 Backend Service Implementation Specification\cf0\b0\par
+\pard\sa200\fs19 Original editable teaching template | Sergei Budnik | October 2026\par
+\pard\sa180\i\fs18 Adapted from the author's private template library; no real customer data. Replace all bracketed placeholders.\i0\par
+\pard\sb220\sa110\b\fs25\cf1 Document control\cf0\b0\par
+\pard\li200\sa100\fs20 Operation and owning service: [NAME]\par
+\pard\sb220\sa110\b\fs25\cf1 1. Trigger and boundary\cf0\b0\par
+\pard\li200\sa100\fs20 Caller / input: [SERVICE OR EVENT]\par
+\pard\li200\sa100\fs20 Preconditions / authorization: [RULES]\par
+\pard\sb220\sa110\b\fs25\cf1 2. Request and response\cf0\b0\par
+\pard\li200\sa100\fs20 Method / event name: [NAME]\par
+\pard\li200\sa100\fs20 Field | Source | Type | Required | Mapping\par
+\pard\li200\sa100\fs20 Success and error response examples: [JSON]\par
+\pard\sb220\sa110\b\fs25\cf1 3. Processing algorithm\cf0\b0\par
+\pard\li200\sa100\fs20 1. Validate request and idempotency\par
+\pard\li200\sa100\fs20 2. Fetch required internal/external data\par
+\pard\li200\sa100\fs20 3. Apply business rules and state transition\par
+\pard\li200\sa100\fs20 4. Persist transactionally and create outbox\par
+\pard\li200\sa100\fs20 5. Return result or controlled UNKNOWN status\par
+\pard\sb220\sa110\b\fs25\cf1 4. Integration mapping\cf0\b0\par
+\pard\li200\sa100\fs20 Source system / field | Target / field | Transform | Failure rule\par
+\pard\sb220\sa110\b\fs25\cf1 5. Persistence\cf0\b0\par
+\pard\li200\sa100\fs20 Table / entity | Key | Uniqueness | Transaction boundary\par
+\pard\sb220\sa110\b\fs25\cf1 6. Error processing\cf0\b0\par
+\pard\li200\sa100\fs20 Error / timeout / retry / compensating action matrix\par
+\pard\li200\sa100\fs20 Recovery worker and escalation: [RULES]\par
+\pard\sb220\sa110\b\fs25\cf1 7. Acceptance tests\cf0\b0\par
+\pard\li200\sa100\fs20 Happy path; duplicate request; timeout; rollback; race; restart; security\par
+\pard\sb220\sa160\fs17\i Version 1.0. All examples and identifiers are fictional. Review before applying in production.\i0\par
+}
