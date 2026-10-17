@@ -12,7 +12,8 @@
     "@docusaurus/preset-classic": "^3.8.1",
     "prism-react-renderer": "^2.4.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "@docusaurus/theme-mermaid": "^3.8.1"
   },
   "engines": {
     "node": ">=20"

@@ -5,3 +5,12 @@
 .featureGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem;margin:3rem 0}
 .feature{border:1px solid var(--ifm-color-emphasis-300);border-radius:12px;padding:1.5rem}
 .feature h3{margin-bottom:.5rem}
+/* Search, downloadable resources and visual diagram gallery */
+.resourceSearchInput {display:block;width:100%;max-width:760px;padding:14px 16px;border-radius:9px;border:1px solid var(--ifm-color-emphasis-400);background:var(--ifm-background-color);color:var(--ifm-font-color-base);font-size:1.05rem;margin-top:10px}
+.resourceSearchInput:focus {outline:2px solid var(--ifm-color-primary);outline-offset:2px}
+.resourceGrid {display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.resourceResult {border:1px solid var(--ifm-color-emphasis-300);border-radius:10px;padding:18px;background:var(--ifm-background-surface-color)}
+.resourceResult h3 {font-size:1.05rem;margin-bottom:9px}
+.resourceResult p {margin:0;font-size:.85rem;opacity:.72;line-height:1.6}
+.markdown img[src$="-overview.svg"]{max-width:100%;height:auto;border:1px solid var(--ifm-color-emphasis-200);border-radius:14px}
+@media (max-width:720px){.heroBanner{padding:3rem 0}.heroBanner h1{font-size:2.2rem}}
