@@ -1,0 +1,21 @@
+@startuml
+!theme plain
+title Payment Intent State Machine — Illustrative Only
+[*] --> CREATED
+CREATED --> AWAITING_CUSTOMER : intent registered
+AWAITING_CUSTOMER --> PROCESSING : payer authorized
+PROCESSING --> SUCCEEDED : final success confirmed
+PROCESSING --> FAILED : final failure confirmed
+PROCESSING --> UNKNOWN : ambiguous provider outcome
+UNKNOWN --> PROCESSING : still pending
+UNKNOWN --> SUCCEEDED : authoritative success
+UNKNOWN --> FAILED : authoritative failure
+AWAITING_CUSTOMER --> EXPIRED : confirmed expiry
+SUCCEEDED --> [*]
+FAILED --> [*]
+EXPIRED --> [*]
+note right of UNKNOWN
+Timeout alone never proves financial failure.
+Provider-specific settlement rules still apply.
+end note
+@enduml

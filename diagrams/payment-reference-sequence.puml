@@ -1,0 +1,31 @@
+@startuml
+!theme plain
+title Provider-neutral E2E Payment Sequence (Educational Reference)
+actor Customer
+participant Merchant
+participant "Payment Platform" as Platform
+participant "Processor Adapter" as Adapter
+participant "External Processor" as Processor
+participant "Payer Bank" as Bank
+Customer -> Merchant : initiate checkout
+Merchant -> Platform : create payment intent (idempotency key)
+Platform -> Platform : persist intent and attempt
+Platform -> Adapter : register payment attempt
+Adapter -> Processor : submit instruction
+Processor --> Adapter : accepted / pending + reference
+Adapter --> Platform : external reference
+Platform --> Merchant : pending + checkout action
+Customer -> Bank : authorize in bank channel
+Bank -> Processor : execution / rail result
+Processor ..> Adapter : status event
+Adapter ..> Platform : authenticated callback
+Platform -> Platform : dedupe + guarded state transition
+Platform ..> Merchant : outcome webhook via outbox
+Merchant --> Customer : show outcome
+opt Callback delayed or missing
+ Platform -> Adapter : query attempt status
+ Adapter -> Processor : authoritative status enquiry
+ Processor --> Adapter : current state
+ Adapter --> Platform : recovery result
+end
+@enduml

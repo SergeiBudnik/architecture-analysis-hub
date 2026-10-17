@@ -1,0 +1,42 @@
+@startuml
+!theme plain
+left to right direction
+skinparam componentStyle rectangle
+title Provider-neutral Payment Processing — HLD (Educational Reference)
+actor Customer
+component "Merchant Checkout" as Merchant
+package "Payment Platform" {
+ component "API Gateway" as Gateway
+ component "Payment Orchestrator" as Orch
+ component "Processor Adapter" as Adapter
+ component "Callback Receiver" as CB
+ component "Recovery Worker" as Recover
+ component "Merchant Webhook / Outbox" as Outbox
+ component "Reconciliation" as Recon
+ database "Intent & Attempt Store" as Store
+ database "Ledger / Audit" as Ledger
+}
+cloud "External Processor" as Processor
+component "Payer Bank / Payment Rail" as Bank
+Customer --> Merchant : checkout
+Merchant --> Gateway : create/query intent
+Gateway --> Orch : validated request
+Orch --> Store : create/transition state
+Orch --> Adapter : submit attempt
+Adapter --> Processor : provider request
+Processor --> Bank : authorization / execution
+Processor ..> CB : verified status event
+CB --> Store : idempotent transition
+CB --> Outbox : durable outcome event
+Outbox ..> Merchant : merchant webhook
+Recover ..> Processor : status enquiry (ambiguity)
+Recover --> Store : reconcile attempt state
+Recon ..> Processor : external report/status
+Recon --> Ledger : investigate variances
+Orch --> Ledger : business events / audit
+note bottom of Store
+Merchant order, payment intent and payment attempt
+are separate linked entities.
+Unknown outcome is not a financial decline.
+end note
+@enduml
