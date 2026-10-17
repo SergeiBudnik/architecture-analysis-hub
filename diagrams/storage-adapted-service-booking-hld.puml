@@ -1,0 +1,44 @@
+@startuml
+!theme plain
+left to right direction
+skinparam componentStyle rectangle
+title Fictional Service Booking Platform — Adapted HLD Example
+actor "Customer" as Customer
+actor "Operator" as Operator
+component "Customer Portal" as CustomerUI
+component "Operations Portal" as OpsUI
+component "CRM Portal" as CRMUI
+package "Booking Platform" {
+  component "API Gateway" as Gateway
+  component "User Service" as Users
+  component "Order Service" as Orders
+  component "Session Service" as Sessions
+  component "Authorization Service" as Auth
+  component "Notification Service" as Notify
+  queue "Message Broker" as Broker
+  database "Domain Stores" as DB
+}
+cloud "External Payment Provider" as Payments
+cloud "Email Provider" as Email
+cloud "Conference Provider" as Conference
+Customer --> CustomerUI : view / book
+Operator --> OpsUI : manage sessions
+CustomerUI --> Gateway : HTTPS
+OpsUI --> Gateway : HTTPS
+CRMUI --> Gateway : HTTPS
+Gateway --> Auth : verify access
+Gateway --> Users : profile
+Gateway --> Orders : create order
+Gateway --> Sessions : reserve session
+Orders --> Payments : payment intent
+Orders --> Broker : notification event
+Broker --> Notify : email task
+Notify --> Email : send email
+Sessions --> Conference : session link
+Orders --> DB : order records
+Sessions --> DB : reservation records
+note bottom of DB
+Logical view only. All component names are fictional.
+State, money and notifications have different owners.
+end note
+@enduml

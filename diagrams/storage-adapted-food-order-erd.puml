@@ -1,0 +1,69 @@
+@startuml
+!theme plain
+hide methods
+skinparam classAttributeIconSize 0
+title Food Ordering — Sanitized Entity Model (Educational)
+
+entity "Customer" as Customer {
+  * customer_id : UUID <<PK>>
+  --
+  display_name : varchar
+}
+entity "Restaurant" as Restaurant {
+  * restaurant_id : UUID <<PK>>
+  --
+  name : varchar
+}
+entity "Menu" as Menu {
+  * menu_id : UUID <<PK>>
+  --
+  restaurant_id : UUID <<FK>>
+}
+entity "Dish" as Dish {
+  * dish_id : UUID <<PK>>
+  --
+  menu_id : UUID <<FK>>
+  name : varchar
+}
+entity "FoodOrder" as FoodOrder {
+  * order_id : UUID <<PK>>
+  --
+  customer_id : UUID <<FK>>
+  restaurant_id : UUID <<FK>>
+  amount_minor : bigint
+  currency : char(3)
+}
+entity "OrderItem" as OrderItem {
+  * order_item_id : UUID <<PK>>
+  --
+  order_id : UUID <<FK>>
+  dish_id : UUID <<FK>>
+  quantity : integer
+}
+entity "Delivery" as Delivery {
+  * delivery_id : UUID <<PK>>
+  --
+  order_id : UUID <<FK>>
+  status : varchar
+}
+entity "PaymentAttempt" as PaymentAttempt {
+  * attempt_id : UUID <<PK>>
+  --
+  order_id : UUID <<FK>>
+  provider_reference : varchar
+  payment_token_reference : varchar
+  status : varchar
+}
+Customer ||--o{ FoodOrder
+Restaurant ||--o{ Menu
+Menu ||--o{ Dish
+Restaurant ||--o{ FoodOrder
+FoodOrder ||--|{ OrderItem
+Dish ||--o{ OrderItem
+FoodOrder ||--o| Delivery
+FoodOrder ||--o{ PaymentAttempt
+note right of PaymentAttempt
+No PAN or CVV storage.
+Reference model adds tokenization.
+end note
+@enduml

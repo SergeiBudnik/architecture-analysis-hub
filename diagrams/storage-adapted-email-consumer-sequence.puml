@@ -1,0 +1,31 @@
+@startuml
+!theme plain
+title Notification Consumer — Retry and DLQ (Fictional)
+participant "Business Service" as Business
+queue "Email Request Queue" as Queue
+participant "Notification Consumer" as Consumer
+database "Notification Inbox / Status" as Store
+cloud "Email Provider" as Provider
+queue "Retry / DLQ" as DLQ
+participant "Operations" as Ops
+Business -> Queue : EmailRequested(eventId, recipient, template)
+Queue -> Consumer : Deliver event
+Consumer -> Store : Validate and claim unique eventId
+alt First delivery
+  Consumer -> Provider : send with stable reference
+  alt Confirmed accepted
+    Provider --> Consumer : success
+    Consumer -> Store : persist delivered/accepted status
+  else Temporary error
+    Provider --> Consumer : transient failure
+    Consumer -> DLQ : durable bounded retry task
+  else Permanent error
+    Provider --> Consumer : rejected
+    Consumer -> DLQ : quarantine + reason
+    DLQ -> Ops : operational review
+  end
+else Duplicate event
+  Store --> Consumer : already handled
+end
+Consumer --> Queue : acknowledge only after durable handling
+@enduml
