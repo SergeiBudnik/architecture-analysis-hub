@@ -6,6 +6,11 @@ sidebar_position: 1
 
 **Author:** Sergei Budnik. These are **new synthetic reference designs**, informed by the author's payments architecture experience and the separate authored RoPay sequence/enterprise reference diagrams. They are **not** extracted bank or client specifications, nor a claim that particular banks implement these patterns.
 
+## New: end-to-end A2A / QR / Deep Link case study
+
+- [A2A QR / Deep Link Architecture](a2a-qr-deeplink.md) — synthetic HLD, provider-neutral initiation flows, API examples, callbacks and recovery.
+- [A2A Design Decisions & Traceability](a2a-design-decisions.md) — architecture decisions, requirement mapping and a failure-mode test pack.
+
 ## Navigate the patterns
 
 1. [End-to-end payment processing](end-to-end.md): channel → orchestration → processor → external rail → merchant outcome.
