@@ -1,0 +1,43 @@
+@startuml
+!theme plain
+title A2A Deep Link and Unknown Outcome Recovery — Synthetic
+actor Payer
+participant "Mobile Checkout" as UI
+participant "Merchant Backend" as Merchant
+participant "Payment Platform" as Platform
+participant "Provider Adapter" as Adapter
+participant "External Provider" as Provider
+participant "Banking App" as Bank
+participant "Recovery Worker" as Worker
+Payer -> UI : choose bank transfer
+UI -> Merchant : request checkout
+Merchant -> Platform : create intent
+Platform -> Adapter : initiate A2A attempt
+Adapter -> Provider : register attempt
+Provider --> Adapter : approved app link
+Adapter --> Platform : checkout URI + reference
+Platform --> Merchant : pending + URI
+Merchant --> UI : app link
+UI -> Bank : launch approved app link
+Payer -> Bank : authenticate and approve
+Bank -> Provider : process authorization
+Bank --> UI : return to merchant app
+note over UI,Platform
+Return URL means the user returned, NOT paid.
+end note
+UI -> Merchant : refresh status
+Merchant -> Platform : query intent
+Platform --> Merchant : pending/unknown until verified
+Provider ..> Adapter : callback delivery (may be delayed)
+Adapter ..> Platform : validated outcome
+alt Provider callback absent or uncertain
+ Platform -> Worker : schedule enquiry
+ Worker -> Adapter : query by external reference
+ Adapter -> Provider : provider status API
+ Provider --> Adapter : confirmed or pending outcome
+ Adapter --> Worker : mapped status
+ Worker -> Platform : guarded state transition / reschedule
+end
+Platform ..> Merchant : durable result notification
+Merchant --> UI : display authoritative outcome
+@enduml

@@ -1,0 +1,36 @@
+@startuml
+!theme plain
+title A2A QR Payment — Cross-device Sequence (Synthetic)
+actor Payer
+participant "Merchant POS / Web" as Checkout
+participant "Merchant Backend" as Merchant
+participant "Payment Orchestrator" as Orch
+participant "Provider Adapter" as Adapter
+participant "External Provider" as Provider
+participant "Banking App" as App
+Payer -> Checkout : select pay by bank / QR
+Checkout -> Merchant : create checkout order
+Merchant -> Orch : create intent (idempotency key)
+Orch -> Orch : persist intent & attempt
+Orch -> Adapter : initiate provider instruction
+Adapter -> Provider : create payment
+Provider --> Adapter : approved QR URI + provider reference
+Adapter --> Orch : initiation payload
+Orch --> Merchant : intentId, QR URI, pending state
+Merchant --> Checkout : render QR
+Payer -> App : scan QR
+App -> Provider : payer authentication and consent
+Provider --> App : result displayed in bank app
+Provider ..> Adapter : signed/authenticated outcome event
+Adapter ..> Orch : validated event and correlation
+Orch -> Orch : dedupe event; guarded state update
+Orch ..> Merchant : outcome via durable webhook
+Merchant --> Checkout : refresh confirmed status
+Checkout --> Payer : show result
+opt Callback late or missing
+ Orch -> Adapter : status enquiry by external reference
+ Adapter -> Provider : query authoritative state
+ Provider --> Adapter : current provider status
+ Adapter --> Orch : reconcile attempt state
+end
+@enduml
