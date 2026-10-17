@@ -34,7 +34,8 @@ Acquirer --> Clearing : item/file status (per contract)
 
 ... Financial clearing and settlement cycle ...
 Network -> Network : calculate participant obligations
-Network -> Reports : settlement / clearing evidence
+Network --> Acquirer : clearing / settlement reports or positions
+Acquirer --> Reports : processor reports and funding evidence
 Reports -> Funding : eligible processor/acquirer funding
 Funding -> Funding : gross - fees - adjustments - reserves
 Funding -> Bank : merchant payout GBP 97.80 (example)

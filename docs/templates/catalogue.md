@@ -36,9 +36,17 @@ These are **public, editable Markdown templates and guides**, adapted from Serge
 
 ## Publication status
 
-**12 public materials** are available in web-readable form. Original Word, Excel, BPMN, draw.io and Visio downloads, along with case examples, remain under individual review; they are **not yet published**.
+**12 public materials** are available in web-readable form. Original Word, Excel, BPMN, draw.io and Visio downloads remain under individual review; they are **not yet published**. Selected worked examples are available below.
 
 A Markdown source file may be downloaded from the corresponding GitHub repository. Public release does not imply independent use or recognition by others.
+
+## Architecture case studies
+
+| Case | Resource |
+|---|---|
+| [A2A / QR / Deep Link](../payments/a2a-qr-deeplink.md) | HLD, API, decision log and PlantUML sequences |
+| [Card Acquiring & Processing](../payments/acquiring-processing.md) | HLD, ISO 8583 overview, authorization and reversal |
+| [Clearing, Settlement & Reconciliation](../payments/clearing-settlement-reconciliation.md) | Financial lifecycle, reconciliation example and four PlantUML diagrams |
 
 ## Worked examples
 

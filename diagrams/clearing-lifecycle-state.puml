@@ -39,8 +39,8 @@ state "MERCHANT FUNDING" as FUND {
   PAYOUT_SENT --> BANK_CONFIRMED
 }
 
-note bottom
-These are separate parallel financial sub-lifecycles.
+note right of FUND
+These are separate financial sub-lifecycles.
 A single global transaction status would hide exceptions.
 Payment network and processor rules may differ.
 end note

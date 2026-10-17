@@ -16,6 +16,13 @@ sidebar_position: 1
 - [Card Acquiring & Processing Architecture](acquiring-processing.md) — merchant, gateway, acquirer, network, issuer, authorization, reversal and capture.
 - [Acquiring Design Decisions and Tests](acquiring-design-decisions.md) — architectural decisions, failure scenarios, traceability and NFRs.
 
+## Clearing, settlement and reconciliation — new case study
+
+- [Financial Lifecycle HLD](clearing-settlement-reconciliation.md) — authorization, capture, presentment, clearing, interbank settlement and merchant payout.
+- [Worked Reconciliation Example](reconciliation-worked-example.md) — GBP 100 synthetic transaction, fee/payout calculation, ledger entries and GBP 0.50 break.
+- [Clearing & Settlement Design Decisions](clearing-design-decisions.md) — data contracts, batch/file replay, audit, matching tests and failure controls.
+- [Four editable PlantUML diagrams](clearing-settlement-reconciliation.md#8-diagrams) — component architecture, lifecycle, financial sequence and exception sequence.
+
 ## Navigate the patterns
 
 1. [End-to-end payment processing](end-to-end.md): channel → orchestration → processor → external rail → merchant outcome.

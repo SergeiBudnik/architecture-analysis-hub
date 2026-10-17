@@ -161,3 +161,7 @@ A **reversal is not a refund**: refund generally addresses an already financiali
 - [ ] Routing/fallback and retry constraints are contractual and documented
 
 **Use:** educational, provider-neutral architecture reference for technical review and training.
+
+## Next step: financial lifecycle
+
+Authorization alone does not settle a card payment. Continue to the [Clearing, Settlement & Reconciliation Architecture](clearing-settlement-reconciliation.md), including capture, financial presentment, interbank settlement, merchant funding and exception resolution.

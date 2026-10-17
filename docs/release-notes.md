@@ -5,6 +5,14 @@ sidebar_position: 6
 
 # Release Notes
 
+## 2026-10-17 — Card financial lifecycle reference
+
+- Published [Clearing, Settlement & Reconciliation](payments/clearing-settlement-reconciliation.md): roles, lifecycle and operational/financial boundaries.
+- Added a [worked example](payments/reconciliation-worked-example.md): capture GBP 100, illustrative merchant net GBP 97.80 and a GBP 0.50 payout mismatch.
+- Added [architecture decision records](payments/clearing-design-decisions.md), control tables, batch/row idempotency and verification tests.
+- Added four editable PlantUML diagrams: financial HLD, lifecycle milestones, presentment/settlement sequence, reconciliation-break sequence.
+- All identities and data are fictitious and independent of any customer/scheme specifications.
+
 ## 2026-10-17 — Payment architecture and diagrams
 
 - Published provider-neutral end-to-end payment-processing architecture and sequence.
