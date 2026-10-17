@@ -1,0 +1,55 @@
+@startuml
+!theme plain
+title Card Authorization → Clearing → Settlement → Merchant Payout
+autonumber
+actor Shopper
+participant "Merchant" as Merchant
+participant "Gateway / Orchestrator" as Gateway
+participant "Acquirer / Processor" as Acquirer
+participant "Card Network" as Network
+participant "Issuer" as Issuer
+participant "Clearing Service" as Clearing
+participant "Settlement Reports" as Reports
+participant "Merchant Funding" as Funding
+participant "Payout Bank" as Bank
+participant "Reconciliation" as Recon
+
+Shopper -> Merchant : purchase GBP 100.00 (synthetic)
+Merchant -> Gateway : authorize (orderId, token, amount)
+Gateway -> Acquirer : authorization request
+Acquirer -> Network : forward authorization
+Network -> Issuer : request authorization
+Issuer --> Network : approval
+Network --> Acquirer : authorization result
+Acquirer --> Gateway : approved + reference
+Gateway --> Merchant : AUTHORIZED (not settled)
+
+... At capture time (merchant policy) ...
+Merchant -> Gateway : capture authorization GBP 100.00
+Gateway -> Clearing : create durable capture
+Clearing -> Acquirer : submit presentment records
+Acquirer -> Network : scheme financial presentment
+Network -> Issuer : clearing / financial records
+Acquirer --> Clearing : item/file status (per contract)
+
+... Financial clearing and settlement cycle ...
+Network -> Network : calculate participant obligations
+Network -> Reports : settlement / clearing evidence
+Reports -> Funding : eligible processor/acquirer funding
+Funding -> Funding : gross - fees - adjustments - reserves
+Funding -> Bank : merchant payout GBP 97.80 (example)
+Bank --> Funding : bank payout status
+
+... Independent reconciliation ...
+Reports -> Recon : processor / settlement reports
+Clearing -> Recon : captures and presentments
+Funding -> Recon : payout reference and net amount
+Bank -> Recon : bank statement
+Recon -> Recon : compare identifiers, amounts and dates
+Recon --> Merchant : reporting / exception status (where supported)
+
+note over Network,Bank
+Interbank scheme settlement and merchant payout are
+distinct processes and may have different dates.
+end note
+@enduml

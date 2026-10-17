@@ -1,0 +1,40 @@
+@startuml
+!theme plain
+title Reconciliation — Financial Break and Investigation (Synthetic)
+autonumber
+participant "Capture Store" as Capture
+participant "Acquirer Report Import" as Acquirer
+participant "Settlement Report Import" as Scheme
+participant "Merchant Funding Report" as Funding
+participant "Bank Statement" as Bank
+participant "Reconciliation Engine" as Recon
+participant "Exception Queue" as Cases
+participant "Finance Operations" as Finance
+participant "Financial Ledger" as Ledger
+
+Capture -> Recon : CAP-301, GBP 100.00
+Acquirer -> Recon : CLR-501, GBP 100.00
+Scheme -> Recon : aggregate settlement evidence
+Funding -> Recon : PAY-701, net GBP 97.80
+Bank -> Recon : BANK-701, GBP 97.30
+Recon -> Recon : match capture to clearing
+Recon -> Recon : validate settlement position separately
+Recon -> Recon : payout difference GBP 0.50
+Recon -> Cases : create PAYOUT_AMOUNT_MISMATCH
+Cases -> Finance : assign investigation
+
+alt Late bank record / documented bank fee confirmed
+ Finance -> Cases : record source evidence and decision
+ Finance -> Ledger : approved adjustment (if required)
+ Ledger --> Finance : journal references
+ Finance -> Recon : retry supported matching
+ Recon -> Cases : close with audited explanation
+else Unknown cause
+ Finance -> Cases : keep OPEN, escalate by SLA
+end
+
+note over Recon,Cases
+No automatic modification of original capture.
+Settlement positions are matched in compatible aggregates.
+end note
+@enduml

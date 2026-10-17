@@ -1,0 +1,47 @@
+@startuml
+!theme plain
+title Card Financial Milestones — Not a Single Flat State Machine
+left to right direction
+
+state "AUTHORIZATION" as AUTH {
+  [*] --> REQUESTED
+  REQUESTED --> APPROVED
+  REQUESTED --> DECLINED
+  REQUESTED --> UNKNOWN
+  UNKNOWN --> APPROVED : authoritative result
+  UNKNOWN --> DECLINED : authoritative result
+}
+
+state "CAPTURE" as CAP {
+  [*] --> NOT_CAPTURED
+  NOT_CAPTURED --> CAPTURE_REQUESTED
+  CAPTURE_REQUESTED --> CAPTURE_ACCEPTED
+  CAPTURE_REQUESTED --> CAPTURE_UNKNOWN
+  CAPTURE_UNKNOWN --> CAPTURE_ACCEPTED : authoritative confirmation
+}
+
+state "CLEARING" as CLR {
+  [*] --> NOT_PRESENTED
+  NOT_PRESENTED --> PRESENTED
+  PRESENTED --> CLEARING_ACCEPTED
+  PRESENTED --> CLEARING_REJECTED
+}
+
+state "SCHEME SETTLEMENT" as SET {
+  [*] --> POSITION_PENDING
+  POSITION_PENDING --> POSITION_CONFIRMED
+}
+
+state "MERCHANT FUNDING" as FUND {
+  [*] --> PAYOUT_NOT_DUE
+  PAYOUT_NOT_DUE --> PAYOUT_SCHEDULED
+  PAYOUT_SCHEDULED --> PAYOUT_SENT
+  PAYOUT_SENT --> BANK_CONFIRMED
+}
+
+note bottom
+These are separate parallel financial sub-lifecycles.
+A single global transaction status would hide exceptions.
+Payment network and processor rules may differ.
+end note
+@enduml

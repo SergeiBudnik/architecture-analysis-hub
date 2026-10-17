@@ -1,0 +1,61 @@
+@startuml
+!theme plain
+left to right direction
+skinparam componentStyle rectangle
+title Card Financial Lifecycle — Provider-neutral HLD (Educational)
+
+actor Shopper
+component "Merchant Checkout" as Checkout
+component "Merchant Order Service" as Merchant
+package "Payment Gateway / Processing Platform" {
+ component "Authorization Orchestrator" as Auth
+ component "Capture Service" as Capture
+ component "Clearing File Export / Import" as Clearing
+ component "Settlement Report Import" as Reports
+ component "Merchant Funding Service" as Funding
+ component "Reconciliation Engine" as Recon
+ component "Reconciliation Exception Queue" as Exceptions
+ database "Financial Ledger" as Ledger
+ database "Payments / Reference Store" as DB
+}
+component "Acquirer / Processor" as Acquirer
+cloud "Card Network" as Network
+component "Issuer" as Issuer
+component "Scheme / Settlement Bank" as SettleBank
+component "Merchant Payout Bank" as MerchantBank
+
+Shopper --> Checkout : order
+Checkout --> Merchant : checkout request
+Merchant --> Auth : authorize
+Auth --> Acquirer : authorization
+Acquirer --> Network : route
+Network --> Issuer : authorization decision
+Issuer --> Network : approve / decline
+Network --> Acquirer : response
+Acquirer --> Auth : mapped decision
+Auth --> DB : save authorization
+
+Merchant --> Capture : capture (separate command)
+Capture --> DB : capture identity / state
+Capture --> Clearing : eligible capture
+Clearing --> Acquirer : presentment / clearing file
+Acquirer --> Network : financial submissions
+Network --> Issuer : cleared purchase record
+Network --> SettleBank : settlement position
+SettleBank ..> Acquirer : settlement/funding evidence
+Acquirer ..> Reports : clearing / settlement reports
+Reports --> Recon : positions / items
+Capture --> Ledger : recognized journal events
+Reports --> Ledger : confirmed financial events
+Funding --> Ledger : merchant fee / payout journal
+Funding --> MerchantBank : net merchant payout
+MerchantBank ..> Recon : bank statement / confirmation
+Recon --> Exceptions : unmatched or aged items
+Recon --> DB : controlled match results
+Recon --> Ledger : correction via approved entries only
+
+note bottom of Reports
+Network settlement is generally aggregated.
+Merchant payout is a distinct contractual flow.
+end note
+@enduml
