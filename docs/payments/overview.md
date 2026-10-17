@@ -11,6 +11,11 @@ sidebar_position: 1
 - [A2A QR / Deep Link Architecture](a2a-qr-deeplink.md) — synthetic HLD, provider-neutral initiation flows, API examples, callbacks and recovery.
 - [A2A Design Decisions & Traceability](a2a-design-decisions.md) — architecture decisions, requirement mapping and a failure-mode test pack.
 
+## Card acquiring and processing — new case study
+
+- [Card Acquiring & Processing Architecture](acquiring-processing.md) — merchant, gateway, acquirer, network, issuer, authorization, reversal and capture.
+- [Acquiring Design Decisions and Tests](acquiring-design-decisions.md) — architectural decisions, failure scenarios, traceability and NFRs.
+
 ## Navigate the patterns
 
 1. [End-to-end payment processing](end-to-end.md): channel → orchestration → processor → external rail → merchant outcome.
