@@ -14,6 +14,15 @@ These are **synthetic and provider-neutral** diagrams, published as source text 
 
 To edit, copy the plain-text `.puml` files and render them locally in a PlantUML-compatible editor. The conceptual [Mermaid sequence](end-to-end.md) and [Mermaid state model](state-machine.md) are rendered inline on the site.
 
+## Event-driven Kafka and payment integration
+
+- [Kafka and payments HLD](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/event-driven-payment-hld.puml)
+- [Transactional outbox and inbox sequence](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/event-driven-outbox-inbox-sequence.puml)
+- [Consumer offset crash recovery](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/event-driven-offset-recovery-sequence.puml)
+- [Retries, DLQ and operator-governed redrive](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/event-driven-dlq-recovery-sequence.puml)
+
+See the [detailed architecture case study](event-driven-processing.md) and [worked offset example](kafka-offset-recovery.md).
+
 ## Diagram design review
 
 - Label who owns each business state.

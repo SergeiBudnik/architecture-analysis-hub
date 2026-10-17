@@ -23,6 +23,13 @@ sidebar_position: 1
 - [Clearing & Settlement Design Decisions](clearing-design-decisions.md) — data contracts, batch/file replay, audit, matching tests and failure controls.
 - [Four editable PlantUML diagrams](clearing-settlement-reconciliation.md#8-diagrams) — component architecture, lifecycle, financial sequence and exception sequence.
 
+## Event-driven payment processing — new case study
+
+- [Event-driven Kafka architecture](event-driven-processing.md) — component HLD, topic strategy, transactional outbox and inbox, processor integration and recovery.
+- [Kafka offsets and crash recovery](kafka-offset-recovery.md) — worked example with partition 7 / offset 184, rebalance and duplicate handling.
+- [Event contracts, SQL and consumer implementation](event-driven-contracts.md) — synthetic JSON schemas, PostgreSQL-style outbox/inbox and pseudocode.
+- [Event-driven decisions and tests](event-driven-design-decisions.md) — 10 ADRs and 15 fault-injection tests.
+
 ## Navigate the patterns
 
 1. [End-to-end payment processing](end-to-end.md): channel → orchestration → processor → external rail → merchant outcome.

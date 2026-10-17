@@ -47,6 +47,7 @@ A Markdown source file may be downloaded from the corresponding GitHub repositor
 | [A2A / QR / Deep Link](../payments/a2a-qr-deeplink.md) | HLD, API, decision log and PlantUML sequences |
 | [Card Acquiring & Processing](../payments/acquiring-processing.md) | HLD, ISO 8583 overview, authorization and reversal |
 | [Clearing, Settlement & Reconciliation](../payments/clearing-settlement-reconciliation.md) | Financial lifecycle, reconciliation example and four PlantUML diagrams |
+| [Event-Driven Payment Processing](../payments/event-driven-processing.md) | Kafka, transactional outbox/inbox, offsets, retry/DLQ and four PlantUML diagrams |
 
 ## Worked examples
 

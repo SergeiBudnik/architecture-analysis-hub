@@ -5,6 +5,14 @@ sidebar_position: 6
 
 # Release Notes
 
+## 2026-10-17 — Event-driven payments and Kafka recovery
+
+- Published [Event-Driven Payment Processing](payments/event-driven-processing.md), covering Kafka topology, topic keys, outbox/inbox, merchant notifications and processor recovery.
+- Added [Kafka Offset Recovery Worked Example](payments/kafka-offset-recovery.md) with partition 7 / offset 184, DB commit versus offset commit and consumer rebalances.
+- Added [Event Contracts & SQL](payments/event-driven-contracts.md), [ADRs and fault-injection tests](payments/event-driven-design-decisions.md).
+- Added four editable PlantUML files for HLD, outbox/inbox, offset crash recovery and DLQ/manual re-drive.
+- Reference models and synthetic records are educational; no scheme-specific or client-secret information is included.
+
 ## 2026-10-17 — Card financial lifecycle reference
 
 - Published [Clearing, Settlement & Reconciliation](payments/clearing-settlement-reconciliation.md): roles, lifecycle and operational/financial boundaries.

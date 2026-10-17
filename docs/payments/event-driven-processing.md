@@ -37,7 +37,7 @@ This reference proposes an **event-driven payment processing architecture** usin
 
 1. Merchant initiates an intent with idempotency key; orchestrator stores intent, attempt and outbox event atomically.
 2. Outbox relay publishes `PaymentAttemptCreated` to Kafka; messages may be **redelivered**.
-3. Processing consumer deduplicates the event and submits the attempt to an external processor under a **provider-supported** idempotency/correlation contract.
+3. Processing consumer deduplicates the event and **durably records dispatch work** in its database transaction, then commits its Kafka offset. A separately recoverable processor worker submits that work under a **provider-supported** idempotency/correlation contract; after an uncertain submission it inquires rather than blindly replaying.
 4. Verified provider callback or status inquiry enters an inbox; state service applies an allowed transition (for example, `PROCESSING → SUCCEEDED`).
 5. **In the same database transaction**, the state service records an outbox event such as `PaymentOutcomeConfirmed`.
 6. Outbox relay publishes; notification consumer creates durable merchant delivery work; merchant webhook retries independently.
@@ -93,12 +93,15 @@ sequenceDiagram
     Relay->>DB: Read committed outbox
     Relay->>Kafka: Produce PaymentAttemptCreated
     Kafka-->>Consumer: Deliver attempt event
-    Consumer->>Consumer: Inbox / dedupe and attempt-state guard
-    Consumer->>Provider: Submit or inquire under provider contract
-    Provider-->>Consumer: Result or ambiguous timeout
-    Consumer->>DB: TX: state update + outbox event
-    Consumer->>Kafka: Commit offset after durable DB work
-    Note over Consumer,Provider: An unknown financial outcome requires inquiry, not blind replay
+    Consumer->>DB: TX: inbox + guarded state + durable dispatch work
+    DB-->>Consumer: Committed
+    Consumer->>Kafka: Commit offset after DB commit
+    participant Worker as Durable Processor Worker
+    Worker->>DB: Claim durable dispatch command
+    Worker->>Provider: Submit or inquire under provider contract
+    Provider-->>Worker: Confirmed result or timeout
+    Worker->>DB: TX: persist attempt status / UNKNOWN + outbox
+    Note over Worker,Provider: An unknown financial outcome requires inquiry, not blind replay
 ```
 
 The diagram focuses on a simplified initiation path; a real application must explicitly design atomic handoff and worker restart boundaries. The fuller editable PlantUML diagrams are linked below.

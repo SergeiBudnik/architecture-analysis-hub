@@ -9,7 +9,8 @@ participant "Outbox Relay / CDC" as Relay
 queue "Kafka" as Kafka
 participant "Payment State Consumer" as Consumer
 participant "Provider Adapter" as Adapter
-cloud "External Provider" as Provider
+participant "Durable Dispatch Worker" as Worker
+participant "External Provider" as Provider
 Merchant -> API : POST payment intent + idempotency key
 API -> DB : BEGIN; persist intent + attempt + outbox
 DB --> API : COMMIT
@@ -23,7 +24,7 @@ Relay -> DB : Mark published / CDC progress
 Kafka -> Consumer : Record (may be redelivered)
 Consumer -> DB : BEGIN; insert inbox unique key
 alt New event and valid state
-  Consumer -> DB : Persist guarded state + outbox
+  Consumer -> DB : Persist guarded state + durable dispatch command
 else Duplicate or obsolete event
   Consumer -> DB : Record no-op / investigation
 end
@@ -33,9 +34,16 @@ note over DB,Kafka
 Kafka ack and DB commit are not one transaction.
 Outbox relay and consumers must tolerate duplicates.
 end note
-opt Financial command required and not already submitted
-  Consumer -> Adapter : Submit with provider-safe semantics
-  Adapter -> Provider : Financial instruction with correlation
+opt Durable command exists and safe to dispatch
+  Worker -> DB : Claim durable command by business key
+  Worker -> Adapter : Submit or inquire with persisted reference
+  Adapter -> Provider : Financial instruction / status inquiry
   Provider --> Adapter : Confirmed response or UNKNOWN
+  Adapter --> Worker : Authoritative result / uncertainty
+  Worker -> DB : TX: state and outcome outbox
 end
+note over Worker,Provider
+After an uncertain provider call, inquire before
+financial replay unless provider contract guarantees safety.
+end note
 @enduml
