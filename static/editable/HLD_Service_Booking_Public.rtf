@@ -1,0 +1,62 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0 Aptos;}{\f1 Arial;}}{\colortbl;\red18\green72\blue90;\red238\green247\blue250;}
+\paperw11906\paperh16838\margl1120\margr1120\margt950\margb950
+\pard\sa220\b\fs35\cf1 HLD: Service Booking Platform\cf0\b0\par
+\pard\sa130\fs18\i Author: Sergei Budnik | Public educational adaptation (2026) | Source: HIGH _LEVEL_ARCITECTURE_EXAMPLE_2.docx\i0\par
+\pard\sa180\fs18 This is an anonymized, editable Word-compatible public edition. The full private source, company identifiers, production deployment parameters and embedded original diagrams are not reproduced.\par
+\pard\sb240\sa100\b\fs25\cf1 1. Business context and use cases\cf0\b0\par
+\pard\sa120\fs20 Service booking and customer onboarding platform. The original HLD covers customer personal account, CRM, session management portal, API gateway, domain services, notifications, message broker, external acquiring provider, and database integrations.\par
+\pard\li300\fi-170\sa80\fs19 - Customer: manage service purchase requests, profile, mentor/session selection and booking.\par
+\pard\li300\fi-170\sa80\fs19 - Guide or operator: manage sessions, session requests and customer engagement.\par
+\pard\li300\fi-170\sa80\fs19 - Sales representative: create and update service orders; coordinate customer records.\par
+\pard\li300\fi-170\sa80\fs19 - Domain processes: booking, service order, payment initiation, notification and conferencing link.\par
+\pard\sb240\sa100\b\fs25\cf1 2. Context and system boundaries\cf0\b0\par
+\pard\sa120\fs20 Three distinct user-facing channels connect through ingress/API Gateway. The platform integrates with an external payment provider and a conferencing service. Notification requests use a message broker for asynchronous delivery.\par
+\pard\li300\fi-170\sa80\fs19 - Customer Portal, CRM Portal and Operations Portal are separate web clients.\par
+\pard\li300\fi-170\sa80\fs19 - Gateway performs authentication, routing and common request checks.\par
+\pard\li300\fi-170\sa80\fs19 - User, Order, Session, Authorization and Notification services have distinct responsibilities.\par
+\pard\li300\fi-170\sa80\fs19 - Payments are initiated through provider-controlled interfaces and finalized by verified status, not browser redirect.\par
+\pard\sb240\sa100\b\fs25\cf1 3. Component catalogue\cf0\b0\par
+\pard\sa85\b\fs18 Component\tab Responsibility\tab Technology\b0\par
+\pard\li120\sa90\fs18 Customer Portal\tab Sessions, sales requests, user information\tab ReactJS\par
+\pard\li120\sa90\fs18 CRM Portal\tab Sales requests, user details, CRM workflows\tab ReactJS\par
+\pard\li120\sa90\fs18 Operations Portal\tab Session creation and updates\tab ReactJS\par
+\pard\li120\sa90\fs18 API Gateway\tab Central routing and request checks\tab Spring Cloud Gateway / Java\par
+\pard\li120\sa90\fs18 User Service\tab Create, read and update customer records\tab Java / Spring Boot\par
+\pard\li120\sa90\fs18 Order Service\tab Orders for purchased services\tab Java / Spring Boot\par
+\pard\li120\sa90\fs18 Session Service\tab Session slots and link lifecycle\tab Java / Spring Boot\par
+\pard\li120\sa90\fs18 Authorization Service\tab Role model and operation permission\tab Java / Spring Boot\par
+\pard\li120\sa90\fs18 Notification Service\tab Prepare email events and send through provider\tab Java / Spring Boot\par
+\pard\sb240\sa100\b\fs25\cf1 4. External interactions (source structure 1.x)\cf0\b0\par
+\pard\sa85\b\fs18 ID\tab Origin to destination\tab Purpose / protocol\b0\par
+\pard\li120\sa90\fs18 1.10\tab Notification worker to email system\tab SMTP user notifications\par
+\pard\li120\sa90\fs18 1.11\tab Customer client to ingress\tab Account/service orders/sessions, HTTPS sync\par
+\pard\li120\sa90\fs18 1.12\tab Operator client to ingress\tab Session administration, HTTPS sync\par
+\pard\li120\sa90\fs18 1.13\tab Guide client to ingress\tab Session administration, HTTPS sync\par
+\pard\li120\sa90\fs18 1.14\tab Guide CRM to ingress\tab Sales requests and user data, HTTPS sync\par
+\pard\li120\sa90\fs18 1.15\tab Sales CRM to ingress\tab Sales requests and user data, HTTPS sync\par
+\pard\li120\sa90\fs18 1.16\tab Platform to external payment provider\tab Payment initiation and result, HTTPS / async status\par
+\pard\li120\sa90\fs18 1.17\tab Platform to message broker\tab Email/payment lifecycle events, async\par
+\pard\sb240\sa100\b\fs25\cf1 5. Internal interactions (source structure 2.x)\cf0\b0\par
+\pard\sa85\b\fs18 ID\tab From -> To\tab Purpose / mechanism\b0\par
+\pard\li120\sa90\fs18 2.1\tab Web portals -> ingress\tab HTTPS authenticated requests\par
+\pard\li120\sa90\fs18 2.2\tab Ingress -> API Gateway\tab API request routing\par
+\pard\li120\sa90\fs18 2.3\tab Gateway -> Session Service\tab Session create/update/delete\par
+\pard\li120\sa90\fs18 2.4\tab Gateway -> User Service\tab User create/read/update\par
+\pard\li120\sa90\fs18 2.5\tab Domain services -> DB\tab Durable domain persistence, TLS-protected DB driver\par
+\pard\li120\sa90\fs18 2.6\tab Gateway -> Order Service\tab Service orders and sales requests\par
+\pard\li120\sa90\fs18 2.7\tab Gateway -> Notification Service\tab Notification lookup / management\par
+\pard\li120\sa90\fs18 2.8\tab Gateway -> Authorization Service\tab Available user permissions\par
+\pard\li120\sa90\fs18 2.9\tab Domain services -> Authorization\tab Permission check\par
+\pard\li120\sa90\fs18 2.10\tab Order/Session -> Notification\tab Generate email request\par
+\pard\li120\sa90\fs18 2.11\tab Notification/Order -> Message Broker\tab Asynchronous AMQP event\par
+\pard\li120\sa90\fs18 2.12\tab Services -> centralized audit pipeline\tab Audit trail / telemetry\par
+\pard\sb240\sa100\b\fs25\cf1 6. Special operational scenarios\cf0\b0\par
+\pard\li300\fi-170\sa80\fs19 - Session slot URL is valid only within its assigned session and expires under defined rules; do not treat URL as permanent.\par
+\pard\li300\fi-170\sa80\fs19 - CRM may be a commercial external solution: adjust ownership/trust boundary accordingly.\par
+\pard\li300\fi-170\sa80\fs19 - Create payment attempt and order as separate records; confirm outcome through provider callback/inquiry.\par
+\pard\li300\fi-170\sa80\fs19 - Use outbox/inbox/consumer dedupe for asynchronous notification processing.\par
+\pard\li300\fi-170\sa80\fs19 - Protect against double-booking and define authoritative slot and order state owners.\par
+\pard\sb240\sa100\b\fs25\cf1 7. Editable diagrams\cf0\b0\par
+\pard\sa120\fs20 Download onboarding-architecture.drawio from the hub. Three pages: Use Cases, Components and Containers. All service names and interfaces have been generalized.\par
+\pard\sb230\sa150\fs17 Full project references and CC BY 4.0 terms: https://sergeibudnik.github.io/architecture-analysis-hub/docs/license\par
+}

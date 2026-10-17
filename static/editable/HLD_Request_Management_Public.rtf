@@ -1,0 +1,55 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0 Aptos;}{\f1 Arial;}}{\colortbl;\red18\green72\blue90;\red238\green247\blue250;}
+\paperw11906\paperh16838\margl1120\margr1120\margt950\margb950
+\pard\sa220\b\fs35\cf1 HLD: Request Management Platform\cf0\b0\par
+\pard\sa130\fs18\i Author: Sergei Budnik | Public educational adaptation (2026) | Source: HIGH _LEVEL_ARCITECTURE_EXAMPLE_1.docx\i0\par
+\pard\sa180\fs18 This is an anonymized, editable Word-compatible public edition. The full private source, company identifiers, production deployment parameters and embedded original diagrams are not reproduced.\par
+\pard\sb240\sa100\b\fs25\cf1 1. Business context and use cases\cf0\b0\par
+\pard\sa120\fs20 Request-management system for creating, editing, reviewing, assigning, rejecting, revising, archiving and closing application requests. Original HLD contained separate use-case, context, component and container diagrams.\par
+\pard\li300\fi-170\sa80\fs19 - Business requester: create/edit application and search/view records.\par
+\pard\li300\fi-170\sa80\fs19 - Data manager: search, review, approve or return an application and assign to a specialist.\par
+\pard\li300\fi-170\sa80\fs19 - Business partner: coordinate and approve submitted applications.\par
+\pard\li300\fi-170\sa80\fs19 - Data engineer: take assigned work, process or return a request and close the activity.\par
+\pard\li300\fi-170\sa80\fs19 - Metrics and automated email notifications are supporting processes.\par
+\pard\sb240\sa100\b\fs25\cf1 2. Context and security boundaries\cf0\b0\par
+\pard\sa120\fs20 User workstations connect to a browser portal via authenticated HTTPS. The ingress boundary forwards frontend and API calls to controlled backend services. A separate permissions service, notification provider and data store are supporting components. The source referenced a corporate identity service and monitoring platform; the public edition omits their proper names.\par
+\pard\li300\fi-170\sa80\fs19 - Human roles: requester, manager, business partner, data engineer.\par
+\pard\li300\fi-170\sa80\fs19 - External dependencies: identity source, email provider, centralized audit/monitoring.\par
+\pard\li300\fi-170\sa80\fs19 - Data ownership: request service owns application lifecycle; authorization service owns access decisions.\par
+\pard\li300\fi-170\sa80\fs19 - Editable context, components and container diagrams: static/editable/requests-architecture.drawio.\par
+\pard\sb240\sa100\b\fs25\cf1 3. Logical component catalogue\cf0\b0\par
+\pard\sa85\b\fs18 Component\tab Responsibility\tab Technology\b0\par
+\pard\li120\sa90\fs18 Request Portal\tab Create/edit, search and view application requests\tab ReactJS\par
+\pard\li120\sa90\fs18 API Gateway\tab Authentication context, routing, common request checks\tab Java / Spring Cloud Gateway\par
+\pard\li120\sa90\fs18 Request Management Service\tab Business lifecycle for applications and assignments\tab Java / Spring Boot\par
+\pard\li120\sa90\fs18 Authorization Service\tab Access model, role and operation permissions\tab Java / Spring Boot\par
+\pard\li120\sa90\fs18 Notification Service\tab Prepare and send application-change notifications\tab Java / Spring Boot\par
+\pard\sb240\sa100\b\fs25\cf1 4. External interactions (source structure 1.x)\cf0\b0\par
+\pard\sa85\b\fs18 ID\tab Initiator to recipient\tab Purpose / protocol\b0\par
+\pard\li120\sa90\fs18 1.9\tab Notification component to mail provider\tab Email notifications; SMTP\par
+\pard\li120\sa90\fs18 1.11\tab Business requester to portal\tab Create/edit/search/view; HTTPS sync\par
+\pard\li120\sa90\fs18 1.12\tab Data manager to portal\tab Review and assign; HTTPS sync\par
+\pard\li120\sa90\fs18 1.13\tab Business partner to portal\tab Coordinate/approve; HTTPS sync\par
+\pard\li120\sa90\fs18 1.14\tab Data engineer to portal\tab Take/fulfil tasks; HTTPS sync\par
+\pard\li120\sa90\fs18 1.15\tab Monitoring to platform\tab Request health/metrics; HTTPS sync\par
+\pard\sb240\sa100\b\fs25\cf1 5. Internal interactions (source structure 2.x)\cf0\b0\par
+\pard\sa85\b\fs18 ID\tab Source to target\tab Purpose / interface\b0\par
+\pard\li120\sa90\fs18 2.1\tab Authenticated user to ingress\tab HTTPS client ingress\par
+\pard\li120\sa90\fs18 2.2\tab Ingress to web frontend\tab Serve frontend resources\par
+\pard\li120\sa90\fs18 2.4\tab Domain services to database cluster\tab Transactional data access over secured DB channel\par
+\pard\li120\sa90\fs18 2.5\tab Ingress to API Gateway\tab Route API commands\par
+\pard\li120\sa90\fs18 2.6\tab API Gateway to Request Service\tab Create / edit / search request\par
+\pard\li120\sa90\fs18 2.7\tab Service layer to monitoring\tab Metrics and auditable events\par
+\pard\li120\sa90\fs18 2.8\tab Gateway to Authorization Service\tab Fetch caller permissions\par
+\pard\li120\sa90\fs18 2.9\tab Request/notification services to Authorization\tab Check operation permission\par
+\pard\li120\sa90\fs18 2.10\tab Request Service to Notification Service\tab Prepare notification\par
+\pard\li120\sa90\fs18 2.11\tab Services to centralized audit system\tab Submit audit information\par
+\pard\sb240\sa100\b\fs25\cf1 6. Design review and decisions\cf0\b0\par
+\pard\li300\fi-170\sa80\fs19 - Clarify service ownership of application status, concurrency and immutable audit.\par
+\pard\li300\fi-170\sa80\fs19 - Enforce role-based authorization on server rather than UI only.\par
+\pard\li300\fi-170\sa80\fs19 - Classify notification failure independently from application approval outcome.\par
+\pard\li300\fi-170\sa80\fs19 - Define request idempotency, duplicate prevention, timeout and recovery contracts.\par
+\pard\li300\fi-170\sa80\fs19 - Record real SLO targets, network access, encryption and data retention before production.\par
+\pard\sb240\sa100\b\fs25\cf1 7. Linked editable diagrams\cf0\b0\par
+\pard\sa120\fs20 Download and edit requests-architecture.drawio in diagrams.net. It contains four pages: Use Cases, Context, Components and Containers. The original site has a companion Markdown case and diagram catalogue.\par
+\pard\sb230\sa150\fs17 Full project references and CC BY 4.0 terms: https://sergeibudnik.github.io/architecture-analysis-hub/docs/license\par
+}
