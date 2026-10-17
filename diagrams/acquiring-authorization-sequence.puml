@@ -1,0 +1,38 @@
+@startuml
+!theme plain
+title E-commerce Card Authorization — Synthetic End-to-End Sequence
+actor Shopper
+participant Merchant
+participant "Payment Gateway" as Gateway
+participant "Orchestrator" as Orch
+participant "Acquirer / Switch" as Acquirer
+participant "Card Network" as Network
+participant Issuer
+Shopper -> Merchant : checkout and confirm amount
+Merchant -> Gateway : create intent (idempotency key, payment token)
+Gateway -> Gateway : authenticate and validate request
+Gateway -> Orch : authorize
+Orch -> Orch : create intent and attempt
+Orch -> Acquirer : authorization via processor adapter
+Acquirer -> Network : mapped authorization request
+Network -> Issuer : issuer authorization
+Issuer --> Network : approval or decline
+Network --> Acquirer : network result
+Acquirer --> Orch : mapped response and references
+alt Approved
+  Orch -> Orch : mark authorized (not settled)
+  Orch --> Gateway : approval and authorization reference
+else Declined
+  Orch -> Orch : record decline result
+  Orch --> Gateway : decline and mapped reason
+else Result unknown
+  Orch -> Orch : state UNKNOWN, schedule recovery
+  Orch --> Gateway : pending / ambiguous outcome
+end
+Gateway --> Merchant : payment intent outcome
+Merchant --> Shopper : display status
+note over Acquirer,Issuer
+Specific ISO 8583 MTIs/data elements and 3DS authentication
+depend on acquirer/network rules and are not specified here.
+end note
+@enduml

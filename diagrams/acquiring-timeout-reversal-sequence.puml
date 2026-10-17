@@ -1,0 +1,45 @@
+@startuml
+!theme plain
+title Acquiring Timeout / Reversal Decision — Synthetic Reference
+participant Merchant
+participant "Payment Gateway" as Gateway
+participant "Orchestrator" as Orch
+participant "Acquirer Adapter" as Adapter
+participant "Acquiring Switch" as Switch
+participant "Recovery Worker" as Worker
+Merchant -> Gateway : authorize with idempotency key
+Gateway -> Orch : submit attempt
+Orch -> Adapter : authorization request
+Adapter -> Switch : network submission
+... Response lost after dispatch ...
+Adapter --> Orch : transport timeout
+Orch -> Orch : persist UNKNOWN; retain references
+Orch --> Gateway : unknown / pending outcome
+Gateway --> Merchant : pending; do not retry charge blindly
+Orch -> Worker : enqueue authoritative inquiry
+Worker -> Adapter : query by supported references
+Adapter -> Switch : status lookup / reconciliation
+alt Authorization confirmed
+ Switch --> Adapter : approved
+ Adapter --> Worker : approved
+ Worker -> Orch : transition to AUTHORIZED
+ opt Merchant wants to cancel and rules permit
+ Orch -> Adapter : request contract-supported reversal
+ Adapter -> Switch : reversal / void with required references
+ Switch --> Adapter : reversal status
+ Adapter --> Orch : record reversal lifecycle
+ end
+else Decline confirmed
+ Switch --> Adapter : declined
+ Adapter --> Worker : declined
+ Worker -> Orch : transition to DECLINED
+else Still unknown
+ Switch --> Adapter : not resolved
+ Adapter --> Worker : pending
+ Worker -> Worker : backoff and escalate by deadline
+end
+note over Worker,Switch
+Do not assume a reversal is automatically
+required or permitted for every timeout.
+end note
+@enduml
