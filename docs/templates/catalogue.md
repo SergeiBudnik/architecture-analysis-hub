@@ -39,3 +39,13 @@ These are **public, editable Markdown templates and guides**, adapted from Serge
 **12 public materials** are available in web-readable form. Original Word, Excel, BPMN, draw.io and Visio downloads, along with case examples, remain under individual review; they are **not yet published**.
 
 A Markdown source file may be downloaded from the corresponding GitHub repository. Public release does not imply independent use or recognition by others.
+
+## Worked examples
+
+| Example | Source artifact |
+|---|---|
+| [Travel Booking Platform — filled BRD](../examples/travel-platform-brd.md) | `BRD_EXAMPLE.docx` |
+| [Employee XLSX Export — API specification and sequence](../examples/employee-export-api.md) | `API_EXAMPLE.docx` |
+| [Travel Plan — hotel removal backend flow](../examples/travel-plan-delete-backend.md) | `BACK_SRS_EXAMPLE_1.docx` |
+
+The examples are educational and should not be presented as delivered client systems. Their source material was authored by Sergei Budnik; additional explanatory diagrams and checks are labelled as adaptations.
