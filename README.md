@@ -2,9 +2,7 @@
 
 Public technical knowledge hub authored by **Sergei Budnik**, focused on system analysis, solution architecture, API design, and engineering specifications.
 
-The original document archive has **not** been uploaded. The initial release includes editorial introductions and a catalogue, while detailed templates await individual publication review.
-
-Built with Docusaurus and deployed to GitHub Pages.
+The original document archive has **not** been uploaded. Introductory guides and a catalogue are published, while downloadable templates await individual review.
 
 ## Local development
 
@@ -15,12 +13,12 @@ npm install
 npm run start
 ```
 
-## Publication
+## Deployment
 
-Settings → Pages → Source: **GitHub Actions**. The included deployment workflow runs on pushes to `main`.
+GitHub → Settings → Pages → Build and deployment → Source: **GitHub Actions**.
 
-Site URL: https://SergeiBudnik.github.io/architecture-analysis-hub/
+Website after deployment: https://SergeiBudnik.github.io/architecture-analysis-hub/
 
-## Contribution and licensing
+## Licensing and adoption
 
-Content licensing is not yet finalized; no permission for wholesale reuse of unpublished original files is implied. See the docs for currently released material. Third-party usage and adoption will be documented only when independently verified.
+No open content license has yet been assigned to the original document library. Do not redistribute unreleased documents. External adoption and feedback will be documented when independently verifiable.
