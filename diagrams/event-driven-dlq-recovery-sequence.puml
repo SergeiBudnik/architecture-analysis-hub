@@ -1,0 +1,39 @@
+@startuml
+!theme plain
+title Retry, DLQ and Human-Governed Redrive — Synthetic
+autonumber
+queue "Source Topic" as Source
+participant "Status Consumer" as Consumer
+database "Inbox / Error Store" as DB
+queue "Retry Topic / Scheduler" as Retry
+queue "Dead Letter Topic" as DLQ
+actor "Operations" as Ops
+participant "Provider Status Inquiry" as Provider
+Source -> Consumer : Event to process
+Consumer -> DB : Validate + transactional state work
+alt Valid new event
+ DB --> Consumer : COMMIT
+ Consumer -> Source : Commit offset
+else Temporary DB failure
+ DB --> Consumer : Transient exception
+ Consumer -> Retry : Durable controlled scheduling (if reordering acceptable)
+ Retry --> Consumer : Retry with backoff + attempt counter
+ note over Consumer,Retry
+ Alternatively pause partition and retry in place
+ to preserve ordering for a business key.
+ end note
+else Permanent invalid message
+ DB --> Consumer : Schema validation failed
+ Consumer -> DLQ : Durable quarantine with reason / metadata
+ DLQ --> Consumer : Broker acknowledgement
+ Consumer -> Source : Commit offset only after durable quarantine
+ DLQ -> Ops : Incident / manual review
+ Ops -> DB : Inspect correlation and current state
+ opt Recovery requires provider authority
+  Ops -> Provider : Query actual payment status
+  Provider --> Ops : Authoritative result
+ end
+ Ops -> Retry : Approved corrected redrive with same business ID
+ Retry --> Consumer : Reprocess with dedupe and state guard
+end
+@enduml

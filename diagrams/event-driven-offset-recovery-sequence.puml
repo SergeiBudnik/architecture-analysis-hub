@@ -1,0 +1,28 @@
+@startuml
+!theme plain
+title Kafka Offset 184 — Crash After DB Commit, Before Offset Commit
+autonumber
+queue "Kafka partition 7" as Kafka
+participant "Consumer A" as A
+database "State DB + Inbox + Outbox" as DB
+participant "Consumer B (after restart)" as B
+Kafka -> A : Deliver offset 184, evt_provider_9021
+A -> DB : BEGIN transaction
+A -> DB : Insert unique inbox event ID
+A -> DB : Apply PROCESSING -> SUCCEEDED and outbox
+DB --> A : COMMIT successful
+... Consumer A crashes before committing offset 185 ...
+note over Kafka,DB
+Committed group offset remains 184.
+Payment state and inbox are already durable.
+end note
+Kafka -> B : Redeliver offset 184
+B -> DB : BEGIN; try inbox insert(evt_provider_9021)
+DB --> B : Already exists (duplicate)
+B -> DB : COMMIT without repeated business effect
+B -> Kafka : Commit group next offset 185
+note over B,DB
+No duplicate ledger entry / merchant event is created.
+Offset commit only follows completed durable handling.
+end note
+@enduml

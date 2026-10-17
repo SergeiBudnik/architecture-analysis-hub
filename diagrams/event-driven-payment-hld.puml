@@ -1,0 +1,43 @@
+@startuml
+!theme plain
+left to right direction
+skinparam componentStyle rectangle
+title Event-driven Payment Processing — Synthetic HLD
+actor "Merchant" as Merchant
+package "Payment Platform" {
+ component "Merchant API" as API
+ component "Payment Orchestrator" as Orch
+ component "Callback Ingress" as Callback
+ component "Payment State Consumer" as Consumer
+ component "Transactional Outbox / CDC" as Relay
+ component "Recovery Worker" as Recovery
+ component "Merchant Webhook Delivery" as Webhook
+ component "Reconciliation" as Recon
+ database "Payment State + Inbox + Outbox" as DB
+ database "Payment Ledger / Audit" as Ledger
+ queue "Kafka Topics" as Kafka
+}
+component "Processor Adapter" as Adapter
+cloud "External Payment Provider" as Provider
+Merchant --> API : Create intent / status
+API --> Orch : Validated request
+Orch --> DB : Atomic state + outbox
+Relay --> DB : Read committed outbox
+Relay --> Kafka : Publish (at least once)
+Kafka --> Consumer : Payment events
+Consumer --> DB : Inbox dedupe + guarded state update + outbox
+Consumer --> Adapter : Submit only if safe
+Adapter --> Provider : Provider command / inquiry
+Provider ..> Callback : Signed status callback
+Callback --> DB : Verify + persist ingress
+Kafka --> Webhook : Confirmed business outcome
+Webhook ..> Merchant : Retry merchant notification
+Recovery ..> Provider : Status enquiry for UNKNOWN
+Recovery --> DB : Guarded result update + outbox
+Recon ..> Provider : Reconcile external records
+Recon --> Ledger : Controlled financial updates
+note bottom of Kafka
+Kafka can redeliver. No global order.
+Never replay unknown financial instructions blindly.
+end note
+@enduml
