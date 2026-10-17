@@ -5,6 +5,14 @@ sidebar_position: 6
 
 # Release Notes
 
+## 2026-10-17 — Payment architecture and diagrams
+
+- Published provider-neutral end-to-end payment-processing architecture and sequence.
+- Added intent state machine, idempotency guidance, timeout/retry and recovery patterns.
+- Added three editable PlantUML source diagrams (HLD, payment sequence and payment state).
+- Expanded architecture resources with API design patterns and an HLD deliverable checklist.
+- Reference examples are synthetic; no real bank/customer system diagrams or production credentials are included.
+
 ## 2026-10-17 — Practical worked examples
 
 - Added a fictional online travel booking BRD adapted from the authored BRD example.
