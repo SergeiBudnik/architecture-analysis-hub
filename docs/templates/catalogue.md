@@ -19,6 +19,10 @@ These are **public, editable Markdown templates and guides**, adapted from Serge
 | [Use Case](use-case-template.md) | Template |
 | [User Story & Acceptance Criteria](user-story-template.md) | Template |
 
+## Additional editable architecture sources
+
+[Download HLD public editions, Draw.io architecture diagrams, Visio-based process conversions and BPMN 2.0](../editable-source-diagrams.md).
+
 ## Architecture & Data
 
 | Resource | Format |

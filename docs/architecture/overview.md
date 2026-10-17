@@ -21,3 +21,7 @@ HLA differs from low-level design: it describes major building blocks and their 
 The source library also covers **API design**, **API parameterization**, **database design**, and editable diagrams. Some have now been published as reviewed web adaptations. See the [Service Booking HLD](../examples/service-booking-hld.md), [Food Ordering Database Model](../examples/restaurant-database-design.md), and [API Design Guide](api-design-patterns.md). Raw source files remain under review.
 
 *Source: author's architecture collection.*
+
+## Expanded editable HLD and process models
+
+The [public source-edition downloads](../editable-source-diagrams.md) contain two detailed Word-compatible HLDs and multiple editable Draw.io/BPMN models derived from the STORAGE library, with names and parameters anonymized.

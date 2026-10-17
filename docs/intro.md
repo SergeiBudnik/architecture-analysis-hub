@@ -11,6 +11,7 @@ A public library of **systems analysis, solution architecture and payment proces
 
 - [Payment Architecture](payments/overview.md) — A2A/QR/Deep Link, acquiring, clearing and settlement, Kafka/event-driven reliability.
 - [Download Editable Templates](downloads.md) — eight Word-compatible RTF files (BRD, SRS, HLD, API, backend, frontend, database and event-driven).
+- [Editable HLD, Draw.io and BPMN](editable-source-diagrams.md) — expanded source-based architecture documents and freely downloadable editable diagrams.
 - [Architecture Diagram Gallery](diagram-gallery.md) — four illustrated system views with links to editable PlantUML sources.
 - [Find a Resource](/search) — quick search by title and technical topic.
 - [Full Catalogue](templates/catalogue.md) — analysis templates, guides and six adapted examples.

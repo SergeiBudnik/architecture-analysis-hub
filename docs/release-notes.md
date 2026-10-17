@@ -5,6 +5,15 @@ sidebar_position: 6
 
 # Release Notes
 
+## 2026-10-17 — Editable source-derived architecture library
+
+- Published expanded, editable Word-compatible HLD documents adapted from `HIGH _LEVEL_ARCITECTURE_EXAMPLE_1.docx` and `HIGH _LEVEL_ARCITECTURE_EXAMPLE_2.docx`, preserving the original architecture document structure, component tables and numbered integration groups.
+- Released Draw.io public editions with **4 pages** for request management and **3 pages** for service booking, based on the original architectural themes and HLD tables.
+- Recreated two Visio BPMN examples as editable Draw.io processes (bank statement, card authorization/cancellation/clearing).
+- Released a simplified, editable food-delivery BPMN 2.0 model derived from the source process.
+- Added one [source-based editable download index](editable-source-diagrams.md) with clear provenance, anonymization and CC BY 4.0 terms.
+- New public editions are **not binary-identical to old private source files**, and do not contain confidential customer details.
+
 ## 2026-10-17 — Three more sanitized examples from STORAGE
 
 - Added [Service Booking HLD](examples/service-booking-hld.md), adapted from the second HLD example with internal component identifiers removed.

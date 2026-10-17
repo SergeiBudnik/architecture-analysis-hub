@@ -23,6 +23,7 @@ const config = {
         {to:'/docs/intro',label:'Documentation',position:'left'},
         {to:'/docs/templates/catalogue',label:'Resources',position:'left'},
         {to:'/docs/downloads',label:'Downloads',position:'left'},
+        {to:'/docs/editable-source-diagrams',label:'HLD & BPMN',position:'left'},
         {to:'/docs/diagram-gallery',label:'Diagrams',position:'left'},
         {to:'/search',label:'Search',position:'left'},
         {to:'/docs/about-the-author',label:'About',position:'left'},
