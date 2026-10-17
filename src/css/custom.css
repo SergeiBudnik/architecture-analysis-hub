@@ -1,0 +1,7 @@
+:root {--ifm-color-primary:#176b83;--ifm-color-primary-dark:#155f74;--ifm-color-primary-darker:#13596c;--ifm-color-primary-darkest:#104858;--ifm-color-primary-light:#1b7892;--ifm-color-primary-lighter:#1d819c;--ifm-color-primary-lightest:#2393b1;--ifm-font-family-base:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.heroBanner {padding:6rem 0;background:linear-gradient(130deg,#092c42,#176b83);color:#fff}
+.heroBanner h1{font-size:3rem}
+.heroBanner p{max-width:690px;font-size:1.2rem;opacity:.9}
+.featureGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem;margin:3rem 0}
+.feature{border:1px solid var(--ifm-color-emphasis-300);border-radius:12px;padding:1.5rem}
+.feature h3{margin-bottom:.5rem}
