@@ -21,7 +21,7 @@ RTF files can be edited in Microsoft Word or LibreOffice and saved as DOCX.
 
 ## Original-library HLD and BPMN public editions
 
-For two expanded HLD documents, four multi-page or process Draw.io diagrams, and a BPMN 2.0 file, open the [Editable HLD, BPMN & Diagram Sources catalogue](editable-source-diagrams.md). These are new anonymized editions based on STORAGE — not an unreviewed raw archive.
+For two expanded **native DOCX HLD documents** (with RTF alternatives), four editable Draw.io diagrams, and a BPMN 2.0 file, open the [Editable HLD, BPMN & Diagram Sources catalogue](editable-source-diagrams.md). These are new anonymized editions based on STORAGE — not an unreviewed raw archive.
 
 ## Learn from completed examples
 
