@@ -2,22 +2,40 @@
 title: Template Catalogue
 sidebar_position: 5
 ---
-# Template Catalogue
 
-The following material families have been identified. Two web-readable, reusable resources are now available. Original Word and diagram file downloads are still withheld pending individual review.
+# Downloadable-style Templates & Practical Guides
 
-| Area | Template or example family | Status |
-|---|---|---|
-| Requirements | [BRD web template](brd-template.md) | **Available** |
-| Requirements | SRS templates and examples | Under review |
-| Requirements | Functional and non-functional requirements | Under review |
-| Requirements | Use cases and user stories | Under review |
-| Process | BPMN examples and guides | Under review |
-| Architecture | [HLA guide and template](high-level-architecture-guide.md) | **Available** (diagram files under review) |
-| Architecture | API design examples | Under review |
-| Data | Database design | Under review |
-| Engineering | Backend and frontend SRS | Under review |
-| Integration | Messaging specifications | Under review |
-| Engineering | Sequence diagram examples | Under review |
+These are **public, editable Markdown templates and guides**, adapted from Sergei Budnik's authored STORAGE library (2025). Click a title to open it; use **Edit this page** only if available, or copy the template text into your own document.
 
-Planned: downloadable files, worked examples, diagrams and versioned release notes.
+## Requirements & Analysis
+
+| Resource | Format |
+|---|---|
+| [Business Requirements Document (BRD)](brd-template.md) | Template |
+| [Software Requirements Specification (SRS)](srs-template.md) | Template |
+| [Business vs Functional vs Non-Functional Requirements](requirements-types.md) | Guide |
+| [Use Case](use-case-template.md) | Template |
+| [User Story & Acceptance Criteria](user-story-template.md) | Template |
+
+## Architecture & Data
+
+| Resource | Format |
+|---|---|
+| [High-Level Architecture (HLA)](high-level-architecture-guide.md) | Guide & template |
+| [Database Design](database-design-template.md) | Template |
+| [Sequence Diagram](sequence-diagram-guide.md) | Guide & diagram example |
+
+## Engineering & Integration
+
+| Resource | Format |
+|---|---|
+| [Backend Service Specification](backend-srs-template.md) | Template |
+| [Frontend Screen Specification](frontend-srs-template.md) | Template |
+| [Message Broker Listener Specification](message-broker-spec-template.md) | Template |
+| [Integration Specification](integration-specification.md) | Checklist & template |
+
+## Publication status
+
+**12 public materials** are available in web-readable form. Original Word, Excel, BPMN, draw.io and Visio downloads, along with case examples, remain under individual review; they are **not yet published**.
+
+A Markdown source file may be downloaded from the corresponding GitHub repository. Public release does not imply independent use or recognition by others.
