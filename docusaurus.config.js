@@ -33,7 +33,7 @@ const config = {
       style:'dark',
       links:[
         {title:'Explore',items:[{label:'Payment Architecture',to:'/docs/payments/overview'},{label:'Downloads',to:'/docs/downloads'},{label:'Diagram Gallery',to:'/docs/diagram-gallery'}]},
-        {title:'Community',items:[{label:'Author',to:'/docs/about-the-author'},{label:'Feedback',to:'/docs/contribute'},{label:'GitHub',href:'https://github.com/SergeiBudnik/architecture-analysis-hub'}]}
+        {title:'Community',items:[{label:'Author',to:'/docs/about-the-author'},{label:'Feedback',to:'/docs/contribute'},{label:'CC BY 4.0',to:'/docs/license'},{label:'GitHub',href:'https://github.com/SergeiBudnik/architecture-analysis-hub'}]}
       ],
       copyright:'© 2026 Sergei Budnik. Educational resources.'
     }

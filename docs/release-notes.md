@@ -5,6 +5,12 @@ sidebar_position: 6
 
 # Release Notes
 
+## 2026-10-17 — CC BY 4.0 public content license
+
+- Published [License & Attribution](license.md) and a scoped repository [CC BY 4.0 license notice](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/LICENSE.md).
+- Licensed the released author-owned educational content, new RTF downloads and original reference diagrams with attribution and change-notice requirements.
+- Kept the unreviewed original STORAGE archive and third-party/client-owned material outside the license and outside the repository.
+
 ## 2026-10-17 — Reusable resources and site navigation
 
 - Published eight sanitized, editable **Word-compatible RTF templates** for requirements, HLD, API, backend/frontend, database and event-driven integration.

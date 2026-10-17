@@ -59,4 +59,6 @@ Markdown sources and new RTF templates can be downloaded via the linked reposito
 | [Employee XLSX Export — API specification and sequence](../examples/employee-export-api.md) | `API_EXAMPLE.docx` |
 | [Travel Plan — hotel removal backend flow](../examples/travel-plan-delete-backend.md) | `BACK_SRS_EXAMPLE_1.docx` |
 
+**Reuse:** Public, author-owned educational adaptations and downloads are available under [CC BY 4.0](../license.md). The original STORAGE archive is not included.
+
 The examples are educational and should not be presented as delivered client systems. Their source material was authored by Sergei Budnik; additional explanatory diagrams and checks are labelled as adaptations.

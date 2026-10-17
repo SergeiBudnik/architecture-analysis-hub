@@ -18,7 +18,7 @@ This is a public technical documentation project. Feedback from real readers hel
 
 Please do not upload sensitive client data, production credentials, restricted API details or proprietary employer diagrams.
 
-The public availability of a repository does not automatically establish permission for commercial redistribution. The author has not finalized a general reuse license for the downloadable templates. Contact the maintainer before redistributing or relicensing them.
+Publicly released author-owned educational materials, including the sanitized templates, are licensed under [CC BY 4.0](license.md). This **does allow commercial reuse and redistribution with attribution**. The private original STORAGE archive, third-party content, website implementation code and unreviewed client-owned materials are not included. Follow the license's attribution and change-notice conditions.
 
 ## Helpful issue format
 

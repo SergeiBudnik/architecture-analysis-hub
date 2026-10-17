@@ -23,6 +23,6 @@ A public library of **systems analysis, solution architecture and payment proces
 
 ## For readers and reviewers
 
-Each published reference is a **learning or design-review example**. The payment designs are generalized and fictional, not customer systems. Source Word, Visio, draw.io and BPMN documents have **not** been released wholesale. See [About the Author](about-the-author.md) and [Feedback & Contributions](contribute.md).
+Each published reference is a **learning or design-review example**. The payment designs are generalized and fictional, not customer systems. Source Word, Visio, draw.io and BPMN documents have **not** been released wholesale. See [License & Attribution](license.md), [About the Author](about-the-author.md) and [Feedback & Contributions](contribute.md).
 
 **Project history:** All released changes are date-stamped in [Release Notes](release-notes.md) and GitHub commits.

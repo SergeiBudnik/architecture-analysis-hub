@@ -31,4 +31,4 @@ No open content license has yet been assigned to the original document library. 
 - [Search resources](https://sergeibudnik.github.io/architecture-analysis-hub/search)
 - [About the Author](https://sergeibudnik.github.io/architecture-analysis-hub/docs/about-the-author)
 
-RTF templates are newly formatted, sanitized adaptations; original binary source material has not been uploaded. No scheme-certified reference or independently verified usage metrics are implied. Redistribution terms await a specific public license decision.
+RTF templates are newly formatted, sanitized adaptations; original binary source material has not been uploaded. No scheme-certified reference or independently verified usage metrics are implied. The original educational content in the public library (including newly formatted RTF downloads and original diagrams) is licensed under [CC BY 4.0](LICENSE.md), where Sergei Budnik owns the rights. The unpublished source archive, third-party materials and site implementation code are excluded.

@@ -28,4 +28,4 @@ RTF files can be edited in Microsoft Word or LibreOffice and saved as DOCX.
 
 Replace placeholders, tailor contracts to your application and validate security, regulatory and scheme-specific requirements.
 
-These files do not contain identified client deployments. Original binary files from the source archive are still under review. Reuse and redistribution terms are not yet finalized; see [Feedback and Reuse](contribute.md).
+These files do not contain identified client deployments. Original binary files from the source archive are still under review. The eight published, sanitized RTF files are released under [CC BY 4.0](license.md). You can adapt and share them, including commercially, when you credit the author, link the license and mark changes; see [Feedback and Reuse](contribute.md).
