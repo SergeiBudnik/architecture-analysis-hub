@@ -48,14 +48,14 @@ Exact settlement institutions and account arrangements differ by network, region
 
 | Step | Sample state / amount | What it *means* |
 |---|---|---|
-| Merchant creates order | Order \`O-101\`, GBP 100.00 | Commercial obligation only |
-| Issuer approves authorization | Auth \`AUTH-201\`, GBP 100.00 | Approved; **not yet captured or settled** |
-| Merchant requests capture | Capture \`CAP-301\`, GBP 100.00 | Request for financial submission |
-| Acquirer accepts capture | Processor ref \`ACQ-401\` | May be accepted for later clearing, not proof of bank settlement |
-| Record is presented / cleared | Presentment \`CLR-501\`, GBP 100.00 | Scheme/acquirer financial record processed under applicable rules |
-| Interbank settlement position closes | Position \`SET-601\` | Settlement is typically **aggregated/netted**, not one-to-one with this merchant transaction |
+| Merchant creates order | Order `O-101`, GBP 100.00 | Commercial obligation only |
+| Issuer approves authorization | Auth `AUTH-201`, GBP 100.00 | Approved; **not yet captured or settled** |
+| Merchant requests capture | Capture `CAP-301`, GBP 100.00 | Request for financial submission |
+| Acquirer accepts capture | Processor ref `ACQ-401` | May be accepted for later clearing, not proof of bank settlement |
+| Record is presented / cleared | Presentment `CLR-501`, GBP 100.00 | Scheme/acquirer financial record processed under applicable rules |
+| Interbank settlement position closes | Position `SET-601` | Settlement is typically **aggregated/netted**, not one-to-one with this merchant transaction |
 | Acquirer determines merchant payout | Gross GBP 100.00 – illustrative fees GBP 2.20 | Merchant contractual net = **GBP 97.80**, given this simplified fee model |
-| Bank payout confirmed | \`PAY-701\`, GBP 97.80 | Merchant account funding under processor/acquirer payout rules |
+| Bank payout confirmed | `PAY-701`, GBP 97.80 | Merchant account funding under processor/acquirer payout rules |
 | Reconciliation matches records | No exception | All expected financial items and identifiers accounted for |
 
 The **GBP 2.20 fee is invented for arithmetic illustration**, not a real interchange or acquiring price. Interbank settlement positions cannot be inferred from this payout calculation.
@@ -66,16 +66,16 @@ Separate **payment authorization**, **capture**, **financial submission**, **set
 
 | Aggregate | Example identifier | Authoritative evidence |
 |---|---|---|
-| Order | \`O-101\` | Merchant order database |
-| Payment intent / attempt | \`PI-101\`, \`PA-101\` | Gateway/orchestrator |
-| Authorization | \`AUTH-201\` | Mapped issuer/acquirer authorization result |
-| Capture | \`CAP-301\` | Acquirer/processor capture confirmation and local command journal |
-| Presentment / clearing item | \`CLR-501\` | Acquirer/scheme financial reports |
-| Scheme/acquirer settlement | \`SET-601\` | Authoritative settlement reports/positions |
-| Merchant payout | \`PAY-701\` | Acquirer funding report and bank confirmation |
-| Reconciliation exception | \`REC-801\` | Reconciliation engine and investigation audit |
+| Order | `O-101` | Merchant order database |
+| Payment intent / attempt | `PI-101`, `PA-101` | Gateway/orchestrator |
+| Authorization | `AUTH-201` | Mapped issuer/acquirer authorization result |
+| Capture | `CAP-301` | Acquirer/processor capture confirmation and local command journal |
+| Presentment / clearing item | `CLR-501` | Acquirer/scheme financial reports |
+| Scheme/acquirer settlement | `SET-601` | Authoritative settlement reports/positions |
+| Merchant payout | `PAY-701` | Acquirer funding report and bank confirmation |
+| Reconciliation exception | `REC-801` | Reconciliation engine and investigation audit |
 
-Use explicit \`sourceSystem\`, \`externalReference\`, \`eventTime\`, \`processingTime\`, \`currency\`, \`amountMinor\` and \`recordVersion\` fields where relevant. **Do not identify transactions by STAN alone.**
+Use explicit `sourceSystem`, `externalReference`, `eventTime`, `processingTime`, `currency`, `amountMinor` and `recordVersion` fields where relevant. **Do not identify transactions by STAN alone.**
 
 ## 5. Synchronous vs asynchronous responsibilities
 
@@ -85,35 +85,35 @@ Use explicit \`sourceSystem\`, \`externalReference\`, \`eventTime\`, \`processin
 
 ### Conceptual API (not a scheme contract)
 
-\`\`\`http
+```http
 POST /v1/payment-intents/PI-101/captures
 Authorization: Bearer <merchant_access_token>
 Idempotency-Key: 18ee2308-15df-4379-b334-480ea183ba31
 Content-Type: application/json
-\`\`\`
+```
 
-\`\`\`json
+```json
 {
   "captureReference": "merchant-cap-101",
   "amountMinor": 10000,
   "currency": "GBP"
 }
-\`\`\`
+```
 
-\`\`\`json
+```json
 {
   "captureId": "CAP-301",
   "status": "ACCEPTED_FOR_PROCESSING",
   "amountMinor": 10000,
   "currency": "GBP"
 }
-\`\`\`
+```
 
-**Acceptance is not settlement.** A real API must define \`400/401/403/409/422/5xx\` conditions, capture eligibility, total capturable balance, partial/multiple capture support, refund/void rules, and recovery of ambiguous results.
+**Acceptance is not settlement.** A real API must define `400/401/403/409/422/5xx` conditions, capture eligibility, total capturable balance, partial/multiple capture support, refund/void rules, and recovery of ambiguous results.
 
 ### Example internal event (fictional)
 
-\`\`\`json
+```json
 {
   "eventId": "evt-capture-301",
   "eventType": "CaptureAccepted",
@@ -124,7 +124,7 @@ Content-Type: application/json
   "currency": "GBP",
   "occurredAt": "2026-10-17T14:00:00Z"
 }
-\`\`\`
+```
 
 Events should be emitted via a transactional outbox or equivalent durability guarantee; consumers use unique event IDs / business keys for deduplication. The example event name is an **internal design choice**, not a statement about network event formats.
 

@@ -38,7 +38,7 @@ sidebar_position: 12
 
 ### Clearing row (not a scheme format)
 
-\`\`\`json
+```json
 {
   "batchId": "batch-demo-17",
   "rowId": "row-001",
@@ -49,11 +49,11 @@ sidebar_position: 12
   "currency": "GBP",
   "transactionDate": "2026-10-17"
 }
-\`\`\`
+```
 
 ### Merchant funding (not a scheme format)
 
-\`\`\`json
+```json
 {
   "merchantId": "merchant-demo",
   "payoutId": "PAY-701",
@@ -65,13 +65,13 @@ sidebar_position: 12
   "netMinor": 9780,
   "valueDate": "2026-10-19"
 }
-\`\`\`
+```
 
 The dates are illustrative, not a promise of any T+N settlement schedule.
 
 ## 3. Financial invariants
 
-\`\`\`text
+```text
 Captured_total <= eligible_authorized_amount
   (unless explicit scheme/provider adjustments apply)
 
@@ -84,7 +84,7 @@ Ledger_journal: sum(debits) = sum(credits)
 
 One authorized business event -> no duplicate financial side effect
   (despite duplicate messages and processing retries)
-\`\`\`
+```
 
 Where partial/multiple capture is supported, define the precise capture balance and concurrency control.
 
@@ -92,7 +92,7 @@ Where partial/multiple capture is supported, define the precise capture balance 
 
 1. Receive / transmit a file with a stable **batch ID** and checksum.
 2. Acknowledge **transport** separately from financial acceptance of each row.
-3. Record each \`batchId + rowId + sourceProvider + revision\` and scoped financial key.
+3. Record each `batchId + rowId + sourceProvider + revision` and scoped financial key.
 4. For partial acceptance, identify accepted and rejected rows; never replay an entire batch blindly.
 5. Persist outbox/inbox records and use idempotent row posting.
 6. Move unresolved differences into a case-management queue with immutable history.

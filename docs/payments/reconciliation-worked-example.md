@@ -21,23 +21,23 @@ sidebar_position: 11
 
 ### Compute merchant payout
 
-\`\`\`text
+```text
 Gross captured amount   = 10,000 pence
 Illustrative total fees  =    220 pence
 Other adjustments        =      0 pence
 Reserve / withholding    =      0 pence
 Expected merchant payout =  9,780 pence = GBP 97.80
-\`\`\`
+```
 
 Formula:
 
-\`\`\`text
+```text
 Expected payout =
   sum(eligible gross captures)
   - sum(contractual fees)
   + sum(positive adjustments)
   - sum(refunds/chargebacks/reserves/other deductions as applicable)
-\`\`\`
+```
 
 **This is a merchant-funding calculation only.** It is **not** a computation of the card scheme's interbank net settlement, interchange obligations or the issuer's ledger entries. The fee amount and assumptions are invented solely for illustration.
 
@@ -56,15 +56,15 @@ Expected payout =
 
 Assume the processor report says merchant payout = **GBP 97.80**, while the bank statement shows **GBP 97.30** under the same reference:
 
-\`\`\`text
+```text
 Processor payout:  +GBP 97.80
 Bank receipt:      +GBP 97.30
 Unexplained break:  GBP  0.50
-\`\`\`
+```
 
 Do **not** automatically invent a missing fee or overwrite the original capture. Open an exception such as:
 
-\`\`\`json
+```json
 {
   "exceptionId": "REC-DEMO-801",
   "type": "PAYOUT_AMOUNT_MISMATCH",
@@ -78,7 +78,7 @@ Do **not** automatically invent a missing fee or overwrite the original capture.
   "possibleCauses": ["bank charge", "timing", "report adjustment"],
   "ownerTeam": "Finance Operations"
 }
-\`\`\`
+```
 
 The listed possible causes are **investigation hypotheses**, not asserted causes.
 
