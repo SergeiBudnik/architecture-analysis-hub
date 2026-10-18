@@ -5,29 +5,38 @@ sidebar_position: 4
 
 # Feedback, Reuse and Contributions
 
-This is a public technical documentation project. Feedback from real readers helps improve its architecture guides, diagrams and templates.
+**Architecture & Analysis Hub** is a free and open educational knowledge library maintained by Sergei Budnik. Technical corrections, practical exercise ideas and non-confidential contributions are welcome.
 
-## How to give feedback
+## Choose the right GitHub issue form
 
-- [Open an issue](https://github.com/SergeiBudnik/architecture-analysis-hub/issues/new/choose) for a documentation error or ambiguity.
-- Suggest a specific missing worked example (e.g. reversal, Kafka crash recovery or settlement exception).
-- If you have used a guide for study or professional training, you may voluntarily describe what was useful, without sharing confidential information.
-- Propose alternatives with technical rationale, trade-offs and failure scenarios.
+- **[Resource feedback or technical correction](https://github.com/SergeiBudnik/architecture-analysis-hub/issues/new?template=resource-feedback.yml)** — use this when an explanation, diagram or API sample is inaccurate, ambiguous, outdated or incomplete.
+- **[Share a real use of a resource](https://github.com/SergeiBudnik/architecture-analysis-hub/issues/new?template=share-use.yml)** — optional, for genuine training, education, independent study or architectural review uses.
+- **[Open the issue chooser](https://github.com/SergeiBudnik/architecture-analysis-hub/issues/new/choose)** — see all available reporting paths.
 
-## Responsible sharing
+A GitHub account is required to open a public issue. All issues are public; you can use the resources without submitting a report or identifying your organization.
 
-Please do not upload sensitive client data, production credentials, restricted API details or proprietary employer diagrams.
+## What makes feedback useful?
 
-Publicly released author-owned educational materials, including the sanitized templates, are licensed under [CC BY 4.0](license.md). This **does allow commercial reuse and redistribution with attribution**. The private original STORAGE archive, third-party content, website implementation code and unreviewed client-owned materials are not included. Follow the license's attribution and change-notice conditions.
+For a correction, link the exact resource, identify the issue, suggest a better alternative if possible, and explain its technical consequences. Examples include missing timeout/recovery behavior, unclear API idempotency, inconsistent payment state semantics or a broken diagram edge.
 
-## Helpful issue format
+For an actual-use report, describe a **real activity** and what the material helped you do. Planned future use, downloads, impressions, GitHub stars and likes **do not** automatically count as independently verified use.
 
-1. Page or diagram URL.
-2. Topic and intended learning use.
-3. Problem or improvement.
-4. Suggested correction and why it matters.
-5. Optional genuine outcome if you used the resource.
+## Transparent use register
 
-Only independently verifiable feedback should be described as external adoption.
+The [Community Use & Feedback register](community-adoption.md) starts empty. Entries are published **only after a checkable use and explicit permission**, with minimum necessary details. No one is asked to leave a positive review or publicly endorse the project. Negative and constructive feedback is valuable too.
 
-See [Author](about-the-author.md), [Downloads](downloads.md) and [Release Notes](release-notes.md).
+## Responsible sharing and attribution
+
+Do **not** upload real client specifications, confidential employer materials, PAN/CVV, credentials, employee/customer information, restricted scheme documents or proprietary architecture diagrams.
+
+The public author-owned templates and educational adaptations are released under [Creative Commons Attribution 4.0](license.md), allowing commercial reuse and adaptations with appropriate credit, license link and change notice. Unpublished STORAGE originals, third-party content and private client materials are **not** included.
+
+For an actual pull request, keep the change scoped, explain the technical decision and use fictional test data. Consider adding an architecture test or review checklist if the changed behavior has a recovery/failure path.
+
+## Learning and workshops
+
+- [For Educators & Practitioners](for-educators-practitioners.md) — three ready-to-use practical session outlines.
+- [Editable Downloads](downloads.md) — public DOCX, RTF, XLSX, Draw.io, BPMN and PlantUML where available.
+- [Public QA](quality-assurance.md) — structural and rendering checks, with known limits.
+
+[About the Author](about-the-author.md) · [Community Use](community-adoption.md).

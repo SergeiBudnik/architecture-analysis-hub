@@ -21,6 +21,12 @@ A public library of **systems analysis, solution architecture and payment proces
 - [Source usage guide](library-how-to-use.md), [Versioning policy](library-versioning.md), and [44-file Source Inventory](source-inventory.md) — publication status for every item in STORAGE.
 - [Extended SRS and Database FAQ](templates/full-stack-srs-outline.md) — source-derived full-stack documentation and separate database-design guidance.
 
+## Use, teach and improve these resources
+
+- [For Educators & Practitioners](for-educators-practitioners.md) — three free workshop outlines, learning outcomes, suggested exercises and reuse instructions.
+- [Community Use & Feedback](community-adoption.md) — transparent register of independently confirmed use; it starts with zero verified cases.
+- [Submit feedback or share a genuine use](https://github.com/SergeiBudnik/architecture-analysis-hub/issues/new/choose) — two structured GitHub issue forms, with privacy precautions.
+
 ## Explore by discipline
 
 - [Requirements & Analysis](requirements/overview.md) — BRD, SRS, use cases, user stories and BPMN.

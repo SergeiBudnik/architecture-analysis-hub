@@ -5,6 +5,14 @@ sidebar_position: 6
 
 # Release Notes
 
+## 2026-10-18 — Stage 8: educator materials and community feedback
+
+- Published [For Educators & Practitioners](for-educators-practitioners.md) with three ready-to-use teaching paths.
+- Added [Community Use & Feedback](community-adoption.md) as an evidence-based, opt-in public register **starting at zero verified use cases**.
+- Added two structured public GitHub issue forms for technical feedback and genuine use reports.
+- Prepared tailored, **unsent** collaboration letters to IIBA UK and FinTech Scotland, two optional follow-ups, and two unposted LinkedIn technical posts in the [outreach drafts](https://github.com/SergeiBudnik/architecture-analysis-hub/tree/main/outreach).
+- Added homepage, navigation and contribution links for educators and community feedback. No partnership, participation or endorsement is claimed.
+
 ## 2026-10-18 — Stage 6: structural, render and publication QA
 
 - Verified **44** source inventory entries and checked **484** Markdown/self-hosted links.

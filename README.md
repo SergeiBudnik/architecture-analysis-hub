@@ -1,8 +1,30 @@
 # Architecture & Analysis Hub
 
-Public technical knowledge hub authored by **Sergei Budnik**, focused on system analysis, solution architecture, API design, and engineering specifications.
+A free, editable technical learning library by **Sergei Budnik** covering systems analysis, solution architecture, payment engineering, API design, data and event-driven processing.
 
-The original document archive has **not** been uploaded. Introductory guides and a catalogue are published, while downloadable templates await individual review.
+**Website:** https://sergeibudnik.github.io/architecture-analysis-hub/
+
+## Get started
+
+- [For Educators & Practitioners](https://sergeibudnik.github.io/architecture-analysis-hub/docs/for-educators-practitioners) — free 45–60-minute teaching exercises for SRS-to-HLD, payment lifecycle and Kafka recovery
+- [Payment Architecture](https://sergeibudnik.github.io/architecture-analysis-hub/docs/payments/overview) — A2A/QR, card acquiring, clearing, settlement, reconciliation, recovery and event-driven processing
+- [Download Editable Resources](https://sergeibudnik.github.io/architecture-analysis-hub/docs/downloads) — public DOCX, RTF, XLSX, Draw.io, BPMN and PlantUML examples
+- [Source-Based Case Studies](https://sergeibudnik.github.io/architecture-analysis-hub/docs/examples/source-examples-downloads) — practical analysis, architecture and payment examples
+- [Quality Assurance](https://sergeibudnik.github.io/architecture-analysis-hub/docs/quality-assurance) — repeatable file, diagram and page checks with honest limitations
+
+## Community: improve or share a real use
+
+- [Submit a correction or improvement](https://github.com/SergeiBudnik/architecture-analysis-hub/issues/new?template=resource-feedback.yml)
+- [Optionally describe actual reuse](https://github.com/SergeiBudnik/architecture-analysis-hub/issues/new?template=share-use.yml)
+- [Community Use & Feedback](https://sergeibudnik.github.io/architecture-analysis-hub/docs/community-adoption) — public register of independently verified use; **0 cases at launch**, no invented testimonials
+
+The library can be used without providing feedback or reporting anything. GitHub Issues are public; do not share confidential specifications or personal information. Independently submitted reports are reviewed and included in the use register only with evidence and explicit permission.
+
+## Reuse and licensing
+
+The published **author-owned** educational materials and reviewed editable editions are licensed under **[Creative Commons Attribution 4.0](LICENSE.md)**. Credit Sergei Budnik, link the original source and the licence, and indicate adaptations. This licence does not automatically apply to the unpublished STORAGE archive, third-party content, code and external trademarks.
+
+All synthetic payment/fintech examples are conceptual and provider-neutral, not certified APIs, live client systems or professional compliance advice.
 
 ## Local development
 
@@ -13,26 +35,12 @@ npm install
 npm run start
 ```
 
-## Deployment
+GitHub Pages deployment uses Actions workflows in `.github/workflows/`. See the [public QA report](https://sergeibudnik.github.io/architecture-analysis-hub/docs/quality-assurance).
 
-GitHub → Settings → Pages → Build and deployment → Source: **GitHub Actions**.
+## Collaboration and release history
 
-Website after deployment: https://SergeiBudnik.github.io/architecture-analysis-hub/
+- [Documentation contribution guide](https://sergeibudnik.github.io/architecture-analysis-hub/docs/contribute)
+- [Source/provenance inventory](https://sergeibudnik.github.io/architecture-analysis-hub/docs/source-inventory)
+- [Release notes](https://sergeibudnik.github.io/architecture-analysis-hub/docs/release-notes)
 
-## Licensing and adoption
-
-No open content license has yet been assigned to the original document library. Do not redistribute unreleased documents. External adoption and feedback will be documented when independently verifiable.
-
-## Public library contents
-
-- [Payment Architecture cases](https://sergeibudnik.github.io/architecture-analysis-hub/docs/payments/overview)
-- [8 editable Word-compatible RTF templates](https://sergeibudnik.github.io/architecture-analysis-hub/docs/downloads)
-- [Architecture diagrams](https://sergeibudnik.github.io/architecture-analysis-hub/docs/diagram-gallery)
-- [Search resources](https://sergeibudnik.github.io/architecture-analysis-hub/search)
-- [About the Author](https://sergeibudnik.github.io/architecture-analysis-hub/docs/about-the-author)
-
-RTF templates are newly formatted, sanitized adaptations; original binary source material has not been uploaded. No scheme-certified reference or independently verified usage metrics are implied. The original educational content in the public library (including newly formatted RTF downloads and original diagrams) is licensed under [CC BY 4.0](LICENSE.md), where Sergei Budnik owns the rights. The unpublished source archive, third-party materials and site implementation code are excluded.
-
-- [Source-derived editable HLD and BPMN files](https://sergeibudnik.github.io/architecture-analysis-hub/docs/editable-source-diagrams) — reviewed public editions with reusable Draw.io and BPMN source formats.
-
-- [Source-based SRS, API, Use Case and Sequence examples](https://sergeibudnik.github.io/architecture-analysis-hub/docs/examples/source-examples-downloads): six native DOCX downloads plus additional examples.
+The public library started publication in October 2026. Project changes are visible in Git history. The original source archive has not been uploaded wholesale.
