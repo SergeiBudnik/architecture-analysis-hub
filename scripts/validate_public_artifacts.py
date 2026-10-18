@@ -86,6 +86,28 @@ def test_rtf(p):
     if depth or not s.startswith("{\\rtf1"):
         invalid(p, "invalid RTF header or unbalanced groups")
 
+def test_xlsx(p):
+    try:
+        with ZipFile(p) as z:
+            if z.testzip():
+                invalid(p, "corrupted ZIP member")
+            members = set(z.namelist())
+            required = {"[Content_Types].xml", "xl/workbook.xml"}
+            if not required.issubset(members):
+                invalid(p, "missing required XLSX workbook parts")
+            if not any(n.startswith("xl/worksheets/sheet") and n.endswith(".xml") for n in members):
+                invalid(p, "missing XLSX worksheet")
+            if any(n.startswith("xl/externalLinks/") for n in members):
+                invalid(p, "external workbook links must be removed from public files")
+            for n in ["xl/workbook.xml", "xl/sharedStrings.xml"]:
+                if n in members:
+                    data = z.read(n)
+                    ET.fromstring(data)
+                    if b"Personal use by subscriber; no redistribution" in data:
+                        invalid(p, "old subscriber-use notice is still present")
+    except Exception as exc:
+        invalid(p, f"invalid XLSX: {exc}")
+
 for file in EDITABLE.rglob("*"):
     if not file.is_file():
         continue
@@ -99,7 +121,11 @@ for file in EDITABLE.rglob("*"):
     elif ext == ".rtf":
         test_rtf(file)
 
-print(f"Checked {sum(1 for p in EDITABLE.rglob('*') if p.is_file())} editable files")
+DOWNLOADS = ROOT / "static" / "downloads"
+for file in DOWNLOADS.glob("*.xlsx"):
+    test_xlsx(file)
+
+print("Checked editable Word, diagram, BPMN and XLSX download files")
 if errors:
     for e in errors:
         print("ERROR", e, file=sys.stderr)

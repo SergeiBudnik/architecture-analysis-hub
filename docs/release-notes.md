@@ -9,7 +9,7 @@ sidebar_position: 6
 
 - Added a source-based download index for extended SRS, Database Design FAQ, complete Food Delivery FR/NFR and both additional sequences.
 - Added five editable Word-compatible RTF public editions and two PlantUML sources.
-- Published the ten-column User Stories template as downloadable CSV; the prepared styled XLSX remains a separate, not-yet-published artifact.
+- Published the ten-column User Stories template in **both native editable XLSX and CSV**. The original sample's full acceptance criteria are preserved in the public workbook.
 - Refreshed source inventory and diagrams catalogue, distinguishing original source facts from independent additions.
 
 ## 2026-10-18 — STORAGE batch D: SRS, database, FR/NFR, sequences and spreadsheet
@@ -18,7 +18,7 @@ sidebar_position: 6
 - Added complete [Food Delivery FR/NFR (Example 2)](examples/food-delivery-functional-nonfunctional.md), retaining original requirement groups and sample targets.
 - Added generalized [Apple Pay Provisioning](examples/apple-pay-provisioning-sequence.md) and [Kafka Fraud + Signing](examples/antifraud-kafka-signing-sequence.md) sequences, with editable PlantUML files.
 - Added [Database Design FAQ](architecture/database-design-faq.md) as independently authored explanatory material; vendor-authored source marketing copy was not relicensed.
-- Added [User Stories Excel-compatible CSV](templates/user-story-excel-download.md), adapted from the original ten-column spreadsheet. Styled native XLSX is separately prepared for release.
+- Added [User Stories Excel-compatible CSV](templates/user-story-excel-download.md), adapted from the original ten-column spreadsheet. Styled native XLSX is published alongside the CSV.
 - Added five Word-compatible RTF guides for reuse.
 
 ## 2026-10-18 — STORAGE banking examples, batch C

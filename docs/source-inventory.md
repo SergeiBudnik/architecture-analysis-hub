@@ -22,7 +22,7 @@ Status meanings:
 | `DIAGRAMS_EXAMPLE_1.drawio` | Adapted | [Open](editable-source-diagrams.md) |
 | `USE_CASE_EXAMPLE_2.docx` | Adapted | [Open](examples/installment-card-application-use-case.md) |
 | `DIAGRAMS_EXAMPLE_2.drawio` | Adapted | [Open](editable-source-diagrams.md) |
-| `USER_STORY_TEMPLATE.xlsx` | Public CSV edition and separate prepared native XLSX | [Open](templates/user-story-excel-download.md) |
+| `USER_STORY_TEMPLATE.xlsx` | Reviewed public XLSX and CSV editions | [Open](templates/user-story-excel-download.md) |
 | `USE_CASE_TEMPLATE.docx` | Adapted | [Open](templates/use-case-template.md) |
 | `FT_NFT_EXAMPLE.docx` | Both original examples adapted | [Open](examples/food-delivery-functional-nonfunctional.md) |
 | `BPMN_FAQ.docx` | Review third-party text | [Open](source-publication-roadmap.md) |

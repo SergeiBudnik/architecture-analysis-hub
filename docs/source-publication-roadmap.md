@@ -13,7 +13,7 @@ The author's original STORAGE archive includes **44 files**, but the full archiv
 
 Two original HLD examples now have **expanded, anonymized DOCX and RTF documents** preserving component catalogues and numbered external/internal interactions, with newly prepared Draw.io source diagrams. The two original Visio BPMN examples have **editable Draw.io reconstructions**; the food-delivery BPMN has a separate simplified public BPMN 2.0 edition. See [Editable Source Downloads](editable-source-diagrams.md).
 
-These are edited public versions, not identical copies of source DOCX/VSDX/DRAWIO binaries. They do not imply that all original embedded images, document comments and precise original graph geometry are releasable. The original 44 files remain in private review and are not bulk uploaded.
+These are edited public versions, not identical copies of source DOCX/VSDX/DRAWIO binaries. They do not imply that all original embedded images, document comments and precise original graph geometry are releasable. The original 44 files remain in private review and are not bulk uploaded. A fully editable, sanitized [User Story XLSX edition](templates/user-story-excel-download.md) is now downloadable.
 
 ## New releases: SRS, Use Case, Sequence, API and requirements
 

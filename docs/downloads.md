@@ -33,7 +33,7 @@ RTF files can be edited in Microsoft Word or LibreOffice and saved as DOCX.
 - [Database Design FAQ](architecture/database-design-faq.md) — [Download independently written RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/database-design-faq-public.rtf)
 - [Food Delivery: complete FR/NFR Example 2](examples/food-delivery-functional-nonfunctional.md) — [Download editable RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/food-delivery-fr-nfr-public.rtf)
 - [Apple Pay provisioning sequence](examples/apple-pay-provisioning-sequence.md) and [Kafka fraud/signature sequence](examples/antifraud-kafka-signing-sequence.md): editable PlantUML and RTF descriptions
-- [User Story Spreadsheet](templates/user-story-excel-download.md): reusable ten-column CSV for Excel
+- [User Story Spreadsheet](templates/user-story-excel-download.md): [download the native editable Excel workbook](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/downloads/User_Stories_Template_Public.xlsx) with all ten original columns, plus an optional CSV edition
 
 ## Source-based SRS, API, Use Case and Sequence downloads
 
