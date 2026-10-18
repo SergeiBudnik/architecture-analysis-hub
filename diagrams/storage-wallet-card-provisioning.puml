@@ -1,0 +1,41 @@
+@startuml
+!theme plain
+title Digital Wallet — Issuer-Assisted Card Token Provisioning (Educational)
+actor Cardholder
+participant "Device Wallet" as Wallet
+participant "Platform Provisioning Service" as Platform
+participant "Network Tokenization Service" as Network
+participant "Issuer Token Service" as Issuer
+participant "Secure Device Credential Store" as Device
+Cardholder -> Wallet : Add existing card
+Wallet -> Platform : Check device and provisioning eligibility
+Platform --> Wallet : Session context (illustrative)
+Cardholder -> Wallet : Provide card details in protected UI
+Wallet -> Platform : Submit protected enrollment request
+Platform -> Network : Tokenization request
+Network -> Issuer : Eligibility and risk verification
+alt Issuer requires cardholder verification
+  Issuer --> Network : Step-up required
+  Network --> Platform : Verification choice
+  alt Supported out-of-band code
+    Cardholder -> Wallet : Enter issuer-provided code
+    Wallet -> Platform : Submit verification response
+    Platform -> Network : Verify cardholder
+    Network -> Issuer : Verify evidence
+  else Supported issuer-app verification
+    Cardholder -> Issuer : Confirm in issuer app
+    Issuer --> Network : Issuer confirmation
+  end
+else No step-up required
+  Issuer --> Network : Eligibility confirmed
+end
+Network --> Platform : Authorized token provisioning result
+Platform --> Wallet : Protected activation information
+Wallet -> Device : Install/activate device credential
+Device --> Wallet : Provisioning status
+Wallet --> Cardholder : Show verified activation result
+note bottom of Network
+No scheme-specific cryptograms, payloads or keys are specified.
+Actual Apple / Visa / issuer contracts govern this flow.
+end note
+@enduml

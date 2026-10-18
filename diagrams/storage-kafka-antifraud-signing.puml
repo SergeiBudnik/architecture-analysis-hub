@@ -1,0 +1,30 @@
+@startuml
+!theme plain
+title Transaction Risk Analysis — Kafka, DLQ and Signature Service
+participant "Integration Platform" as Integration
+queue "Kafka" as Kafka
+participant "Antifraud Engine" as Fraud
+queue "Dead Letter Queue" as DLQ
+participant "Signature Service" as Signer
+Integration -> Kafka : Publish AnalysisRequested(eventId, correlation)
+Kafka -> Fraud : Deliver analysis request
+alt Technical processing failure
+  Fraud -> DLQ : Quarantine message with reason
+else Successful risk assessment
+  Fraud -> Fraud : Evaluate configured risk rules
+  Fraud -> Kafka : Publish AnalysisResult(decision, riskScore)
+  Kafka -> Integration : Deliver analysis result
+  alt Integration cannot process response
+    Integration -> DLQ : Durable quarantine
+  else Valid result
+    Integration -> Integration : Form response to requesting party
+    Integration -> Signer : Submit normalized signing request
+    Signer --> Integration : Signed result / file reference
+    Integration -> Integration : Record final delivery state
+  end
+end
+note over Integration,Kafka
+Source diagram says "create topic" per request.
+Public edition models publishing to a pre-provisioned topic.
+end note
+@enduml
