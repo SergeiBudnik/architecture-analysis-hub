@@ -5,7 +5,7 @@ sidebar_position: 15
 
 # Business Requirements: Catalogue, Order Messaging and Store Discovery
 
-**Source:** \`BR_EXAMPLE.docx\` from the author's original STORAGE collection (v1.0.0, 2025-09-04). The source juxtaposes three business-requirement examples and a small PIM requirement table. This edition retains the business intent but removes a named retailer and system-specific identifiers.
+**Source:** `BR_EXAMPLE.docx` from the author's original STORAGE collection (v1.0.0, 2025-09-04). The source juxtaposes three business-requirement examples and a small PIM requirement table. This edition retains the business intent but removes a named retailer and system-specific identifiers.
 
 ## Source guidance: what a business requirement is
 
