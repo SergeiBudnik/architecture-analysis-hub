@@ -18,6 +18,7 @@ A public library of **systems analysis, solution architecture and payment proces
 - [Source-Based Examples — DOCX Downloads](examples/source-examples-downloads.md) — detailed SRS, API, use cases and sequences.
 - [Source Publication Roadmap](source-publication-roadmap.md) — which original STORAGE files have been adapted and why raw files are under review.
 - [44-file Source Inventory](source-inventory.md) — publication status for every item in STORAGE.
+- [Extended SRS and Database FAQ](templates/full-stack-srs-outline.md) — source-derived full-stack documentation and separate database-design guidance.
 
 ## Explore by discipline
 

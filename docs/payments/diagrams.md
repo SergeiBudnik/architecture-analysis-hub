@@ -23,6 +23,13 @@ To edit, copy the plain-text `.puml` files and render them locally in a PlantUML
 
 See the [detailed architecture case study](event-driven-processing.md) and [worked offset example](kafka-offset-recovery.md).
 
+## More source-based sequence examples
+
+- [Wallet card provisioning — issuer-assisted, generalized](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-wallet-card-provisioning.puml)
+- [Kafka antifraud + signature service](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-kafka-antifraud-signing.puml)
+
+Both are explicitly educational adaptations, not real customer or certified provider contract sequences.
+
 ## Diagram design review
 
 - Label who owns each business state.

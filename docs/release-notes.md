@@ -5,6 +5,15 @@ sidebar_position: 6
 
 # Release Notes
 
+## 2026-10-18 — STORAGE batch D: SRS, database, FR/NFR, sequences and spreadsheet
+
+- Added [Extended Full-Stack SRS](templates/full-stack-srs-outline.md) based on SRS Template 1, plus editable RTF.
+- Added complete [Food Delivery FR/NFR (Example 2)](examples/food-delivery-functional-nonfunctional.md), retaining original requirement groups and sample targets.
+- Added generalized [Apple Pay Provisioning](examples/apple-pay-provisioning-sequence.md) and [Kafka Fraud + Signing](examples/antifraud-kafka-signing-sequence.md) sequences, with editable PlantUML files.
+- Added [Database Design FAQ](architecture/database-design-faq.md) as independently authored explanatory material; vendor-authored source marketing copy was not relicensed.
+- Added [User Stories Excel-compatible CSV](templates/user-story-excel-download.md), adapted from the original ten-column spreadsheet. Styled native XLSX is separately prepared for release.
+- Added five Word-compatible RTF guides for reuse.
+
 ## 2026-10-18 — STORAGE banking examples, batch C
 
 - Published anonymized [Installment Card Application Use Case](examples/installment-card-application-use-case.md) from the original multi-step banking process, with source-step mapping and new PlantUML sequence.

@@ -15,6 +15,8 @@ These are **public, editable Markdown templates and guides**, adapted from Serge
 |---|---|
 | [Business Requirements Document (BRD)](brd-template.md) | Template |
 | [Software Requirements Specification (SRS)](srs-template.md) | Template |
+| [Extended Full-Stack SRS Template 1](full-stack-srs-outline.md) | Adapted comprehensive SRS guide + editable RTF |
+| [User Stories spreadsheet (Excel-compatible CSV)](user-story-excel-download.md) | Downloadable spreadsheet |
 | [Business vs Functional vs Non-Functional Requirements](requirements-types.md) | Guide |
 | [Use Case](use-case-template.md) | Template |
 | [User Story & Acceptance Criteria](user-story-template.md) | Template |
@@ -72,6 +74,9 @@ Six source-based educational examples are now public. Their original Word files 
 | [SMS Registration — Use Case](../examples/sms-registration-use-case.md) | `USE_CASE_EXAMPLE_1.docx` (public DOCX) |
 | [Asynchronous Report — Sequence](../examples/async-accounting-report-sequence.md) | `SEQUENCE_EXAMPLES.docx` (Example 1; public DOCX) |
 | [Employee Bulk Update — API](../examples/employee-bulk-update-api.md) | `API_EXAMPLE.docx` (second operation; public DOCX) |
+| [Full Food Delivery FR/NFR — Example 2](../examples/food-delivery-functional-nonfunctional.md) | `FT_NFT_EXAMPLE.docx` (second example) |
+| [Apple Pay Card Provisioning — Sequence](../examples/apple-pay-provisioning-sequence.md) | `SEQUENCE_EXAMPLES.docx` (Example 2) |
+| [Kafka Antifraud & Signing — Sequence](../examples/antifraud-kafka-signing-sequence.md) | `SEQUENCE_EXAMPLES.docx` (Example 3) |
 | [Food Delivery — User Stories](../examples/user-story-examples.md) | `USER_STORY_EXAMPLE.docx` |
 | [Support Console — Functional / Non-functional](../examples/support-console-fr-nfr.md) | `FT_NFT_EXAMPLE.docx` (Example 1) |
 | [Product Catalogue — Business Requirements](../examples/product-catalog-business-requirements.md) | `BR_EXAMPLE.docx` |

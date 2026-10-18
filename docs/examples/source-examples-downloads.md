@@ -42,6 +42,17 @@ These source-grounded examples are available as public Markdown pages **and down
 
 These examples abstract bank-specific internal names and response dictionaries. These RTF versions are separate, editable **sanitized public editions**. The original Word documents have **not** been uploaded.
 
+## Release D — extended specifications, database and sequence examples
+
+| STORAGE source | Web guide and editable formats |
+|---|---|
+| `SRS_TEMPLATE_1.docx` | [Full-stack SRS template](../templates/full-stack-srs-outline.md) · [Editable RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/full-stack-srs-template-public.rtf) |
+| `FT_NFT_EXAMPLE.docx` (Example 2) | [Full Food Delivery FR/NFR](food-delivery-functional-nonfunctional.md) · [Editable RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/food-delivery-fr-nfr-public.rtf) |
+| `SEQUENCE_EXAMPLES.docx` (Example 2) | [Apple Pay Provisioning](apple-pay-provisioning-sequence.md) · [PlantUML](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-wallet-card-provisioning.puml) |
+| `SEQUENCE_EXAMPLES.docx` (Example 3) | [Kafka Risk Analysis / Signature](antifraud-kafka-signing-sequence.md) · [PlantUML](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-kafka-antifraud-signing.puml) |
+| `DATABASE_DESIGN_FAQ.docx` | [Original database-design FAQ, independently rewritten](../architecture/database-design-faq.md) |
+| `USER_STORY_TEMPLATE.xlsx` | [User Stories spreadsheet](../templates/user-story-excel-download.md) · [Download CSV](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/downloads/User_Stories_Template_Public.csv) |
+
 ## Previously adapted materials
 
 - [BRD Example — Travel Booking](travel-platform-brd.md)

@@ -25,6 +25,16 @@ All new versions are sanitized adaptations; the original 2025 binaries and unrev
 
 For the complete source-by-source matrix, see the [44-file Publication Inventory](source-inventory.md).
 
+## October 18 — Next-stage source publications
+
+- Published an expanded **SRS Template 1** teaching edition and Word-compatible RTF.
+- Completed the second `FT_NFT_EXAMPLE.docx` scenario, preserving the source ID groups and numeric targets.
+- Released the remaining two exercises from `SEQUENCE_EXAMPLES.docx`: issuer-assisted wallet provisioning and Kafka antifraud/signing, with editable PlantUML files.
+- Added a **freshly written** database FAQ rather than copying external Integrate.io prose found in the source document.
+- Prepared a native XLSX user-story workbook separately; the GitHub site currently provides an **Excel-compatible CSV** release based on the original ten-column template.
+
+See [New Source-Based Download Catalogue](examples/source-examples-downloads.md) and [44-file inventory](source-inventory.md).
+
 ## Source inventory
 
 | Original format | Number of files | Status |

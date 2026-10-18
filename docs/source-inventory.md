@@ -22,9 +22,9 @@ Status meanings:
 | `DIAGRAMS_EXAMPLE_1.drawio` | Adapted | [Open](editable-source-diagrams.md) |
 | `USE_CASE_EXAMPLE_2.docx` | Adapted | [Open](examples/installment-card-application-use-case.md) |
 | `DIAGRAMS_EXAMPLE_2.drawio` | Adapted | [Open](editable-source-diagrams.md) |
-| `USER_STORY_TEMPLATE.xlsx` | Pending native XLSX | [Open](templates/user-story-template.md) |
+| `USER_STORY_TEMPLATE.xlsx` | Public CSV edition and separate prepared native XLSX | [Open](templates/user-story-excel-download.md) |
 | `USE_CASE_TEMPLATE.docx` | Adapted | [Open](templates/use-case-template.md) |
-| `FT_NFT_EXAMPLE.docx` | Partially adapted (Example 1) | [Open](examples/support-console-fr-nfr.md) |
+| `FT_NFT_EXAMPLE.docx` | Both original examples adapted | [Open](examples/food-delivery-functional-nonfunctional.md) |
 | `BPMN_FAQ.docx` | Review third-party text | [Open](source-publication-roadmap.md) |
 | `LIBRARY_OVERVIEW.docx` | Concepts covered | [Open](intro.md) |
 | `VERSIONING_POLICY.docx` | Pending dedicated edition | [Open](source-publication-roadmap.md) |
@@ -35,11 +35,11 @@ Status meanings:
 | `RELEASE_NOTES.docx` | Historical source only | [Open](release-notes.md) |
 | `BR_EXAMPLE.docx` | Adapted | [Open](examples/product-catalog-business-requirements.md) |
 | `HIGH _LEVEL_ARCITECTURE_EXAMPLE_1.docx` | Adapted with native DOCX | [Open](editable-source-diagrams.md) |
-| `DATABASE_DESIGN_FAQ.docx` | Pending dedicated edition | [Open](source-publication-roadmap.md) |
+| `DATABASE_DESIGN_FAQ.docx` | Independently rewritten FAQ (source has third-party prose) | [Open](architecture/database-design-faq.md) |
 | `MQ_SRS_EXAMPLE.docx` | Adapted | [Open](examples/email-notification-consumer.md) |
-| `SRS_TEMPLATE_1.docx` | Review distinct from template 2 | [Open](templates/srs-template.md) |
+| `SRS_TEMPLATE_1.docx` | Extended full-stack public edition | [Open](templates/full-stack-srs-outline.md) |
 | `DATABASE_DESIGN_EXAMPLE.docx` | Adapted | [Open](examples/restaurant-database-design.md) |
-| `SEQUENCE_EXAMPLES.docx` | Partially adapted (Example 1) | [Open](examples/async-accounting-report-sequence.md) |
+| `SEQUENCE_EXAMPLES.docx` | All three exercises adapted | [Open](examples/apple-pay-provisioning-sequence.md) |
 | `USER_STORY_EXAMPLE.docx` | Adapted | [Open](examples/user-story-examples.md) |
 | `SRS_TEMPLATE_2.docx` | Adapted | [Open](templates/srs-template.md) |
 | `BACK_SRS_EXAMPLE_1.docx` | Adapted | [Open](examples/travel-plan-delete-backend.md) |
@@ -64,7 +64,7 @@ Status meanings:
 
 ## Next publication batches
 
-**Batch D:** User Story spreadsheet (native XLSX public edition); Database Design FAQ; SRS template comparison; versioning and how-to-use methodology.
+**Batch D:** Completed source-based Excel-compatible CSV, independently rewritten Database Design FAQ, extended SRS Template 1, both remaining sequence diagrams and the second FR/NFR example. A styled native XLSX file is prepared outside the public GitHub site.
 
 **Batch E:** Remaining second example within FR/NFR exercise; additional sequence images within the source examples; expanded API design pattern coverage.
 
