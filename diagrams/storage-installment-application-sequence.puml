@@ -1,0 +1,40 @@
+@startuml
+!theme plain
+title Installment Card Application — Sanitized Workflow Sequence
+actor Customer
+participant "Banking App" as App
+participant "Application Orchestrator" as Orch
+participant "Customer CRM" as CRM
+participant "Eligibility / Identity Checks" as Checks
+participant "Case Management" as Case
+participant "Scoring Workflow" as Score
+Customer -> App : Start installment-card application
+App -> Orch : Check current/recent application
+Orch -> CRM : Search last applications (30-day rule)
+CRM --> Orch : Found or eligible to proceed
+alt Active incompatible request exists
+ Orch --> App : Resume or show controlled restriction
+else New application permitted
+ Orch --> App : Display terms / limit options
+ Customer -> App : Choose limit / accept terms
+ App -> Orch : Initialise application
+ Orch -> CRM : Resolve customer identity / profile
+ CRM --> Orch : Customer reference
+ Orch -> Orch : Save NON_COMPLETE draft
+ App -> Orch : Branch and address
+ Orch -> Checks : Validate age, residency, data
+ Checks --> Orch : Passed / failed / review
+ alt Eligible
+   Orch -> CRM : Create or reuse lead
+   CRM --> Orch : Lead reference
+   Orch -> Case : Register application case
+   Case --> Orch : Case reference
+   Orch -> Score : Initiate scoring
+   Score --> Orch : Accepted or pending
+   Orch -> Orch : Transition PENDING
+   Orch --> App : Application submitted
+ else Not eligible
+   Orch --> App : Explain restriction / data correction
+ end
+end
+@enduml

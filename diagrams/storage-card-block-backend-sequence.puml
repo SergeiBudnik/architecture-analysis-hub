@@ -1,0 +1,37 @@
+@startuml
+!theme plain
+title Card Blocking Backend — Provider-neutral Educational Sequence
+actor Customer
+participant "Mobile Banking App" as App
+participant "Card Block Service" as Block
+participant "Verification Service" as Verify
+participant "Card Processor Adapter" as Adapter
+cloud "External Card Processor" as Processor
+database "Card State / Audit Store" as Store
+Customer -> App : Choose block card
+App -> Block : Request block(cardId, reason?)
+Block -> Block : Authenticate / authorize card owner
+alt Legacy request without cardStatus
+ Block -> Verify : Verify existing SMS challenge
+ Verify --> Block : Valid/invalid
+else New request with explicit cardStatus
+ Block -> Block : Validate reason + verification policy
+end
+Block -> Store : Persist correlated command / intent
+Block -> Adapter : Map canonical reason to processor
+Adapter -> Processor : Card status request
+alt Confirmed processor success
+ Processor --> Adapter : Final positive result
+ Adapter --> Block : Confirmed
+ Block -> Store : Update state + audit atomically
+ Block --> App : Success
+else Explicit rejection
+ Processor --> Adapter : Rejected
+ Adapter --> Block : Rejected
+ Block --> App : Controlled error (unchanged state)
+else Ambiguous timeout
+ Adapter --> Block : Unknown outcome
+ Block -> Store : Mark UNKNOWN / recovery required
+ Block --> App : Pending confirmation
+end
+@enduml
