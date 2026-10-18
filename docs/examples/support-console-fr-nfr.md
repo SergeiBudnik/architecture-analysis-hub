@@ -5,7 +5,7 @@ sidebar_position: 14
 
 # Functional and Non-Functional Requirements — Support Desk
 
-**Source:** \`FT_NFT_EXAMPLE.docx\`, Example 1, STORAGE v1.0.0 (2025). This public edition retains the original example's **A–E sections**, selected requirement IDs, numerical objectives and role definitions. Some explanatory review guidance is new and labelled accordingly.
+**Source:** `FT_NFT_EXAMPLE.docx`, Example 1, STORAGE v1.0.0 (2025). This public edition retains the original example's **A–E sections**, selected requirement IDs, numerical objectives and role definitions. Some explanatory review guidance is new and labelled accordingly.
 
 ## Business scenario
 
