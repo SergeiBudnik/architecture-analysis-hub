@@ -5,7 +5,7 @@ participant "Business Service" as Business
 queue "Email Request Queue" as Queue
 participant "Notification Consumer" as Consumer
 database "Notification Inbox / Status" as Store
-cloud "Email Provider" as Provider
+participant "Email Provider" as Provider
 queue "Retry / DLQ" as DLQ
 participant "Operations" as Ops
 Business -> Queue : EmailRequested(eventId, recipient, template)
