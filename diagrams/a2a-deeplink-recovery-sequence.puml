@@ -28,8 +28,8 @@ end note
 UI -> Merchant : refresh status
 Merchant -> Platform : query intent
 Platform --> Merchant : pending/unknown until verified
-Provider ..> Adapter : callback delivery (may be delayed)
-Adapter ..> Platform : validated outcome
+Provider --> Adapter : callback delivery (may be delayed)
+Adapter --> Platform : validated outcome
 alt Provider callback absent or uncertain
  Platform -> Worker : schedule enquiry
  Worker -> Adapter : query by external reference
@@ -38,6 +38,6 @@ alt Provider callback absent or uncertain
  Adapter --> Worker : mapped status
  Worker -> Platform : guarded state transition / reschedule
 end
-Platform ..> Merchant : durable result notification
+Platform --> Merchant : durable result notification
 Merchant --> UI : display authoritative outcome
 @enduml

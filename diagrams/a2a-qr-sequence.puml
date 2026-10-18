@@ -21,10 +21,10 @@ Merchant --> Checkout : render QR
 Payer -> App : scan QR
 App -> Provider : payer authentication and consent
 Provider --> App : result displayed in bank app
-Provider ..> Adapter : signed/authenticated outcome event
-Adapter ..> Orch : validated event and correlation
+Provider --> Adapter : signed/authenticated outcome event
+Adapter --> Orch : validated event and correlation
 Orch -> Orch : dedupe event; guarded state update
-Orch ..> Merchant : outcome via durable webhook
+Orch --> Merchant : outcome via durable webhook
 Merchant --> Checkout : refresh confirmed status
 Checkout --> Payer : show result
 opt Callback late or missing

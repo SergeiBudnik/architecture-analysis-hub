@@ -17,10 +17,10 @@ Adapter --> Platform : external reference
 Platform --> Merchant : pending + checkout action
 Customer -> Bank : authorize in bank channel
 Bank -> Processor : execution / rail result
-Processor ..> Adapter : status event
-Adapter ..> Platform : authenticated callback
+Processor --> Adapter : status event
+Adapter --> Platform : authenticated callback
 Platform -> Platform : dedupe + guarded state transition
-Platform ..> Merchant : outcome webhook via outbox
+Platform --> Merchant : outcome webhook via outbox
 Merchant --> Customer : show outcome
 opt Callback delayed or missing
  Platform -> Adapter : query attempt status
