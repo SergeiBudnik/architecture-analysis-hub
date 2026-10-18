@@ -1,29 +1,26 @@
-# IIBA UK — practical online BA workshop proposal
+# IIBA UK — free analysis and architecture teaching resources
 
-**Status:** Ready-to-review draft; **not sent**.
+**Status:** Draft for personal review; **not sent**. No speaking session, meeting or participation is requested.
 
-**To:** `communityn-scot@uk.iiba.org` (IIBA UK Scotland & North community contact; alternatively use the UK chapter's public speaker proposal route)  
-**Subject:** Free practical workshop proposal — from SRS requirements to architecture decisions
+**To:** `communityn-scot@uk.iiba.org` (IIBA UK Scotland & North community contact)  
+**Subject:** Free BRD, SRS and architecture resources for the IIBA UK community
 
 Dear IIBA UK Community Team,
 
-I’m Sergei Budnik, a systems analysis and payments solution architecture practitioner. I maintain **Architecture & Analysis Hub**, an open educational library of editable BRD, SRS, HLD, API, BPMN and sequence-diagram examples.
+I’m Sergei Budnik, a systems analysis and payments solution architecture practitioner. I recently made **Architecture & Analysis Hub** publicly available — a free educational library of editable BRD, SRS, HLD, API and user-story templates, together with BPMN and sequence-diagram examples.
 
-I would like to offer the IIBA UK community a **free, practical online session** on:
+I thought these resources might be useful to IIBA UK members, particularly analysts moving from requirements gathering towards solution design. The materials include practical, fictional scenarios and ready-to-use learning exercises, and can be downloaded and adapted with attribution under **Creative Commons Attribution 4.0**.
 
-**From Requirements to Architecture Decisions: SRS, API Contracts and Failure Scenarios**
+- **For educators and practitioners:** https://sergeibudnik.github.io/architecture-analysis-hub/docs/for-educators-practitioners
+- **Editable templates and worked examples:** https://sergeibudnik.github.io/architecture-analysis-hub/docs/downloads
 
-The proposed 40–45 minute session would use a fictional travel-booking or payment scenario to show how to turn business and system requirements into component responsibilities, interface contracts and testable failure scenarios. Participants could download and adapt the materials afterwards under **Creative Commons Attribution 4.0**.
+Please feel free to explore or share the library with members or educators **if you find it relevant**. No meeting or action is required.
 
-The learning resources are already public:
+If you or anyone in the community spots something to improve, I would welcome an optional technical comment or suggestion here:
 
-- Educator/practitioner guide: https://sergeibudnik.github.io/architecture-analysis-hub/docs/for-educators-practitioners
-- Source-based SRS examples: https://sergeibudnik.github.io/architecture-analysis-hub/docs/examples/source-examples-downloads
-- REST API design guide: https://sergeibudnik.github.io/architecture-analysis-hub/docs/architecture/api-design-patterns
+https://github.com/SergeiBudnik/architecture-analysis-hub/issues/new?template=resource-feedback.yml
 
-This is intended as a practical knowledge-sharing contribution, not a sales presentation. I can adjust the content for an introductory or experienced BA audience.
-
-Would your team be open to reviewing the topic for a future virtual event, or suggesting a suitable way to share these free resources with the community?
+Thank you for taking a look.
 
 Kind regards,  
 **Sergei Budnik**  
@@ -32,4 +29,6 @@ https://sergeibudnik.github.io/architecture-analysis-hub/
 
 ---
 
-**Routing note:** The official IIBA UK branch page lists the Scotland & North contact for speaking, events and community input. This draft does not assume IIBA membership or an accepted speaking invitation. Source: https://uk.iiba.org/400556/Page/Show?ClassCode=Page&Slug=iiba-uk-branches
+**Routing:** The address above is the public IIBA UK Scotland & North community contact, not evidence of membership or organizational endorsement. Source: https://uk.iiba.org/400556/Page/Show?ClassCode=Page&Slug=iiba-uk-branches
+
+**Feedback note:** GitHub issue submission requires a GitHub account and is public. Do not request a positive endorsement, artificial engagement or confirmation of use that did not actually happen.

@@ -1,32 +1,33 @@
-# Stage 8 — Outreach and Knowledge Sharing Drafts
+# Stage 8 — Asynchronous Community Resource Sharing
 
-**Status:** These are drafts ready for personal review and sending. **No email, social post, invitation, partnership or endorsement is implied to have happened.** The user-facing educational library is published separately.
+**Status:** Prepared correspondence and social posts; **no email or LinkedIn post has been sent** and no independent use or endorsement is claimed.
 
-## UK organisations
+## UK recipients
 
-| Audience | Proposed contribution | Official contact | Prepared copy |
+| Audience | Purpose | Contact and source | Prepared text |
 |---|---|---|---|
-| **IIBA UK — Scotland & North community team** | Free virtual BA-to-architecture workshop with editable SRS/HLD/API material | `communityn-scot@uk.iiba.org` ([IIBA UK branches](https://uk.iiba.org/400556/Page/Show?ClassCode=Page&Slug=iiba-uk-branches)) or the UK chapter [speaker interest channel](https://uk.iiba.org/) | [IIBA UK email](iiba-uk-proposal.md) |
-| **FinTech Scotland** | Free online payments architecture knowledge-sharing session or resource review | `contact@fintechscotland.com` ([official contact page](https://www.fintechscotland.com/contact/)) | [FinTech Scotland email](fintech-scotland-proposal.md) |
+| **IIBA UK Scotland & North** | Share free BRD/SRS/HLD/API learning exercises and templates for optional independent use | `communityn-scot@uk.iiba.org` ([UK branches](https://uk.iiba.org/400556/Page/Show?ClassCode=Page&Slug=iiba-uk-branches)) | [IIBA UK email](iiba-uk-proposal.md) |
+| **FinTech Scotland** | Share payment-lifecycle and event-driven architecture examples for optional reference and reuse | `contact@fintechscotland.com` ([official contact](https://www.fintechscotland.com/contact/)) | [FinTech Scotland email](fintech-scotland-proposal.md) |
 
-The IIBA UK Scotland & North contact is a public branch community address, **not** proof of an active invitation or chapter membership. The FinTech Scotland contact is its public general contact route.
+These are **resource-sharing notes**, not proposals for webinars, meetings or partnerships. They require no synchronous participation from the author or recipients.
 
-## Suggested sequence
+## Suggested next actions
 
-1. Make sure the [educator landing page](../docs/for-educators-practitioners.md) and resources are live.
-2. Send the two tailored emails individually. Ask for a topic review or community-learning opportunity rather than endorsement.
-3. Publish the [payment architecture LinkedIn post](linkedin-payment-architecture.md).
-4. Publish the [open templates LinkedIn post](linkedin-open-library.md) as a separate post, preferably after readers have time to explore the first.
-5. If no reply, send one relevant [short follow-up](follow-ups.md) after roughly **7–10 business days**. Do not send repeated automated reminders.
-6. Track only actual replies, reviews, public talks, pull requests, published references or other authentic outcomes in the [community register](../docs/community-adoption.md).
+1. Send each tailored email as a separate one-off message, if you wish.
+2. Publish the [technical payment LinkedIn post](linkedin-payment-architecture.md) and [open learning library post](linkedin-open-library.md) separately, if you wish. Neither has been published automatically.
+3. For technical corrections, direct interested readers to the [feedback issue form](https://github.com/SergeiBudnik/architecture-analysis-hub/issues/new?template=resource-feedback.yml).
+4. If someone actually uses the resources, they may **voluntarily** use the [real-use issue form](https://github.com/SergeiBudnik/architecture-analysis-hub/issues/new?template=share-use.yml). Do not ask them to make a positive testimonial.
+5. Update the [public adoption register](../docs/community-adoption.md) only if an independent, specific use is verified **and** publication permission is granted.
+6. If no response, an optional [short follow-up](follow-ups.md) after about 7–10 business days is enough; no repeated automated outreach.
 
-No messages should mention a visa application or request a testimonial. Senders should not claim affiliations, membership, professional certifications, event invitations, audience figures or implementation results they cannot verify.
+**Important:** The feedback form requires a GitHub account. GitHub issues are public; readers must not disclose confidential employer/client data. Using the library does not require a report or sign-in.
 
-## Published materials
+## Reference links
 
 - [For Educators & Practitioners](../docs/for-educators-practitioners.md)
-- [Payment architecture overview](../docs/payments/overview.md)
-- [Editable source catalogue](../docs/downloads.md)
-- [Feedback/real-use issue forms](https://github.com/SergeiBudnik/architecture-analysis-hub/issues/new/choose)
+- [Payment Architecture](../docs/payments/overview.md)
+- [Editable Downloads](../docs/downloads.md)
+- [Public community-use register](../docs/community-adoption.md)
+- [GitHub issue chooser](https://github.com/SergeiBudnik/architecture-analysis-hub/issues/new/choose)
 
-**No Russian academy outreach is included in this release.**
+No Russian academy outreach is included.

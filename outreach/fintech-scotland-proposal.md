@@ -1,32 +1,28 @@
-# FinTech Scotland — open payments architecture learning contribution
+# FinTech Scotland — free payments architecture learning resources
 
-**Status:** Ready-to-review draft; **not sent**.
+**Status:** Draft for personal review; **not sent**. No speaking session, meeting or partnership is requested.
 
-**To:** `contact@fintechscotland.com` (official FinTech Scotland general contact)  
-**Subject:** Open payments architecture resources — potential learning session for Scotland’s fintech community
+**To:** `contact@fintechscotland.com` (public FinTech Scotland contact)  
+**Subject:** Free open payments architecture resources for fintech practitioners
 
 Hello FinTech Scotland Team,
 
-I’m Sergei Budnik, a practitioner in payments systems analysis, integration and solution architecture. I have published **Architecture & Analysis Hub**, a free technical learning library covering card acquiring, account-to-account payment initiation, clearing, settlement, reconciliation and event-driven reliability.
+I’m Sergei Budnik, a practitioner in payments systems analysis, integration and solution architecture. I have recently published **Architecture & Analysis Hub**, an open educational library of fintech architecture reference materials and editable diagrams.
 
-I would like to explore whether these materials could be useful to your fintech community, for example through a **free 30–45 minute remote knowledge-sharing session** or a short resource review with interested practitioners.
+The resources cover card acquiring, A2A / QR payment initiation, authorization and capture, clearing, settlement, reconciliation, and reliable Kafka/event-driven processing. They include fictional end-to-end examples, architecture decisions and PlantUML sources that practitioners or educators can use independently.
 
-One possible session would be:
+I thought this could be a useful free reference for Scotland’s fintech community:
 
-**From Authorization to Reconciliation: Designing Payments for Timeouts, Retries and Unknown Outcomes**
+- **Payments architecture collection:** https://sergeibudnik.github.io/architecture-analysis-hub/docs/payments/overview
+- **Free educational resources and reuse guidance:** https://sergeibudnik.github.io/architecture-analysis-hub/docs/for-educators-practitioners
 
-Rather than a product demonstration, it would use fictional end-to-end payment flows and editable PlantUML diagrams to discuss where financial state is authoritative, why timeouts do not prove declines, and how idempotency and reconciliation prevent double-processing.
+The public author-owned materials can be adapted with attribution under **CC BY 4.0**. They are educational examples, not confidential customer designs.
 
-A few examples:
+Please feel free to explore or pass the links to interested colleagues **if you find them useful**. No meeting or response is necessary.
 
-- Payment architecture overview: https://sergeibudnik.github.io/architecture-analysis-hub/docs/payments/overview
-- Clearing, Settlement & Reconciliation: https://sergeibudnik.github.io/architecture-analysis-hub/docs/payments/clearing-settlement-reconciliation
-- A2A / QR / Deep Link architecture: https://sergeibudnik.github.io/architecture-analysis-hub/docs/payments/a2a-qr-deeplink
-- Free educational use guide: https://sergeibudnik.github.io/architecture-analysis-hub/docs/for-educators-practitioners
+If anyone notices an opportunity to improve the explanations or diagrams, optional technical feedback is welcome through GitHub:
 
-The public editions are free to reuse with attribution under **CC BY 4.0**, and contain no real client implementations.
-
-Would you be willing to take a look and let me know whether a community knowledge-sharing opportunity, technical review or a different route might be relevant?
+https://github.com/SergeiBudnik/architecture-analysis-hub/issues/new?template=resource-feedback.yml
 
 Many thanks for your time.
 
@@ -37,4 +33,6 @@ https://sergeibudnik.github.io/architecture-analysis-hub/
 
 ---
 
-**Routing note:** FinTech Scotland publishes `contact@fintechscotland.com` on its contact page. This proposal is not a partnership claim, endorsement request or confirmation of event participation. Source: https://www.fintechscotland.com/contact/
+**Routing:** Official public contact: https://www.fintechscotland.com/contact/
+
+**Feedback note:** A GitHub account is required to post and all reports are public. This note makes no claim of collaboration, endorsement, downloads, external adoption or prior use.
