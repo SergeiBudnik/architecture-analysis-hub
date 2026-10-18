@@ -5,7 +5,7 @@ sidebar_position: 18
 
 # Backend SRS: Card Blocking and Legacy Client Compatibility
 
-**Source:** \`BACK_SRS_EXAMPLE_2.docx\`, STORAGE library v1.0.0 (September 2025). The original specifies \`POST card/block\`, legacy/new mobile-client behavior, a mandatory card identifier, card-reason values, card-network routing, card-state persistence and success/error mapping. This is a new **bank-neutral educational edition**: production endpoint paths, support contacts, exact internal database names, numeric status dictionaries and sample credentials are deliberately omitted.
+**Source:** `BACK_SRS_EXAMPLE_2.docx`, STORAGE library v1.0.0 (September 2025). The original specifies `POST card/block`, legacy/new mobile-client behavior, a mandatory card identifier, card-reason values, card-network routing, card-state persistence and success/error mapping. This is a new **bank-neutral educational edition**: production endpoint paths, support contacts, exact internal database names, numeric status dictionaries and sample credentials are deliberately omitted.
 
 ## 1. Purpose and business behavior
 
@@ -15,29 +15,29 @@ Allow an authenticated customer to block a card for reasons such as temporary cu
 
 | Caller | Incoming information | Back-end behavior |
 |---|---|---|
-| Legacy client | Card identifier and SMS confirmation, no explicit \`cardStatus\` | Verify an OTP/SMS challenge; infer the default customer-block reason |
-| New client | Card identifier and explicit \`cardStatus\` reason | Process the reason and apply the new client verification contract |
+| Legacy client | Card identifier and SMS confirmation, no explicit `cardStatus` | Verify an OTP/SMS challenge; infer the default customer-block reason |
+| New client | Card identifier and explicit `cardStatus` reason | Process the reason and apply the new client verification contract |
 | Invalid caller / card | Unauthenticated, unauthorized, unknown or ineligible card | Reject without changing card status |
 
 **Important:** Skipping SMS in the newer branch is part of the original example's flow; it is **not** a recommendation to remove authentication or step-up verification. A production implementation must define permitted actions and security policy for each client version.
 
 ## 3. Public conceptual request
 
-\`\`\`http
+```http
 POST /v1/cards/{cardId}/block
 Authorization: Bearer <access_token>
 Content-Type: application/json
 Idempotency-Key: <uuid>
-\`\`\`
+```
 
-\`\`\`json
+```json
 {
   "cardStatus": "LOST",
   "reason": "Card cannot be located"
 }
-\`\`\`
+```
 
-The endpoint, \`reason\` and idempotency header are **public illustrative additions**, not an exact replica of the source interface.
+The endpoint, `reason` and idempotency header are **public illustrative additions**, not an exact replica of the source interface.
 
 ## 4. Processing steps
 
@@ -56,9 +56,9 @@ The original names Visa/UnionPay route selection. Its precise processor-specific
 
 | Incoming intent | Canonical public status |
 |---|---|
-| Temporary customer block | \`BLOCKED_BY_CARDHOLDER\` |
-| Lost card | \`LOST\` |
-| Stolen card | \`STOLEN\` |
+| Temporary customer block | `BLOCKED_BY_CARDHOLDER` |
+| Lost card | `LOST` |
+| Stolen card | `STOLEN` |
 
 A real processor may require entirely different numeric/textual reason codes; the adapter owns that translation.
 
