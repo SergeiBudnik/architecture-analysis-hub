@@ -1,0 +1,51 @@
+name: Visual QA — Word and PlantUML
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'static/editable/**'
+      - 'diagrams/**'
+      - '.github/workflows/visual-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-visual-artifacts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Render all PlantUML diagrams
+        run: |
+          curl -fLsS --retry 3 https://github.com/plantuml/plantuml/releases/latest/download/plantuml.jar -o /tmp/plantuml.jar
+          mkdir -p /tmp/uml-output
+          java -jar /tmp/plantuml.jar -failfast2 -tsvg -o /tmp/uml-output diagrams/*.puml
+          count=$(find /tmp/uml-output -name '*.svg' | wc -l)
+          echo "Rendered $count PlantUML diagrams"
+          test "$count" -ge 26
+      - name: Install Word-to-PDF renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends libreoffice-writer poppler-utils
+      - name: Render downloadable Word documents
+        run: |
+          mkdir -p /tmp/docx-pdfs /tmp/docx-previews
+          libreoffice -env:UserInstallation=file:///tmp/lo_qa_profile --headless --convert-to pdf --outdir /tmp/docx-pdfs static/editable/*.docx
+          count=$(find /tmp/docx-pdfs -name '*.pdf' | wc -l)
+          echo "DOCX documents rendered to PDF: $count"
+          test "$count" -ge 8
+          for file in /tmp/docx-pdfs/*.pdf; do
+            pdfinfo "$file" | grep -E '^Pages:'
+            name=$(basename "$file" .pdf)
+            pdftoppm -f 1 -singlefile -scale-to 1000 -png "$file" "/tmp/docx-previews/$name" >/dev/null 2>&1
+          done
+          test "$(find /tmp/docx-previews -name '*.png' | wc -l)" -ge 8
+      - name: Upload render previews
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-rendered-diagrams-and-word-previews
+          path: |
+            /tmp/uml-output/*.svg
+            /tmp/docx-previews/*.png
+          if-no-files-found: warn
