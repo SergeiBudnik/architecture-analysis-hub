@@ -24,6 +24,7 @@ Thank you for taking a look.
 
 Kind regards,  
 **Sergei Budnik**  
+LinkedIn: https://www.linkedin.com/in/sergei-budnik/  
 Architecture & Analysis Hub  
 https://sergeibudnik.github.io/architecture-analysis-hub/
 
