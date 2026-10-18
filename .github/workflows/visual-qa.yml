@@ -40,9 +40,11 @@ jobs:
           for file in /tmp/docx-pdfs/*.pdf; do
             pdfinfo "$file" | grep -E '^Pages:'
             name=$(basename "$file" .pdf)
-            pdftoppm -f 1 -singlefile -scale-to 1000 -png "$file" "/tmp/docx-previews/$name" >/dev/null 2>&1
+            pdftoppm -scale-to 1100 -png "$file" "/tmp/docx-previews/$name" >/dev/null 2>&1
           done
-          test "$(find /tmp/docx-previews -name '*.png' | wc -l)" -ge 8
+          count=$(find /tmp/docx-previews -name '*.png' | wc -l)
+          echo "Total rendered Word pages: $count"
+          test "$count" -ge 16
       - name: Upload render previews
         if: always()
         uses: actions/upload-artifact@v4
