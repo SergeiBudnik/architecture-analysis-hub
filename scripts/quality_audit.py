@@ -63,7 +63,7 @@ for p in S.rglob("*"):
                         xml(content,str(p.relative_to(R))+":"+entry)
                         if b"Personal use by subscriber" in content:
                             error(p.relative_to(R),"unlicensed private notice")
-                        if ext==".docx" and any(x in content for x in (b"<w:ins",b"<w:del",b"<w:commentReference")):
+                        if ext==".docx" and re.search(rb"<w:(ins|del|commentReference)(?=[\s>/])",content):
                             error(p.relative_to(R),"tracked changes/comment markup")
                 if any(x.startswith(("xl/externalLinks/","word/embeddings/","customXml/")) for x in names):
                     error(p.relative_to(R),"embedded/external data")
