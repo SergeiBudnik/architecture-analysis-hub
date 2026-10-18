@@ -1,0 +1,52 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0 Arial;}{\f1 Consolas;}}\paperw11906\paperh16838\margl1080\margr1080\margt960\margb960
+\pard\sb200\sa180\b\fs31 Functional and Non-Functional Requirements \u8212? Support Desk\b0\f0\par
+\pard\sa85\fs19 Source: \\FT_NFT_EXAMPLE.docx\\, Example 1, STORAGE v1.0.0 (2025). This public edition retains the original example's A\u8211?E sections, selected requirement IDs, numerical objectives and role definitions. Some explanatory review guidance is new and labelled accordingly.\b0\f0\par
+\pard\sb190\sa100\b\fs25 Business scenario\b0\f0\par
+\pard\sa85\fs19 A company's ten-person support team handles customer-reported errors and product suggestions. The department asks for a filterable console and the ability to export feedback as ODT documents. This is an educational scenario, not an active support desk deployment.\b0\f0\par
+\pard\sb190\sa100\b\fs25 A. Specialist Console \u8212? Authentication and Roles\b0\f0\par
+\pard\sa85\fs19 ID    |    Source requirement\b0\f0\par
+\pard\sa85\fs19 FR-SPC-AUTH-01    |    Admin can provision a specialist via secured backoffice; optional bulk CSV import and role assignment\b0\f0\par
+\pard\sa85\fs19 FR-SPC-AUTH-02    |    Email/password with optional SSO (SAML/OIDC); alternative secure authentication for on-call workflows\b0\f0\par
+\pard\sa85\fs19 FR-SPC-AUTH-03    |    At minimum: Specialist, Senior/Reviewer and Admin RBAC roles\b0\f0\par
+\pard\sa85\fs19 FR-SPC-AUTH-04    |    Data access restricted by assignment; sensitive customer-field edits require elevated privilege\b0\f0\par
+\pard\sa85\fs19 FR-SPC-AUTH-05    |    Four-eyes approval for incidents marked \u8220?requires review\u8221?\b0\f0\par
+\pard\sa85\fs19 FR-SPC-AUTH-06    |    Idle session timeout, device session controls and login audit\b0\f0\par
+\pard\sa85\fs19 NFR-SPC-AUTH-01    |    Approved password hashing, token/session security, rate limits and authentication monitoring\b0\f0\par
+\pard\sb190\sa100\b\fs25 B. Support Chat \u8212? Operations and UX\b0\f0\par
+\pard\sa85\fs19 The source requires stored conversations, attachment upload with antivirus checks, inactivity-based close/reopen, FAQ chatbot with human escalation, post-chat 1\u8211?5 CSAT, multi-channel notifications and visitor/SSO entry paths.\b0\f0\par
+\pard\sa85\fs19 ID    |    Source non-functional example target\b0\f0\par
+\pard\sa85\fs19 NFR-SUP-CAP-02    |    \u8805? 400 messages/hour, \u8805? 150,000 messages/day\b0\f0\par
+\pard\sa85\fs19 NFR-SUP-CAP-03    |    Peak \u215?8 of hourly average: \u8805? 3,200 messages/hour for \u8805? 2 h\b0\f0\par
+\pard\sa85\fs19 NFR-SUP-CAP-04    |    \u8805? 1,000 concurrent active chats; \u8805? 200 RPS (burst \u8805? 400); p95 delivery \u8804? 250 ms\b0\f0\par
+\pard\sa85\fs19 NFR-SUP-CAP-05    |    p95 agent wait \u8804? 60 seconds; offline email SLA \u8804? 4 h\b0\f0\par
+\pard\sa85\fs19 NFR-SUP-AVAIL-01    |    99.9% monthly chat availability\b0\f0\par
+\pard\sa85\fs19 NFR-SUP-RET-01    |    12-month online retention and 24-month archive; deletion request window in example \u8804? 30 days\b0\f0\par
+\pard\sa85\fs19 NFR-SUP-FILE-01    |    \u8804? 25 MB per file; \u8804? 100 MB per conversation\b0\f0\par
+\pard\sa85\fs19 NFR-SUP-LOG-01    |    Audit actions with masked personal data\b0\f0\par
+\pard\sa85\fs19 Source-quality note: The message volumes in the example are not naturally consistent as an average hourly/day calculation. Do not silently treat them as an internally validated capacity plan; resolve expected DAU, RPS and volume distribution first.\b0\f0\par
+\pard\sb190\sa100\b\fs25 C. Filter and Search Panel\b0\f0\par
+\pard\sa85\fs19 ID    |    Source requirement\b0\f0\par
+\pard\sa85\fs19 FR-FLT-01    |    Filters for status, priority, dates, assignee, tags, channel, customer, language, region, SLA and CSAT\b0\f0\par
+\pard\sa85\fs19 FR-FLT-02    |    Sorting by last activity, priority, SLA risk, CSAT\b0\f0\par
+\pard\sa85\fs19 FR-FLT-03    |    Configurable filter visibility and saved team presets\b0\f0\par
+\pard\sa85\fs19 FR-FLT-04    |    Controlled bulk actions on result rows\b0\f0\par
+\pard\sa85\fs19 NFR-FLT-01    |    Typical indexed-search p95 \u8804? 300 ms, pagination/lazy loading\b0\f0\par
+\pard\sa85\fs19 NFR-FLT-02    |    Audit query parameters and duration with PII masking\b0\f0\par
+\pard\sb190\sa100\b\fs25 D. Feedback Reports and ODT Export\b0\f0\par
+\pard\sa85\fs19 ID    |    Source requirement\b0\f0\par
+\pard\sa85\fs19 FR-RPT-01    |    Download feedback/incident data as .odt; PDF/CSV optional\b0\f0\par
+\pard\sa85\fs19 FR-RPT-02    |    Incident ID, timestamps, channel, category, priority, assignee, lifecycle, resolution, CSAT and attachments list\b0\f0\par
+\pard\sa85\fs19 FR-RPT-03    |    On-demand, daily, weekly or monthly reporting\b0\f0\par
+\pard\sa85\fs19 FR-RPT-04    |    Store reports in an immutable or controlled archive; optional distribution email\b0\f0\par
+\pard\sa85\fs19 NFR-RPT-01    |    Example p95 \u8804? 5 seconds to generate 10k-row report\b0\f0\par
+\pard\sb190\sa100\b\fs25 E. Shared Platform NFRs\b0\f0\par
+\pard\sa85\fs19 The original describes WCAG 2.2 AA, HTTPS/TLS 1.2+, RBAC, core API availability of 99.9%/month, p95 common read targets around 200\u8211?300 ms, and high-capacity plans.\b0\f0\par
+\pard\sa85\fs19 These are proposed requirement targets from the source, not security certifications, measured benchmarks or legal conclusions.\b0\f0\par
+\pard\sb190\sa100\b\fs25 Architecture review additions\b0\f0\par
+\pard\sa85\fs19 - Identify authoritative access-control checks for search, export and document download.\b0\f0\par
+\pard\sa85\fs19 - Separate report generation from UI request when data volumes exceed synchronous time limits.\b0\f0\par
+\pard\sa85\fs19 - Encrypt stored exports, enforce expiry and audit access.\b0\f0\par
+\pard\sa85\fs19 - Replace the sample's assumed SLAs with measured baselines and agreed acceptance plans.\b0\f0\par
+\pard\sa85\fs19 Related: SRS template \u183? Requirements classifications \u183? CC BY 4.0.\b0\f0\par
+\pard\sb160\fs17 Public educational edition - Sergei Budnik - CC BY 4.0\par
+}

@@ -1,0 +1,48 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0 Arial;}{\f1 Consolas;}}\paperw11906\paperh16838\margl1080\margr1080\margt960\margb960
+\pard\sb200\sa180\b\fs31 Use Case: Applying for an Installment Card\b0\f0\par
+\pard\sa85\fs19 Source: \\USE_CASE_EXAMPLE_2.docx\\, authored STORAGE documentation (v1.0.0, September 2025). The original contains a 61-step banking application process covering digital origination, customer/lead data, compliance checks, scoring and a branch-assisted alternative. The public version consolidates steps by business phase. No private bank, core-system, endpoint, identity-document values or production reference numbers are reproduced.\b0\f0\par
+\pard\sb190\sa100\b\fs25 1. Goal, scope and actors\b0\f0\par
+\pard\sa85\fs19 Goal: Allow an authenticated banking customer to apply for an installment card, choose credit terms and requested servicing branch, complete customer-data checks, and submit the application to credit-scoring/case management.\b0\f0\par
+\pard\sa85\fs19 Actor or system    |    Responsibility\b0\f0\par
+\pard\sa85\fs19 Customer / online banking    |    Initiates, reviews terms, selects limit and branch, supplies required information\b0\f0\par
+\pard\sa85\fs19 Application API / orchestration    |    Ensures eligibility and controls application state\b0\f0\par
+\pard\sa85\fs19 CRM and customer master    |    Customer data, lead and application correlation\b0\f0\par
+\pard\sa85\fs19 Identity/eligibility service    |    Document validity, residence, age and required customer attributes\b0\f0\par
+\pard\sa85\fs19 Branch/case management    |    Assisted/offline application creation\b0\f0\par
+\pard\sa85\fs19 Scoring workflow    |    Initiates underwriting/approval process; returns status\b0\f0\par
+\pard\sa85\fs19 Card repayment service    |    Stores selected eligible repayment instruments\b0\f0\par
+\pard\sa85\fs19 The source references a specific low-code engine and card processor. The public architecture uses functional names only.\b0\f0\par
+\pard\sb190\sa100\b\fs25 2. Digitally initiated application: original source phases\b0\f0\par
+\pard\sa85\fs19 Source step(s)    |    Business flow    |    Important decision\b0\f0\par
+\pard\sa85\fs19 1\u8211?5    |    Find recent or active application    |    Source checks prior activity over a 30-day window\b0\f0\par
+\pard\sa85\fs19 6\u8211?7    |    Show credit-card issuance terms and allowed limit    |    Customer selects limit, reads and accepts terms\b0\f0\par
+\pard\sa85\fs19 8\u8211?14    |    Find and normalize customer profile, initialise application    |    Missing data can trigger alternate customer data lookup; store \\NON_COMPLETE\\\b0\f0\par
+\pard\sa85\fs19 15\u8211?23    |    Select branch and check address, residency, age and mandatory fields    |    Mismatch may require supplying current address\b0\f0\par
+\pard\sa85\fs19 24\u8211?34    |    Create/update CRM lead and register customer in master system    |    Prevent duplicate cases; preserve lead reference\b0\f0\par
+\pard\sa85\fs19 35\u8211?40    |    Add work and repayment-card information    |    Apply eligibility rules to selected cards\b0\f0\par
+\pard\sa85\fs19 41\u8211?45    |    Initiate credit scoring/case processing    |    On successful request move to \\PENDING\\; failure handled separately\b0\f0\par
+\pard\sa85\fs19 Status names \\NON_COMPLETE\\ and \\PENDING\\ are preserved from the source and are shown here as example workflow states, not a standardized card-network state machine.\b0\f0\par
+\pard\sb190\sa100\b\fs25 3. Assisted/branch application: original steps 46\u8211?61\b0\f0\par
+\pard\sa85\fs19 The original contains a second journey where a bank employee searches or creates customer data, checks CRM leads, fills credit/security/additional information, and creates a new lead through the case-management process.\b0\f0\par
+\pard\sa85\fs19 Phase    |    Agent action\b0\f0\par
+\pard\sa85\fs19 Customer search    |    Identify customer type and search using required verified data\b0\f0\par
+\pard\sa85\fs19 Customer creation    |    Only when existing records are not found; avoid duplicate identities\b0\f0\par
+\pard\sa85\fs19 Lead search    |    Reuse eligible existing context or start new application\b0\f0\par
+\pard\sa85\fs19 Credit information    |    Enter offer and risk-relevant data\b0\f0\par
+\pard\sa85\fs19 Security/additional data    |    Complete required fields under approved process\b0\f0\par
+\pard\sa85\fs19 Lead creation    |    Submit the new case and record reference\b0\f0\par
+\pard\sb190\sa100\b\fs25 4. Exceptions to model explicitly\b0\f0\par
+\pard\sa85\fs19 - Customer has an active/recent incompatible application.\b0\f0\par
+\pard\sa85\fs19 - Customer fails age, residency, region or document-validity rules.\b0\f0\par
+\pard\sa85\fs19 - Identity data or CRM record missing or inconsistent.\b0\f0\par
+\pard\sa85\fs19 - A lead/case already exists, or concurrent submissions race.\b0\f0\par
+\pard\sa85\fs19 - Eligible repayment cards are unavailable.\b0\f0\par
+\pard\sa85\fs19 - Scoring fails, times out or returns an unknown result.\b0\f0\par
+\pard\sa85\fs19 - Customer stops during the process; unfinished draft needs an expiry rule.\b0\f0\par
+\pard\sa85\fs19 Design review additions: Authenticated caller context, GDPR/data minimisation, application idempotency, asynchronous scoring recovery and immutable decision audit should be addressed in any new bank implementation. These details are review guidance, not confirmed controls from the original use case.\b0\f0\par
+\pard\sb190\sa100\b\fs25 5. Editable architecture diagram\b0\f0\par
+\pard\sa85\fs19 Download generic installment-card application sequence (PlantUML).\b0\f0\par
+\pard\sa85\fs19 This source is a business/technical use case, not a credit eligibility recommendation or actual underwriting policy. For implemented systems, follow applicable consumer credit laws, KYC procedures and internal approvals.\b0\f0\par
+\pard\sa85\fs19 License: CC BY 4.0 for this new sanitized public edition.\b0\f0\par
+\pard\sb160\fs17 Public educational edition - Sergei Budnik - CC BY 4.0\par
+}

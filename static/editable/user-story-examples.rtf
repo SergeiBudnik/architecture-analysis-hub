@@ -1,0 +1,28 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0 Arial;}{\f1 Consolas;}}\paperw11906\paperh16838\margl1080\margr1080\margt960\margb960
+\pard\sb200\sa180\b\fs31 User Stories: Food Delivery Application\b0\f0\par
+\pard\sa85\fs19 Source: \\USER_STORY_EXAMPLE.docx\\ from Sergei Budnik's STORAGE collection (v1.0.0, September 2025). The original file contains four user stories in a table, reproduced below in their original business framing as a new educational public edition.\b0\f0\par
+\pard\sa85\fs19 No.    |    Actor    |    User story\b0\f0\par
+\pard\sa85\fs19 US-01    |    Customer    |    As a user, I want to browse the menu of a specific restaurant so that I can select dishes I like\b0\f0\par
+\pard\sa85\fs19 US-02    |    Customer    |    As a user, I want to add and remove dishes from my order so that I can assemble the desired order\b0\f0\par
+\pard\sa85\fs19 US-03    |    Customer    |    As a user, I want to pay for the order by card so that I can complete ordering and payment\b0\f0\par
+\pard\sa85\fs19 US-04    |    Courier    |    As a courier, I want to accept an order so that I can begin delivery\b0\f0\par
+\pard\sb190\sa100\b\fs25 Example acceptance criteria (added for instructional use)\b0\f0\par
+\pard\sa85\fs19 US-02 \u8212? Basket editing\b0\f0\par
+\pard\sa85\fs19 - Given a customer has opened a restaurant menu, when they add an available dish to the basket, then the basket contains that dish and its selected quantity.\b0\f0\par
+\pard\sa85\fs19 - Given the basket has a dish, when the customer removes it, then that dish is absent and the order total is recalculated.\b0\f0\par
+\pard\sa85\fs19 US-03 \u8212? Card payment\b0\f0\par
+\pard\sa85\fs19 - Given a valid pending order, when the customer authorizes payment and the provider confirms success, then the order payment state becomes confirmed.\b0\f0\par
+\pard\sa85\fs19 - Given the payment provider times out after receiving the request, then the platform keeps the outcome pending/unknown instead of reporting a decline without evidence.\b0\f0\par
+\pard\sa85\fs19 US-04 \u8212? Courier acceptance\b0\f0\par
+\pard\sa85\fs19 - Given a courier is offered a currently available order, when they accept it, then only one courier is assigned by the authoritative dispatch service.\b0\f0\par
+\pard\sa85\fs19 - Given another courier already accepted the order, then the second acceptance is rejected or offered an updated assignment state.\b0\f0\par
+\pard\sa85\fs19 The original contained only the story table. The acceptance criteria, states and business ownership rules are new teaching additions. They are not claims about a deployed delivery platform.\b0\f0\par
+\pard\sb190\sa100\b\fs25 Traceability\b0\f0\par
+\pard\sa85\fs19 Story    |    Related use case / specification\b0\f0\par
+\pard\sa85\fs19 US-01    |    Food Delivery SRS, FR-03/FR-05\b0\f0\par
+\pard\sa85\fs19 US-02    |    Food Delivery SRS, FR-04/FR-06\u8211?FR-09\b0\f0\par
+\pard\sa85\fs19 US-03    |    Food Delivery SRS, FR-10\b0\f0\par
+\pard\sa85\fs19 US-04    |    Food Delivery BPMN process\b0\f0\par
+\pard\sa85\fs19 User Story Template \u183? CC BY 4.0.\b0\f0\par
+\pard\sb160\fs17 Public educational edition - Sergei Budnik - CC BY 4.0\par
+}
