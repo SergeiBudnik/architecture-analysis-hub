@@ -5,7 +5,7 @@ sidebar_position: 13
 
 # User Stories: Food Delivery Application
 
-**Source:** \`USER_STORY_EXAMPLE.docx\` from Sergei Budnik's STORAGE collection (v1.0.0, September 2025). The original file contains **four user stories** in a table, reproduced below in their original business framing as a new educational public edition.
+**Source:** `USER_STORY_EXAMPLE.docx` from Sergei Budnik's STORAGE collection (v1.0.0, September 2025). The original file contains **four user stories** in a table, reproduced below in their original business framing as a new educational public edition.
 
 | No. | Actor | User story |
 |---|---|---|
