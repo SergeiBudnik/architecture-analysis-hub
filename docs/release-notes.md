@@ -5,6 +5,12 @@ sidebar_position: 6
 
 # Release Notes
 
+## 2026-10-18 — STORAGE banking examples, batch C
+
+- Published anonymized [Installment Card Application Use Case](examples/installment-card-application-use-case.md) from the original multi-step banking process, with source-step mapping and new PlantUML sequence.
+- Published anonymized [Card Blocking Backend SRS](examples/card-block-backend-srs.md), preserving the original two client-contract generations, block reason handling and confirmation semantics.
+- Omitted all bank-specific endpoint/processor dictionaries, private business identifiers and sensitive sample data.
+
 ## 2026-10-18 — STORAGE examples released in two batches
 
 - [Batch A](examples/source-examples-downloads.md): Six source-grounded educational case studies (two SRS, 3DS frontend, SMS use case, report sequence, employee bulk-update API), all with native editable DOCX versions.

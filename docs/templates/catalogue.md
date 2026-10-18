@@ -75,6 +75,8 @@ Six source-based educational examples are now public. Their original Word files 
 | [Food Delivery — User Stories](../examples/user-story-examples.md) | `USER_STORY_EXAMPLE.docx` |
 | [Support Console — Functional / Non-functional](../examples/support-console-fr-nfr.md) | `FT_NFT_EXAMPLE.docx` (Example 1) |
 | [Product Catalogue — Business Requirements](../examples/product-catalog-business-requirements.md) | `BR_EXAMPLE.docx` |
+| [Installment Card Application — Use Case](../examples/installment-card-application-use-case.md) | `USE_CASE_EXAMPLE_2.docx` (anonymized) |
+| [Card Blocking — Backend SRS](../examples/card-block-backend-srs.md) | `BACK_SRS_EXAMPLE_2.docx` (anonymized) |
 | [Service Booking Platform — HLD and component model](../examples/service-booking-hld.md) | `HIGH _LEVEL_ARCITECTURE_EXAMPLE_2.docx` (anonymized) |
 | [Food Ordering — database model and ERD](../examples/restaurant-database-design.md) | `DATABASE_DESIGN_EXAMPLE.docx` (security-corrected) |
 | [Email Notification — MQ listener and retry/DLQ](../examples/email-notification-consumer.md) | `MQ_SRS_EXAMPLE.docx` (anonymized) |

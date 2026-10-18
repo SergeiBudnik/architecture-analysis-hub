@@ -21,6 +21,8 @@ These are edited public versions, not identical copies of source DOCX/VSDX/DRAWI
 
 All new versions are sanitized adaptations; the original 2025 binaries and unreviewed embedded assets remain private.
 
+**Release C:** Two further sanitized banking process examples: the 61-step installment card application use case grouped by stages, and card blocking with legacy/new client flow. Editable neutral PlantUML sequences have been released; bank-specific original Word binaries are not public.
+
 ## Source inventory
 
 | Original format | Number of files | Status |

@@ -33,6 +33,15 @@ These are currently distributed as **public editable Markdown**; their original 
 | `FT_NFT_EXAMPLE.docx` (Example 1) | [Support Console FR/NFR](support-console-fr-nfr.md) |
 | `BR_EXAMPLE.docx` | [PIM, Fulfilment and Store Discovery Business Requirements](product-catalog-business-requirements.md) |
 
+## Release C — Banking-focused use cases (sanitized)
+
+| Source | Public example | Editable diagram |
+|---|---|---|
+| `USE_CASE_EXAMPLE_2.docx` (61-step workflow) | [Installment Card Application](installment-card-application-use-case.md) | [PlantUML sequence](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-installment-application-sequence.puml) |
+| `BACK_SRS_EXAMPLE_2.docx` | [Card Blocking — Backend SRS](card-block-backend-srs.md) | [PlantUML sequence](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-card-block-backend-sequence.puml) |
+
+These examples abstract bank-specific internal names and response dictionaries. The original Word documents have **not** been reproduced or made downloadable.
+
 ## Previously adapted materials
 
 - [BRD Example — Travel Booking](travel-platform-brd.md)
