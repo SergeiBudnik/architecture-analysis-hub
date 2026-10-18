@@ -34,7 +34,7 @@ Platform --> Wallet : Protected activation information
 Wallet -> Device : Install/activate device credential
 Device --> Wallet : Provisioning status
 Wallet --> Cardholder : Show verified activation result
-note bottom of Network
+note over Network
 No scheme-specific cryptograms, payloads or keys are specified.
 Actual Apple / Visa / issuer contracts govern this flow.
 end note
