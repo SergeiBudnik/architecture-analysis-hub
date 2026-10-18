@@ -7,7 +7,7 @@ sidebar_position: 18
 
 This template is adapted from Sergei Budnik's original `USER_STORY_TEMPLATE.xlsx` (STORAGE v1.0.0, September 2025). The public edition preserves the **ten original planning fields** and the illustrative product-catalog sorting story.
 
-[Download spreadsheet as CSV — opens in Excel](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/downloads/User_Stories_Template_Public.csv)**
+[Download spreadsheet as CSV — opens in Excel](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/downloads/User_Stories_Template_Public.csv)
 
 **[Download native editable Excel workbook (.xlsx)](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/downloads/User_Stories_Template_Public.xlsx)** — preferred edition with two worksheets: ten-field **User Stories** and **Instructions**. The source-derived example retains the full acceptance criteria from the original.
 
