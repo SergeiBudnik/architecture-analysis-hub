@@ -1,0 +1,25 @@
+@startuml
+!theme plain
+title SMS Registration Use Case — Public Educational Sequence
+actor "Mobile User" as User
+participant "Mobile App" as UI
+participant "Registration Service" as Auth
+participant "SMS Delivery Provider" as SMS
+database "User Store" as Store
+User -> UI : Select Register / enter number
+UI -> Auth : Request verification(phone)
+Auth -> Auth : Validate number / apply rate limit
+Auth -> SMS : Send short-lived code
+SMS --> User : SMS code
+User -> UI : Enter received code
+UI -> Auth : Verify(code, challengeId)
+alt Valid code
+  Auth -> Store : Atomic find/create user
+  Store --> Auth : User reference
+  Auth --> UI : Session / success
+  UI --> User : Open home screen
+else Invalid or expired code
+  Auth --> UI : Invalid / expired / throttled
+  UI --> User : Explain and offer controlled retry
+end
+@enduml

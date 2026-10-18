@@ -1,0 +1,29 @@
+@startuml
+!theme plain
+title Long-Running Accounting Report — Source-Based Sequence
+actor Accountant
+participant "accounting-ui" as UI
+participant "accounting-report-service" as Reports
+database "Report Artifact Store" as Store
+Accountant -> UI : Generate report
+UI -> Reports : /getReport
+Reports -> Reports : Start asynchronous job
+Reports --> UI : queueId
+loop Every 30 seconds, max 10 minutes
+ UI -> Reports : /checkReport(queueId)
+ alt Job still running
+   Reports --> UI : PENDING
+ else Job ready
+   Reports -> Store : Persist generated artifact
+   Reports --> UI : READY + report reference
+   UI --> Accountant : Download report
+ end
+end
+opt No READY by 10-minute deadline
+ UI --> Accountant : Show generation-timeout error
+end
+note bottom of Reports
+Source exercise omits authorization
+and unrelated exceptions.
+end note
+@enduml
