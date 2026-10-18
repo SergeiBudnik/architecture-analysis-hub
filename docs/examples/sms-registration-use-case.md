@@ -5,7 +5,7 @@ sidebar_position: 10
 
 # Use Case: User Registration by Phone and SMS Code
 
-**Source:** STORAGE \`USE_CASE_EXAMPLE_1.docx\` (v1.0.0, September 2025). The main and alternative paths below retain the source's intent; IDs, rate limiting and recovery clarifications are new editorial additions.
+**Source:** STORAGE `USE_CASE_EXAMPLE_1.docx` (v1.0.0, September 2025). The main and alternative paths below retain the source's intent; IDs, rate limiting and recovery clarifications are new editorial additions.
 
 | Field | Description |
 |---|---|
