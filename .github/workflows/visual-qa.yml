@@ -19,7 +19,10 @@ jobs:
         run: |
           curl -fLsS --retry 3 https://github.com/plantuml/plantuml/releases/latest/download/plantuml.jar -o /tmp/plantuml.jar
           mkdir -p /tmp/uml-output
-          java -jar /tmp/plantuml.jar -failfast2 -tsvg -o /tmp/uml-output diagrams/*.puml
+          for diagram in diagrams/*.puml; do
+            echo "Check diagram: $diagram"
+            java -jar /tmp/plantuml.jar -failfast2 -tsvg -o /tmp/uml-output "$diagram"
+          done
           count=$(find /tmp/uml-output -name '*.svg' | wc -l)
           echo "Rendered $count PlantUML diagrams"
           test "$count" -ge 26
