@@ -21,8 +21,7 @@ jobs:
           mkdir -p /tmp/uml-output
           for diagram in diagrams/*.puml; do
             echo "Check diagram: $diagram"
-            java -jar /tmp/plantuml.jar -checkonly -verbose "$diagram"
-            java -jar /tmp/plantuml.jar -tsvg -o /tmp/uml-output "$diagram"
+            java -jar /tmp/plantuml.jar -stdrpt:1 -tsvg -o /tmp/uml-output "$diagram"
           done
           count=$(find /tmp/uml-output -name '*.svg' | wc -l)
           echo "Rendered $count PlantUML diagrams"
