@@ -5,7 +5,7 @@ sidebar_position: 9
 
 # Frontend SRS: Manage 3-D Secure Email Settings
 
-**Based on:** STORAGE \`FRONT_SRS_EXAMPLE.docx\` (2025-09-04). This public edition **generalizes the bank/card references, API paths and error codes**. It documents the application's configuration screen, **not** the full 3-D Secure protocol or ACS transaction authentication flow.
+**Based on:** STORAGE `FRONT_SRS_EXAMPLE.docx` (2025-09-04). This public edition **generalizes the bank/card references, API paths and error codes**. It documents the application's configuration screen, **not** the full 3-D Secure protocol or ACS transaction authentication flow.
 
 ## 1. Original scenario and preconditions
 
@@ -15,16 +15,16 @@ Preconditions in the source: user authenticated in a banking mobile app, selecte
 
 ## 2. UI state and initialization
 
-The source reads a card-list interface and uses its \`emailEnabled\` flag to display toggle status. The original path \`GET /card/visa/list\` has been generalized here to a synthetic example.
+The source reads a card-list interface and uses its `emailEnabled` flag to display toggle status. The original path `GET /card/visa/list` has been generalized here to a synthetic example.
 
 | Input | Initial UI state | Behavior |
 |---|---|---|
-| \`emailEnabled = false\` | Toggle off | Offer activation flow |
-| \`emailEnabled = true\` | Toggle on | Offer deactivation / change-email flow |
+| `emailEnabled = false` | Toggle off | Offer activation flow |
+| `emailEnabled = true` | Toggle on | Offer deactivation / change-email flow |
 | Card data unavailable | Loading or error | Do not guess service state |
 | Missing permissions / wrong card | Unavailable control | Explain why changes are not permitted |
 
-Illustrative public API: \`GET /v1/cards/{cardId}/security-settings\`.
+Illustrative public API: `GET /v1/cards/{cardId}/security-settings`.
 
 ## 3. Activation sequence
 
@@ -62,7 +62,7 @@ The source contains issuer-specific integer codes **16009–16013** and sample t
 
 ## 6. Sequence diagram
 
-\`\`\`mermaid
+```mermaid
 sequenceDiagram
     actor Cardholder
     participant UI as Mobile Card Settings
@@ -81,7 +81,7 @@ sequenceDiagram
        Backend-->>UI: Validation or processing error
        UI-->>Cardholder: Localized error; prior state retained
     end
-\`\`\`
+```
 
 **Related:** [Frontend SRS template](../templates/frontend-srs-template.md) and [Card Acquiring architecture](../payments/acquiring-processing.md).
 
