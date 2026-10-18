@@ -25,22 +25,22 @@ These public learning resources are **source-grounded, sanitized adaptations** o
 
 ## Release B — additional source-based documents
 
-These are currently distributed as **public editable Markdown**; their original Office binaries are not yet published.
+These source-grounded examples are available as public Markdown pages **and downloadable Word-compatible RTF editions** (editable in Microsoft Word and convertible to DOCX). The original private Word files are not published.
 
 | Source | Public example |
 |---|---|
-| `USER_STORY_EXAMPLE.docx` | [Food Delivery User Stories](user-story-examples.md) |
-| `FT_NFT_EXAMPLE.docx` (Example 1) | [Support Console FR/NFR](support-console-fr-nfr.md) |
-| `BR_EXAMPLE.docx` | [PIM, Fulfilment and Store Discovery Business Requirements](product-catalog-business-requirements.md) |
+| `USER_STORY_EXAMPLE.docx` | [Food Delivery User Stories](user-story-examples.md) · [RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/user-story-examples.rtf) |
+| `FT_NFT_EXAMPLE.docx` (Example 1) | [Support Console FR/NFR](support-console-fr-nfr.md) · [RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/support-console-fr-nfr.rtf) |
+| `BR_EXAMPLE.docx` | [PIM, Fulfilment and Store Discovery Business Requirements](product-catalog-business-requirements.md) · [RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/product-catalog-business-requirements.rtf) |
 
 ## Release C — Banking-focused use cases (sanitized)
 
 | Source | Public example | Editable diagram |
 |---|---|---|
-| `USE_CASE_EXAMPLE_2.docx` (61-step workflow) | [Installment Card Application](installment-card-application-use-case.md) | [PlantUML sequence](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-installment-application-sequence.puml) |
-| `BACK_SRS_EXAMPLE_2.docx` | [Card Blocking — Backend SRS](card-block-backend-srs.md) | [PlantUML sequence](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-card-block-backend-sequence.puml) |
+| `USE_CASE_EXAMPLE_2.docx` (61-step workflow) | [Installment Card Application](installment-card-application-use-case.md) · [RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/installment-card-application-use-case.rtf) | [PlantUML sequence](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-installment-application-sequence.puml) |
+| `BACK_SRS_EXAMPLE_2.docx` | [Card Blocking — Backend SRS](card-block-backend-srs.md) · [RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/card-block-backend-srs.rtf) | [PlantUML sequence](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-card-block-backend-sequence.puml) |
 
-These examples abstract bank-specific internal names and response dictionaries. The original Word documents have **not** been reproduced or made downloadable.
+These examples abstract bank-specific internal names and response dictionaries. These RTF versions are separate, editable **sanitized public editions**. The original Word documents have **not** been uploaded.
 
 ## Previously adapted materials
 
