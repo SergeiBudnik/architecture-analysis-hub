@@ -45,6 +45,19 @@ jobs:
           count=$(find /tmp/docx-previews -name '*.png' | wc -l)
           echo "Total rendered Word pages: $count"
           test "$count" -ge 16
+      - name: Render all editable RTF files
+        run: |
+          mkdir -p /tmp/rtf-pdfs /tmp/rtf-previews
+          libreoffice -env:UserInstallation=file:///tmp/lo_rtf_qa_profile --headless --convert-to pdf --outdir /tmp/rtf-pdfs static/downloads/*.rtf static/editable/*.rtf
+          count=$(find /tmp/rtf-pdfs -name '*.pdf' | wc -l)
+          echo "RTF documents rendered to PDF: $count"
+          test "$count" -ge 20
+          for file in /tmp/rtf-pdfs/*.pdf; do
+            name=$(basename "$file" .pdf)
+            pdfinfo "$file" | grep -E '^Pages:'
+            pdftoppm -f 1 -singlefile -scale-to 1100 -png "$file" "/tmp/rtf-previews/$name" >/dev/null 2>&1
+          done
+          test "$(find /tmp/rtf-previews -name '*.png' | wc -l)" -ge 20
       - name: Upload render previews
         if: always()
         uses: actions/upload-artifact@v4
@@ -53,4 +66,5 @@ jobs:
           path: |
             /tmp/uml-output/*.svg
             /tmp/docx-previews/*.png
+            /tmp/rtf-previews/*.png
           if-no-files-found: warn
