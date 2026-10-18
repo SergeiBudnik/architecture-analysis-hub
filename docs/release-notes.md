@@ -5,6 +5,15 @@ sidebar_position: 6
 
 # Release Notes
 
+## 2026-10-18 — Stage 6: structural, render and publication QA
+
+- Verified **44** source inventory entries and checked **484** Markdown/self-hosted links.
+- Compiled and inspected all **26** PlantUML source diagrams; corrected sequence notation and participant/note syntax.
+- Rendered **8 DOCX (16 pages)** and **21 RTF (31 pages)**; reviewed image previews.
+- Added automated public-download, XML, spreadsheet, Office and Docusaurus build checks.
+- Updated license coverage for separately reviewed editable public editions.
+- Published the [Stage-6 QA Report](quality-assurance.md), including minor sparse-page issues and native editor checks still to be completed.
+
 ## 2026-10-18 — Stage 5: source coverage and API design expansion
 
 - Expanded the previously short `API_PARAMETERIZATION.docx` adaptation into **all ten source problem categories**, with explicit source alternatives, pros/cons, API validation checklist and newly authored OpenAPI 3.1 reference example.
