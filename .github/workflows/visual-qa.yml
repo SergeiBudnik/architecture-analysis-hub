@@ -55,9 +55,11 @@ jobs:
           for file in /tmp/rtf-pdfs/*.pdf; do
             name=$(basename "$file" .pdf)
             pdfinfo "$file" | grep -E '^Pages:'
-            pdftoppm -f 1 -singlefile -scale-to 1100 -png "$file" "/tmp/rtf-previews/$name" >/dev/null 2>&1
+            pdftoppm -scale-to 1100 -png "$file" "/tmp/rtf-previews/$name" >/dev/null 2>&1
           done
-          test "$(find /tmp/rtf-previews -name '*.png' | wc -l)" -ge 20
+          rtfpages=$(find /tmp/rtf-previews -name '*.png' | wc -l)
+          echo "Total rendered RTF pages: $rtfpages"
+          test "$rtfpages" -ge 21
       - name: Upload render previews
         if: always()
         uses: actions/upload-artifact@v4
