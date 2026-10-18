@@ -25,9 +25,9 @@ Status meanings:
 | `USER_STORY_TEMPLATE.xlsx` | Reviewed public XLSX and CSV editions | [Open](templates/user-story-excel-download.md) |
 | `USE_CASE_TEMPLATE.docx` | Adapted | [Open](templates/use-case-template.md) |
 | `FT_NFT_EXAMPLE.docx` | Both original examples adapted | [Open](examples/food-delivery-functional-nonfunctional.md) |
-| `BPMN_FAQ.docx` | Review third-party text | [Open](source-publication-roadmap.md) |
+| `BPMN_FAQ.docx` | Independent replacement (vendor prose excluded) | [Open](architecture/bpmn-practical-faq.md) |
 | `LIBRARY_OVERVIEW.docx` | Concepts covered | [Open](intro.md) |
-| `VERSIONING_POLICY.docx` | Pending dedicated edition | [Open](source-publication-roadmap.md) |
+| `VERSIONING_POLICY.docx` | Source-structured public edition | [Open](library-versioning.md) |
 | `USE_CASES.USER_STORIES_FAQ.docx` | Adapted | [Open](templates/user-story-template.md) |
 | `BRD_EXAMPLE.docx` | Adapted | [Open](examples/travel-platform-brd.md) |
 | `SEQUENCE_FAQ.docx` | Adapted | [Open](templates/sequence-diagram-guide.md) |
@@ -52,10 +52,10 @@ Status meanings:
 | `API_EXAMPLE.docx` | Adapted both operations | [Open](examples/employee-bulk-update-api.md) |
 | `FRONT_SRS_EXAMPLE.docx` | Adapted with DOCX | [Open](examples/3ds-settings-frontend.md) |
 | `SRS_EXAMPLE_2.docx` | Adapted with DOCX | [Open](examples/travel-platform-srs.md) |
-| `HOW_TO_USE.docx` | Concepts covered | [Open](intro.md) |
+| `HOW_TO_USE.docx` | Source-structured public edition | [Open](library-how-to-use.md) |
 | `HIGH _LEVEL_ARCITECTURE_EXAMPLE_2.docx` | Adapted with native DOCX | [Open](editable-source-diagrams.md) |
 | `SRS_INTEGRATION_FAQ.docx` | Adapted | [Open](templates/integration-specification.md) |
-| `API_PARAMETERIZATION.docx` | Partially adapted (guide) | [Open](architecture/api-design-patterns.md) |
+| `API_PARAMETERIZATION.docx` | All 10 problem categories adapted; new examples labelled | [Open](architecture/api-design-patterns.md) |
 | `SRS_EXAMPLE_1.docx` | Adapted with DOCX | [Open](examples/food-delivery-srs.md) |
 | `DATABASE_DESIGN_TEMPLATE.docx` | Adapted | [Open](templates/database-design-template.md) |
 | `BPMN_EXAMPLE_1.vsdx` | Adapted Draw.io edition | [Open](editable-source-diagrams.md) |
@@ -64,11 +64,11 @@ Status meanings:
 
 ## Next publication batches
 
-**Batch D:** Completed source-based Excel-compatible CSV, independently rewritten Database Design FAQ, extended SRS Template 1, both remaining sequence diagrams and the second FR/NFR example. A styled native XLSX file is prepared outside the public GitHub site.
+**Batch D:** Completed source-based Excel-compatible CSV, independently rewritten Database Design FAQ, extended SRS Template 1, both remaining sequence diagrams and the second FR/NFR example. The native XLSX is published alongside CSV.
 
-**Batch E:** Expanded API parameterization documentation, remaining visual sequence verification and source-to-public mapping audit.
+**Batch E (content):** Ten-problem API guide, source-based versioning/how-to and independent BPMN FAQ completed. Remaining work is visual validation and source-to-public link/rights audit.
 
-**Batch F:** Final source-to-public quality audit: visual DOCX/Draw.io/BPMN QA, link checking, consistent release and attribution, no client secrets, and clear license scope.
+**Batch F:** Automated artifact validation, site-link audit and manual rendering/sample verification of DOCX/Draw.io/BPMN/PlantUML; any unresolved quality checks must be reported explicitly.
 
 Publishing an adapted learning resource **does not assert that a client project was implemented** and does not by itself prove independent external adoption for Global Talent OC2.
 

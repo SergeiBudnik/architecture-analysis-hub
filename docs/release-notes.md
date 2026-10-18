@@ -5,6 +5,13 @@ sidebar_position: 6
 
 # Release Notes
 
+## 2026-10-18 — Stage 5: source coverage and API design expansion
+
+- Expanded the previously short `API_PARAMETERIZATION.docx` adaptation into **all ten source problem categories**, with explicit source alternatives, pros/cons, API validation checklist and newly authored OpenAPI 3.1 reference example.
+- Added source-structured [Versioning Policy](library-versioning.md) and [How to Use](library-how-to-use.md).
+- Added an independently rewritten [BPMN FAQ](architecture/bpmn-practical-faq.md); the original Visual Paradigm material is **not republished or covered by CC BY**.
+- Updated the 44-source inventory to distinguish complete concept coverage from public reproductions.
+
 ## 2026-10-18 — Release D linked and downloadable
 
 - Added a source-based download index for extended SRS, Database Design FAQ, complete Food Delivery FR/NFR and both additional sequences.

@@ -27,6 +27,10 @@ RTF files can be edited in Microsoft Word or LibreOffice and saved as DOCX.
 - [Complete Food Delivery FR/NFR — Example 2](examples/food-delivery-functional-nonfunctional.md): original requirements IDs and metrics, [editable RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/food-delivery-fr-nfr-public.rtf).
 - [Apple Pay Provisioning Sequence](examples/apple-pay-provisioning-sequence.md) and [Kafka Fraud + Signature Sequence](examples/antifraud-kafka-signing-sequence.md): editable PlantUML and Word-compatible downloads.
 
+## Complete API Design guide — source-derived
+
+The original `API_PARAMETERIZATION.docx` has ten design problems. All ten are now in the [expanded practical guide](architecture/api-design-patterns.md), with a [Word-compatible RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/api-parameterization-public.rtf) and [fictional OpenAPI 3.1 JSON contract](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/payment-intents-reference-openapi.json).
+
 ## New: Full-stack SRS, Database Design and FR/NFR
 
 - [Full-Stack SRS Template 1](templates/full-stack-srs-outline.md) — [Download editable RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/full-stack-srs-template-public.rtf)

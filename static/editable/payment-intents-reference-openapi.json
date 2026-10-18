@@ -1,0 +1,234 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Educational Payment Intent Orchestration API",
+    "version": "1.0.0",
+    "description": "New fictional design example accompanying Sergei Budnik's API design guide. Not a banking, Visa/Mastercard or payment-provider contract."
+  },
+  "servers": [
+    {
+      "url": "https://api.example.invalid"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/payment-intents": {
+      "post": {
+        "operationId": "createPaymentIntent",
+        "summary": "Create a payment intent using a scoped idempotency key",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "description": "Unique merchant-scoped operation key; equivalent retries return existing operation outcome.",
+            "schema": {
+              "type": "string",
+              "minLength": 10,
+              "maxLength": 128
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePaymentIntentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted; result may not be final.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Operation resource"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntent"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiProblem"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "409": {
+            "description": "Conflicting idempotency key or state transition",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiProblem"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          },
+          "500": {
+            "description": "Temporary server problem"
+          }
+        }
+      }
+    },
+    "/payment-intents/{intentId}": {
+      "get": {
+        "operationId": "getPaymentIntent",
+        "summary": "Get authoritative intent status within merchant scope",
+        "parameters": [
+          {
+            "name": "intentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current status",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntent"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found or not accessible"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "CreatePaymentIntentRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "merchantOrderId",
+          "amountMinor",
+          "currency"
+        ],
+        "properties": {
+          "merchantOrderId": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "amountMinor": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "currency": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$"
+          }
+        },
+        "examples": [
+          {
+            "merchantOrderId": "ORDER-DEMO-101",
+            "amountMinor": 1500,
+            "currency": "EUR"
+          }
+        ]
+      },
+      "PaymentIntent": {
+        "type": "object",
+        "required": [
+          "intentId",
+          "status",
+          "amountMinor",
+          "currency"
+        ],
+        "properties": {
+          "intentId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "CREATED",
+              "PENDING",
+              "SUCCEEDED",
+              "DECLINED",
+              "CANCELLED",
+              "UNKNOWN"
+            ]
+          },
+          "amountMinor": {
+            "type": "integer"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "providerReference": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Opaque correlation; no card data."
+          }
+        }
+      },
+      "ApiProblem": {
+        "type": "object",
+        "required": [
+          "type",
+          "title",
+          "status"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "format": "uri"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "correlationId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

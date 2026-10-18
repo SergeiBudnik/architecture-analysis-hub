@@ -1,0 +1,110 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0 Arial;}{\f1 Consolas;}}\paperw11906\paperh16838\margl960\margr960\margt920\margb920
+\pard\sb180\sa160\b\fs34 REST API Design: Ten Recurring Design Problems\b0\f0\par
+\pard\sa95\fs19 Source basis: Sergei Budnik, API_PARAMETERIZATION.docx, STORAGE v1.0.0, 4 September 2025. The private source contains 10 numbered problems with alternative solutions, pros, cons and final implementation recommendations. This expanded public edition preserves that same problem order and trade-off framing. New security, payment-recovery and concrete OpenAPI illustrations are explicitly identified as additions. No historical production interface is claimed.\b0\f0\par
+\pard\sb170\sa115\b\fs26 1. Chaotic structure and endpoint naming\b0\f0\par
+\pard\sa95\fs19 Source problem: Paths such as /getUsers, /addNewPost and /user/12-3/updateEmail mix verbs, singular/plural naming and business actions, making an API harder to predict.\b0\f0\par
+\pard\sa70\fs17 Source alternative  |  What it solves  |  Trade-off\b0\f0\par
+\pard\sa70\fs17 A \u8212? Resource-oriented  |  GET /users/\{id\}, POST /users; nouns and standard HTTP methods  |  Complex commands may not fit ordinary CRUD\b0\f0\par
+\pard\sa70\fs17 B \u8212? Verb/RPC-oriented  |  POST /users/\{id\}/activate exposes a named action  |  Uncontrolled growth of unique methods\b0\f0\par
+\pard\sa70\fs17 Hybrid  |  Default to resources, allow carefully agreed command routes  |  Requires consistent team guidelines\b0\f0\par
+\pard\sa95\fs19 Recommendation derived from source: Prefer stable resource names, with narrowly scoped command endpoints where a real domain operation is not naturally CRUD.\b0\f0\par
+\pard\sb170\sa115\b\fs26 2. Too much or too little response data\b0\f0\par
+\pard\sa95\fs19 Source problem: Returning every field over-fetches; forcing one request per related resource causes N+1 HTTP calls.\b0\f0\par
+\pard\sa70\fs17 Source option  |  Example  |  Benefit  |  Cost\b0\f0\par
+\pard\sa70\fs17 Sparse field selection  |  GET /users?fields=id,name  |  Smaller payload  |  Complex projection rules and query risk\b0\f0\par
+\pard\sa70\fs17 Embedding related resources  |  GET /posts?embed=author,comments  |  Fewer requests  |  Larger responses and expensive joins\b0\f0\par
+\pard\sa70\fs17 Predefined views  |  GET /users?view=summary  |  Server-optimized representation  |  Less client flexibility\b0\f0\par
+\pard\sa95\fs19 New implementation controls: Enforce an allow-list of selectable fields, response size budget, maximum embedding depth and authorization on embedded data. Field selection must not bypass row or field-level access checks.\b0\f0\par
+\pard\sb170\sa115\b\fs26 3. Large collections and pagination\b0\f0\par
+\pard\sa95\fs19 Source options: limit/offset for simplicity/random access versus keyset (cursor) pagination for large and changing collections.\b0\f0\par
+\pard\sa70\fs17 Mechanism  |  Strength  |  Failure mode / limitation\b0\f0\par
+\pard\sa70\fs17 ?limit=50&offset=5000  |  Easy page navigation  |  Costly large offsets and list instability under inserts\b0\f0\par
+\pard\sa70\fs17 ?limit=50&after_id=54321  |  Scalable and stable for a supported sort  |  Requires stable indexed ordering; opaque cursor may be preferable\b0\f0\par
+\pard\sa95\fs19 New implementation controls: Maximum page size, deterministic tie-breaker sorting (created_at + id), cursor validation, tenant-bound queries, and documented behavior under deletions.\b0\f0\par
+\pard\sb170\sa115\b\fs26 4. Evolving APIs without breaking consumers\b0\f0\par
+\pard\sa95\fs19 Source alternatives: URL version (/v1/users), header/negotiated version, and backward-compatible evolution.\b0\f0\par
+\pard\sa70\fs17 Approach  |  Advantage  |  Cost\b0\f0\par
+\pard\sa70\fs17 URL path version  |  Visible and simple to route  |  Coexisting versions and migration overhead\b0\f0\par
+\pard\sa70\fs17 Header/media-type version  |  Keeps resource URI stable  |  Less obvious to troubleshoot\b0\f0\par
+\pard\sa70\fs17 Backward-compatible fields  |  Reduces unnecessary version churn  |  Requires strict compatibility discipline\b0\f0\par
+\pard\sa95\fs19 New reviewer checklist: Define what counts as breaking (required request field, removed enum, changed monetary semantics, auth change); publish deprecation timing; test against representative client contracts.\b0\f0\par
+\pard\sb170\sa115\b\fs26 5. Error handling\b0\f0\par
+\pard\sa95\fs19 Source solution: A standardized JSON error object, rather than inconsistent error strings or transport-only statuses.\b0\f0\par
+\pard\sa95\fs19 A newly authored, provider-neutral example based on the source pattern:\b0\f0\par
+\pard\li180\sa40\f1\fs17 \{\b0\f0\par
+\pard\li180\sa40\f1\fs17 "type": "https://example.invalid/problems/validation",\b0\f0\par
+\pard\li180\sa40\f1\fs17 "title": "Invalid request",\b0\f0\par
+\pard\li180\sa40\f1\fs17 "status": 422,\b0\f0\par
+\pard\li180\sa40\f1\fs17 "detail": "The supplied currency is unsupported",\b0\f0\par
+\pard\li180\sa40\f1\fs17 "instance": "/payment-intents/attempt-123",\b0\f0\par
+\pard\li180\sa40\f1\fs17 "correlationId": "demo-correlation-001"\b0\f0\par
+\pard\li180\sa40\f1\fs17 \}\b0\f0\par
+\pard\sa95\fs19 New recommendation: Consider RFC 9457 Problem Details or a documented equivalent; separate validation errors, business refusals, transient technical failure and unknown post-dispatch outcomes. Never expose internal stack traces, tokens or personal data.\b0\f0\par
+\pard\sb170\sa115\b\fs26 6. Non-atomic operations\b0\f0\par
+\pard\sa95\fs19 Source issue: A cross-service operation cannot simply be assumed to commit atomically across independently managed systems.\b0\f0\par
+\pard\sa70\fs17 Source solution  |  Good fit  |  Trade-off\b0\f0\par
+\pard\sa70\fs17 Transaction resource / tracked workflow  |  Visible lifecycle with a single status endpoint  |  Requires orchestration and durable state\b0\f0\par
+\pard\sa70\fs17 Saga  |  Distributed steps with compensations  |  Compensation can fail or differ from a true rollback\b0\f0\par
+\pard\sa95\fs19 New payment-specific qualification: A completed external payment is not rolled back by merely reverting a local database row; reversal/refund is a separate business operation with its own finality and reconciliation rules.\b0\f0\par
+\pard\sb170\sa115\b\fs26 7. Long-running asynchronous operations\b0\f0\par
+\pard\sa95\fs19 Source alternatives:\b0\f0\par
+\pard\sa95\fs19 \u8226? 202 Accepted + Task resource: start work and poll an operation status.\b0\f0\par
+\pard\sa95\fs19 \u8226? Webhooks: downstream async notification; authentication and retries needed.\b0\f0\par
+\pard\sa95\fs19 \u8226? WebSockets / Server-Sent Events: server pushes progress to active clients.\b0\f0\par
+\pard\sa95\fs19 New synthetic example:\b0\f0\par
+\pard\li180\sa40\f1\fs17 POST /report-jobs\b0\f0\par
+\pard\li180\sa40\f1\fs17 HTTP/1.1 202 Accepted\b0\f0\par
+\pard\li180\sa40\f1\fs17 Location: /report-jobs/job-2026-001\b0\f0\par
+\pard\li180\sa40\f1\fs17 Retry-After: 10\b0\f0\par
+\pard\sa95\fs19 Client polls GET /report-jobs/job-2026-001 until a terminal state. Define QUEUED, RUNNING, SUCCEEDED, FAILED and expiration.\b0\f0\par
+\pard\sa95\fs19 New recovery controls: Durable queueing, access-scoped status URLs, non-guessable IDs, callback signature verification, bounded retries and dead-letter review.\b0\f0\par
+\pard\sb170\sa115\b\fs26 8. Idempotency and retry safety\b0\f0\par
+\pard\sa95\fs19 Source solutions: Client-provided Idempotency-Key for retryable commands, plus server-enforced unique business keys where appropriate.\b0\f0\par
+\pard\sa95\fs19 New engineering recipe for payment initiation:\b0\f0\par
+\pard\sa95\fs19 1. Define scope: e.g. merchant + operation type + idempotency key.\b0\f0\par
+\pard\sa95\fs19 2. Store a hash of the normalized, non-sensitive request and current outcome.\b0\f0\par
+\pard\sa95\fs19 3. Reject reuse of the same key with materially different parameters.\b0\f0\par
+\pard\sa95\fs19 4. Prevent concurrent duplicate dispatch via durable unique claim/lock.\b0\f0\par
+\pard\sa95\fs19 5. On timeout after dispatch, keep an unknown state and inquire with the provider; never assume DECLINED.\b0\f0\par
+\pard\sa95\fs19 6. Return stored confirmed outcome for equivalent subsequent retries and define key expiry.\b0\f0\par
+\pard\sa95\fs19 Source boundary: The storage algorithm above is a modern payment-reliability expansion, not a verbatim algorithm from the original ten-problem guide.\b0\f0\par
+\pard\sb170\sa115\b\fs26 9. Managing complex data graphs\b0\f0\par
+\pard\sa95\fs19 Source alternatives: GraphQL facade, JSON:API/OData, and Backend for Frontend (BFF) for channel-oriented representations.\b0\f0\par
+\pard\sa70\fs17 Option  |  Advantage  |  Risk\b0\f0\par
+\pard\sa70\fs17 GraphQL facade  |  Client selects graph fields  |  Query depth, cost, authorization and caching\b0\f0\par
+\pard\sa70\fs17 JSON:API / OData  |  Standardized query and relationship semantics  |  Additional protocol complexity\b0\f0\par
+\pard\sa70\fs17 BFF  |  Tailored representation per web/mobile channel  |  Service maintenance and logic duplication\b0\f0\par
+\pard\sa95\fs19 New review control: Enforce query cost/complexity budgets and consistent field-level access across nested resources.\b0\f0\par
+\pard\sb170\sa115\b\fs26 10. Bulk operations\b0\f0\par
+\pard\sa95\fs19 Source alternatives: A single batch endpoint (synchronous) and asynchronous batch processing for large workloads.\b0\f0\par
+\pard\sa95\fs19 Example:\b0\f0\par
+\pard\li180\sa40\f1\fs17 PATCH /employees/bulk-update\b0\f0\par
+\pard\li180\sa40\f1\fs17 Content-Type: application/json\b0\f0\par
+\pard\li180\sa40\f1\fs17 \{\b0\f0\par
+\pard\li180\sa40\f1\fs17 "employees": [\b0\f0\par
+\pard\li180\sa40\f1\fs17 \{"id": "EMP-101", "department": "Operations"\},\b0\f0\par
+\pard\li180\sa40\f1\fs17 \{"id": "EMP-102", "department": "Support"\}\b0\f0\par
+\pard\li180\sa40\f1\fs17 ]\b0\f0\par
+\pard\li180\sa40\f1\fs17 \}\b0\f0\par
+\pard\sa95\fs19 Source trade-off: Partial success needs per-item outcomes; the original mentions HTTP 207 Multi-Status. New qualification: 207 is one possible contract choice, originally defined for WebDAV; it is not a universal requirement for bulk REST operations. HTTP 200/202 with explicit item outcomes is also defensible if clearly specified.\b0\f0\par
+\pard\sa95\fs19 For large jobs, return 202 plus a correlation/task identifier and include durable per-item status, restart and result retention policies.\b0\f0\par
+\pard\sb170\sa115\b\fs26 Cross-cutting source conclusions\b0\f0\par
+\pard\sa95\fs19 The source's closing recommendations emphasize API as a developer product, security by default, documentation, HTTP caching (Cache-Control, ETag, Last-Modified), rate limiting, observability and designing for high-load mobile use.\b0\f0\par
+\pard\sb120\sa90\b\fs22 New API review checklist\b0\f0\par
+\pard\sa95\fs19 \u8226? [ ] Resources and command names follow agreed conventions.\b0\f0\par
+\pard\sa95\fs19 \u8226? [ ] Each request, response, filter, cursor and conditional field is specified.\b0\f0\par
+\pard\sa95\fs19 \u8226? [ ] Authentication, authorization, data exposure and tenant isolation are explicit.\b0\f0\par
+\pard\sa95\fs19 \u8226? [ ] Idempotent operations and ambiguous provider outcomes have a recovery contract.\b0\f0\par
+\pard\sa95\fs19 \u8226? [ ] 429, timeout, validation, retry, and terminal business refusal semantics are distinct.\b0\f0\par
+\pard\sa95\fs19 \u8226? [ ] Partial/bulk processing specifies per-item atomicity and error aggregation.\b0\f0\par
+\pard\sa95\fs19 \u8226? [ ] Webhooks are authenticated, replay-safe and observable.\b0\f0\par
+\pard\sa95\fs19 \u8226? [ ] OpenAPI schemas and example payloads are validated in CI.\b0\f0\par
+\pard\sa95\fs19 \u8226? [ ] Breaking changes have a migration/deprecation policy.\b0\f0\par
+\pard\sa95\fs19 \u8226? [ ] Non-functional requirements specify measurable latency, throughput and availability.\b0\f0\par
+\pard\sb170\sa115\b\fs26 Downloadable reference\b0\f0\par
+\pard\sa95\fs19 \u8226? Editable API parameterization guide (RTF)\b0\f0\par
+\pard\sa95\fs19 \u8226? OpenAPI 3.1 payment-intent reference JSON (new, fictional educational contract)\b0\f0\par
+\pard\sa95\fs19 \u8226? Employee Bulk Update API, Async Report Sequence, Payment State Machine.\b0\f0\par
+\pard\sa95\fs19 Public adaptation, CC BY 4.0. No bank- or scheme-specific interface is represented as authoritative. Original source file remains private.\b0\f0\par
+\pard\sb180\fs17 Sergei Budnik | Public learning edition | CC BY 4.0\par
+}
