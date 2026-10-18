@@ -5,7 +5,7 @@ sidebar_position: 7
 
 # Software Requirements Specification: Travel Booking Platform
 
-**Source:** Sergei Budnik, \`SRS_EXAMPLE_2.docx\` (STORAGE v1.0.0, 2025-09-04). **Public edition:** October 2026. This document preserves the original requirements categories and their sample targets. It is a **fictional educational specification**, not a deployed booking system or an SLA commitment.
+**Source:** Sergei Budnik, `SRS_EXAMPLE_2.docx` (STORAGE v1.0.0, 2025-09-04). **Public edition:** October 2026. This document preserves the original requirements categories and their sample targets. It is a **fictional educational specification**, not a deployed booking system or an SLA commitment.
 
 ## 1. Introduction
 
