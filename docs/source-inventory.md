@@ -17,11 +17,11 @@ Status meanings:
 
 | Original source file | Publication status | Public resource / next step |
 |---|---|---|
-| `BPMN_EXAMPLE_3.bpmn` | Adapted | [Open](../editable-source-diagrams.md) |
-| `ANALYSIS_STORAGE.txt` | Metadata only | [Open](../source-publication-roadmap.md) |
-| `DIAGRAMS_EXAMPLE_1.drawio` | Adapted | [Open](../editable-source-diagrams.md) |
+| `BPMN_EXAMPLE_3.bpmn` | Adapted | [Open](editable-source-diagrams.md) |
+| `ANALYSIS_STORAGE.txt` | Metadata only | [Open](source-publication-roadmap.md) |
+| `DIAGRAMS_EXAMPLE_1.drawio` | Adapted | [Open](editable-source-diagrams.md) |
 | `USE_CASE_EXAMPLE_2.docx` | Adapted | [Open](examples/installment-card-application-use-case.md) |
-| `DIAGRAMS_EXAMPLE_2.drawio` | Adapted | [Open](../editable-source-diagrams.md) |
+| `DIAGRAMS_EXAMPLE_2.drawio` | Adapted | [Open](editable-source-diagrams.md) |
 | `USER_STORY_TEMPLATE.xlsx` | Pending native XLSX | [Open](templates/user-story-template.md) |
 | `USE_CASE_TEMPLATE.docx` | Adapted | [Open](templates/use-case-template.md) |
 | `FT_NFT_EXAMPLE.docx` | Partially adapted (Example 1) | [Open](examples/support-console-fr-nfr.md) |
