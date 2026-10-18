@@ -1,0 +1,49 @@
+name: "Resource feedback or technical correction"
+description: "Report a specific issue or propose a useful improvement to a public template, guide, or diagram."
+title: "[Feedback] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve this free technical library. Share only public or non-confidential examples; never upload employer/customer information, secrets, card data, or restricted specifications.
+  - type: input
+    id: resource
+    attributes:
+      label: "Resource or diagram link"
+      description: "Which page or downloadable file should we review?"
+      placeholder: "https://sergeibudnik.github.io/architecture-analysis-hub/docs/..."
+    validations:
+      required: true
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: "What kind of feedback is this?"
+      options:
+        - "Technical inaccuracy"
+        - "Ambiguous explanation"
+        - "Broken link or formatting"
+        - "Missing failure case or decision"
+        - "Idea for a new learning example"
+    validations:
+      required: true
+  - type: textarea
+    id: observation
+    attributes:
+      label: "What should be changed?"
+      description: "Describe the exact passage, behavior or diagram element and why it matters."
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: "Suggested change (optional)"
+      description: "A corrected explanation, source reference or alternative design."
+    validations:
+      required: false
+  - type: checkboxes
+    id: disclosure
+    attributes:
+      label: "Safe to publish"
+      options:
+        - label: "I confirm this report contains no confidential or restricted third-party material."
+          required: true

@@ -1,0 +1,62 @@
+name: "Share a real use of a resource"
+description: "Optionally describe a genuine teaching, learning or architecture-review use of the library."
+title: "[Use case] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is voluntary. You can learn from and reuse the library without submitting an issue. Public GitHub issues are visible to everyone; do not disclose clients, employer-owned information, credentials, payment/card data or private project details. Your submission will not automatically be counted as verified adoption.
+  - type: input
+    id: resource
+    attributes:
+      label: "Public library resource"
+      description: "Link the exact page or editable asset that you actually used."
+      placeholder: "https://sergeibudnik.github.io/architecture-analysis-hub/docs/..."
+    validations:
+      required: true
+  - type: dropdown
+    id: context
+    attributes:
+      label: "Where was it used?"
+      options:
+        - "Classroom or professional training"
+        - "Independent learning / study"
+        - "Architecture or requirements review"
+        - "Internal team knowledge sharing"
+        - "Public article or open-source project"
+        - "Other actual use"
+    validations:
+      required: true
+  - type: textarea
+    id: actual-use
+    attributes:
+      label: "What did you use, and what was the concrete outcome?"
+      description: "A short factual summary. Do not describe only future intentions or download counts."
+      placeholder: "We used the payment-state diagram in an internal learning session to compare timeout recovery options."
+    validations:
+      required: true
+  - type: input
+    id: evidence
+    attributes:
+      label: "Optional public link"
+      description: "A public syllabus, article, PR, slide deck or other checkable reference, if available."
+    validations:
+      required: false
+  - type: dropdown
+    id: permission
+    attributes:
+      label: "May the maintainer quote this report in the public use register?"
+      description: "No entry or endorsement will be assumed without review and permission."
+      options:
+        - "No — feedback only"
+        - "Yes — anonymized factual summary only"
+        - "Yes — with my GitHub username"
+    validations:
+      required: true
+  - type: checkboxes
+    id: accuracy
+    attributes:
+      label: "Accuracy and privacy"
+      options:
+        - label: "This describes actual experience and contains no restricted or confidential information."
+          required: true
