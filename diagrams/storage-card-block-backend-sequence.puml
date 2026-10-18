@@ -6,7 +6,7 @@ participant "Mobile Banking App" as App
 participant "Card Block Service" as Block
 participant "Verification Service" as Verify
 participant "Card Processor Adapter" as Adapter
-cloud "External Card Processor" as Processor
+participant "External Card Processor" as Processor
 database "Card State / Audit Store" as Store
 Customer -> App : Choose block card
 App -> Block : Request block(cardId, reason?)
