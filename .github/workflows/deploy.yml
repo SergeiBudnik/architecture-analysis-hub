@@ -17,11 +17,15 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate public editable artifacts
         run: python3 scripts/validate_public_artifacts.py
+      - name: Audit public links, formats and source manifest
+        run: python3 scripts/quality_audit.py
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
       - run: npm install
       - run: npm run build
+      - name: Test generated public pages and downloads
+        run: python3 scripts/site_smoke.py
       - uses: actions/upload-pages-artifact@v3
         with:
           path: build
