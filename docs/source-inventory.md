@@ -66,7 +66,7 @@ Status meanings:
 
 **Batch D:** Completed source-based Excel-compatible CSV, independently rewritten Database Design FAQ, extended SRS Template 1, both remaining sequence diagrams and the second FR/NFR example. A styled native XLSX file is prepared outside the public GitHub site.
 
-**Batch E:** Remaining second example within FR/NFR exercise; additional sequence images within the source examples; expanded API design pattern coverage.
+**Batch E:** Expanded API parameterization documentation, remaining visual sequence verification and source-to-public mapping audit.
 
 **Batch F:** Final source-to-public quality audit: visual DOCX/Draw.io/BPMN QA, link checking, consistent release and attribution, no client secrets, and clear license scope.
 

@@ -57,6 +57,14 @@ Markdown sources and new RTF templates can be downloaded via the linked reposito
 | [Clearing, Settlement & Reconciliation](../payments/clearing-settlement-reconciliation.md) | Financial lifecycle, reconciliation example and four PlantUML diagrams |
 | [Event-Driven Payment Processing](../payments/event-driven-processing.md) | Kafka, transactional outbox/inbox, offsets, retry/DLQ and four PlantUML diagrams |
 
+## Extended source-derived learning materials
+
+- [Full-Stack SRS Template 1](full-stack-srs-outline.md) — BA, frontend, backend, API and DB design in one dossier.
+- [Database Design FAQ](../architecture/database-design-faq.md) — independent technical guidance based on the original topic list, without third-party promotional prose.
+- [Full Food Delivery FR/NFR](../examples/food-delivery-functional-nonfunctional.md) — complete second requirements example.
+- [User Stories editable spreadsheet (CSV)](user-story-excel-download.md) — follows the ten source columns and sample catalog-sorting story.
+- [Apple Pay card provisioning](../examples/apple-pay-provisioning-sequence.md) and [Kafka antifraud + signing](../examples/antifraud-kafka-signing-sequence.md) — additional original-source sequence exercises.
+
 ## Worked examples
 
 **New:** [Download source-based examples as DOCX](../examples/source-examples-downloads.md). The six new Word documents cover SRS, frontend, API, use case and sequence scenarios. Other adaptations are available as Markdown.

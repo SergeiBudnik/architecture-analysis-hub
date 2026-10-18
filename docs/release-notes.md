@@ -5,6 +5,13 @@ sidebar_position: 6
 
 # Release Notes
 
+## 2026-10-18 — Release D linked and downloadable
+
+- Added a source-based download index for extended SRS, Database Design FAQ, complete Food Delivery FR/NFR and both additional sequences.
+- Added five editable Word-compatible RTF public editions and two PlantUML sources.
+- Published the ten-column User Stories template as downloadable CSV; the prepared styled XLSX remains a separate, not-yet-published artifact.
+- Refreshed source inventory and diagrams catalogue, distinguishing original source facts from independent additions.
+
 ## 2026-10-18 — STORAGE batch D: SRS, database, FR/NFR, sequences and spreadsheet
 
 - Added [Extended Full-Stack SRS](templates/full-stack-srs-outline.md) based on SRS Template 1, plus editable RTF.

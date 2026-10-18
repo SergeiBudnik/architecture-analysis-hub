@@ -53,6 +53,19 @@ These examples abstract bank-specific internal names and response dictionaries. 
 | `DATABASE_DESIGN_FAQ.docx` | [Original database-design FAQ, independently rewritten](../architecture/database-design-faq.md) |
 | `USER_STORY_TEMPLATE.xlsx` | [User Stories spreadsheet](../templates/user-story-excel-download.md) · [Download CSV](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/downloads/User_Stories_Template_Public.csv) |
 
+## Release D — complete final sections and sequences
+
+| Original source | Technical documentation | Editable download |
+|---|---|---|
+| `SRS_TEMPLATE_1.docx` | [Extended full-stack SRS](../templates/full-stack-srs-outline.md) | [RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/full-stack-srs-template-public.rtf) |
+| `DATABASE_DESIGN_FAQ.docx` | [New Database Design FAQ](../architecture/database-design-faq.md) | [RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/database-design-faq-public.rtf) |
+| `FT_NFT_EXAMPLE.docx`, Example 2 | [Food Delivery complete FR/NFR](food-delivery-functional-nonfunctional.md) | [RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/food-delivery-fr-nfr-public.rtf) |
+| `SEQUENCE_EXAMPLES.docx`, Example 2 | [Apple Pay card provisioning](apple-pay-provisioning-sequence.md) | [RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/apple-pay-provisioning-public.rtf) · [PlantUML](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-wallet-card-provisioning.puml) |
+| `SEQUENCE_EXAMPLES.docx`, Example 3 | [Kafka antifraud & signature](antifraud-kafka-signing-sequence.md) | [RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/antifraud-kafka-signing-public.rtf) · [PlantUML](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-kafka-antifraud-signing.puml) |
+| `USER_STORY_TEMPLATE.xlsx` | [Source-based ten-field spreadsheet guide](../templates/user-story-excel-download.md) | [Download CSV](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/downloads/User_Stories_Template_Public.csv) |
+
+**Note:** A native XLSX public edition has been prepared separately but is not yet distributed from this repository; the CSV is the currently published Excel-compatible download.
+
 ## Previously adapted materials
 
 - [BRD Example — Travel Booking](travel-platform-brd.md)

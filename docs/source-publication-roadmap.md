@@ -84,4 +84,6 @@ Only after those checks should a **new, sanitized editable .docx/.xlsx/.drawio/.
 
 Publishing documents is not evidence that an external community has adopted them. Real usage, independently verifiable reviews, issue discussions and references must be established separately.
 
+For the new Word-compatible materials, see [Release D downloads](examples/source-examples-downloads.md). The original third-party database FAQ content was not relicensed; the public FAQ is newly written.
+
 See [Contributions](contribute.md), [License](license.md) and [Release Notes](release-notes.md).

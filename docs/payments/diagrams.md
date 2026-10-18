@@ -30,6 +30,11 @@ See the [detailed architecture case study](event-driven-processing.md) and [work
 
 Both are explicitly educational adaptations, not real customer or certified provider contract sequences.
 
+## Additional source-based sequences
+
+- [Apple Pay provisioning: wallet, tokenization and issuer verification](../examples/apple-pay-provisioning-sequence.md) — [editable PlantUML](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-wallet-card-provisioning.puml).
+- [Transaction analysis: Kafka, antifraud, signing and DLQ](../examples/antifraud-kafka-signing-sequence.md) — [editable PlantUML](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-kafka-antifraud-signing.puml).
+
 ## Diagram design review
 
 - Label who owns each business state.

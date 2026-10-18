@@ -15,7 +15,7 @@ A public library of **systems analysis, solution architecture and payment proces
 - [Architecture Diagram Gallery](diagram-gallery.md) — four illustrated system views with links to editable PlantUML sources.
 - [Find a Resource](/search) — quick search by title and technical topic.
 - [Full Catalogue](templates/catalogue.md) — analysis templates, guides and six adapted examples.
-- [Source-Based Examples — DOCX Downloads](examples/source-examples-downloads.md) — detailed SRS, API, use cases and sequences.
+- [Source-Based Examples — DOCX, RTF & PlantUML](examples/source-examples-downloads.md) — full SRS, API, use cases, FR/NFR and payment sequences.
 - [Source Publication Roadmap](source-publication-roadmap.md) — which original STORAGE files have been adapted and why raw files are under review.
 - [44-file Source Inventory](source-inventory.md) — publication status for every item in STORAGE.
 - [Extended SRS and Database FAQ](templates/full-stack-srs-outline.md) — source-derived full-stack documentation and separate database-design guidance.

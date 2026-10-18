@@ -9,7 +9,7 @@ This template is adapted from Sergei Budnik's original `USER_STORY_TEMPLATE.xlsx
 
 **[Download spreadsheet as CSV — opens in Excel](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/downloads/User_Stories_Template_Public.csv)**
 
-The CSV is an immediately reusable, platform-neutral table. A styled native XLSX edition with dropdowns is prepared separately; unlike CSV, XLSX can retain validation and formatting. The original source workbook with old subscriber-use notice and embedded metadata has not been uploaded.
+The CSV is an immediately reusable, platform-neutral table. A styled native XLSX edition is prepared separately but is not yet available directly from this GitHub repository; unlike CSV, XLSX retains validation and formatting. The original source workbook with old subscriber-use notice and embedded metadata has not been uploaded.
 
 ## Original spreadsheet columns
 

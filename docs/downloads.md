@@ -27,6 +27,14 @@ RTF files can be edited in Microsoft Word or LibreOffice and saved as DOCX.
 - [Complete Food Delivery FR/NFR — Example 2](examples/food-delivery-functional-nonfunctional.md): original requirements IDs and metrics, [editable RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/food-delivery-fr-nfr-public.rtf).
 - [Apple Pay Provisioning Sequence](examples/apple-pay-provisioning-sequence.md) and [Kafka Fraud + Signature Sequence](examples/antifraud-kafka-signing-sequence.md): editable PlantUML and Word-compatible downloads.
 
+## New: Full-stack SRS, Database Design and FR/NFR
+
+- [Full-Stack SRS Template 1](templates/full-stack-srs-outline.md) — [Download editable RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/full-stack-srs-template-public.rtf)
+- [Database Design FAQ](architecture/database-design-faq.md) — [Download independently written RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/database-design-faq-public.rtf)
+- [Food Delivery: complete FR/NFR Example 2](examples/food-delivery-functional-nonfunctional.md) — [Download editable RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/food-delivery-fr-nfr-public.rtf)
+- [Apple Pay provisioning sequence](examples/apple-pay-provisioning-sequence.md) and [Kafka fraud/signature sequence](examples/antifraud-kafka-signing-sequence.md): editable PlantUML and RTF descriptions
+- [User Story Spreadsheet](templates/user-story-excel-download.md): reusable ten-column CSV for Excel
+
 ## Source-based SRS, API, Use Case and Sequence downloads
 
 **Six additional native DOCX files** are ready, including both filled SRS case studies, 3-D Secure frontend requirements, SMS registration, asynchronous report generation and employee bulk-update API. Open the [Source-Based Examples Download Catalogue](examples/source-examples-downloads.md).
