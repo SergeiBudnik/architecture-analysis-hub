@@ -22,7 +22,7 @@ end
 opt No READY by 10-minute deadline
  UI --> Accountant : Show generation-timeout error
 end
-note bottom of Reports
+note over Reports
 Source exercise omits authorization
 and unrelated exceptions.
 end note
