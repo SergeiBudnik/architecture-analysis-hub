@@ -97,3 +97,5 @@ The sequence is a **supplemental explanatory diagram**, not an exact implementat
 These questions are **engineering recommendations**, not confirmed requirements from the source example.
 
 **Related:** [Integration specification](../templates/integration-specification.md) · [Sequence diagram guide](../templates/sequence-diagram-guide.md).
+
+**Second operation in this source:** [Employee Bulk Update API](employee-bulk-update-api.md) with a separate editable DOCX public example.

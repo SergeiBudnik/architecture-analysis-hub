@@ -15,6 +15,12 @@ Two original HLD examples now have **expanded, anonymized DOCX and RTF documents
 
 These are edited public versions, not identical copies of source DOCX/VSDX/DRAWIO binaries. They do not imply that all original embedded images, document comments and precise original graph geometry are releasable. The original 44 files remain in private review and are not bulk uploaded.
 
+## New releases: SRS, Use Case, Sequence, API and requirements
+
+**Release A:** [Six detailed public Word (DOCX) examples](examples/source-examples-downloads.md) for food/travel SRS, 3-D Secure frontend configuration, SMS registration, report sequence and employee bulk update, plus two original educational editable PlantUML sequences. **Release B:** public Markdown editions of user stories, a support console FR/NFR exercise and three sets of business requirement examples.
+
+All new versions are sanitized adaptations; the original 2025 binaries and unreviewed embedded assets remain private.
+
 ## Source inventory
 
 | Original format | Number of files | Status |

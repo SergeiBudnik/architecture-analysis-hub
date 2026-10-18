@@ -57,6 +57,8 @@ Markdown sources and new RTF templates can be downloaded via the linked reposito
 
 ## Worked examples
 
+**New:** [Download source-based examples as DOCX](../examples/source-examples-downloads.md). The six new Word documents cover SRS, frontend, API, use case and sequence scenarios. Other adaptations are available as Markdown.
+
 Six source-based educational examples are now public. Their original Word files have **not** been uploaded; links below lead to carefully adapted web editions.
 
 | Example | Source artifact |
@@ -64,6 +66,15 @@ Six source-based educational examples are now public. Their original Word files 
 | [Travel Booking Platform — filled BRD](../examples/travel-platform-brd.md) | `BRD_EXAMPLE.docx` |
 | [Employee XLSX Export — API specification and sequence](../examples/employee-export-api.md) | `API_EXAMPLE.docx` |
 | [Travel Plan — hotel removal backend flow](../examples/travel-plan-delete-backend.md) | `BACK_SRS_EXAMPLE_1.docx` |
+| [Travel Booking Platform — detailed SRS](../examples/travel-platform-srs.md) | `SRS_EXAMPLE_2.docx` (public DOCX) |
+| [Food Delivery Platform — detailed SRS](../examples/food-delivery-srs.md) | `SRS_EXAMPLE_1.docx` (public DOCX) |
+| [3-D Secure Email Settings — Frontend SRS](../examples/3ds-settings-frontend.md) | `FRONT_SRS_EXAMPLE.docx` (public DOCX) |
+| [SMS Registration — Use Case](../examples/sms-registration-use-case.md) | `USE_CASE_EXAMPLE_1.docx` (public DOCX) |
+| [Asynchronous Report — Sequence](../examples/async-accounting-report-sequence.md) | `SEQUENCE_EXAMPLES.docx` (Example 1; public DOCX) |
+| [Employee Bulk Update — API](../examples/employee-bulk-update-api.md) | `API_EXAMPLE.docx` (second operation; public DOCX) |
+| [Food Delivery — User Stories](../examples/user-story-examples.md) | `USER_STORY_EXAMPLE.docx` |
+| [Support Console — Functional / Non-functional](../examples/support-console-fr-nfr.md) | `FT_NFT_EXAMPLE.docx` (Example 1) |
+| [Product Catalogue — Business Requirements](../examples/product-catalog-business-requirements.md) | `BR_EXAMPLE.docx` |
 | [Service Booking Platform — HLD and component model](../examples/service-booking-hld.md) | `HIGH _LEVEL_ARCITECTURE_EXAMPLE_2.docx` (anonymized) |
 | [Food Ordering — database model and ERD](../examples/restaurant-database-design.md) | `DATABASE_DESIGN_EXAMPLE.docx` (security-corrected) |
 | [Email Notification — MQ listener and retry/DLQ](../examples/email-notification-consumer.md) | `MQ_SRS_EXAMPLE.docx` (anonymized) |

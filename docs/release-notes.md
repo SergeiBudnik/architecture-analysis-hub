@@ -5,6 +5,13 @@ sidebar_position: 6
 
 # Release Notes
 
+## 2026-10-18 — STORAGE examples released in two batches
+
+- [Batch A](examples/source-examples-downloads.md): Six source-grounded educational case studies (two SRS, 3DS frontend, SMS use case, report sequence, employee bulk-update API), all with native editable DOCX versions.
+- Published two editable PlantUML sequence diagrams for SMS registration and long-running report generation.
+- [Batch B](examples/source-examples-downloads.md): Three additional source-grounded Markdown examples covering food delivery user stories, support console FR/NFR and product-catalogue business requirements.
+- Updated the template catalogue and download index. Original private source DOCX files were not bulk uploaded; extra guidance is explicitly distinguished from original example content.
+
 ## 2026-10-17 — Editable source-derived architecture library
 
 - Published expanded, editable DOCX and Word-compatible RTF HLD documents adapted from `HIGH _LEVEL_ARCITECTURE_EXAMPLE_1.docx` and `HIGH _LEVEL_ARCITECTURE_EXAMPLE_2.docx`, preserving the original architecture document structure, component tables and numbered integration groups.

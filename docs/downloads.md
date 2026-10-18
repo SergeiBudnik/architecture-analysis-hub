@@ -19,6 +19,10 @@ RTF files can be edited in Microsoft Word or LibreOffice and saved as DOCX.
 | Database Design | [Download Database Design](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/downloads/Database_Design_Template.rtf) |
 | Event-Driven Integration | [Download Kafka / Event Integration](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/downloads/Event_Driven_Integration_Template.rtf) |
 
+## Source-based SRS, API, Use Case and Sequence downloads
+
+**Six additional native DOCX files** are ready, including both filled SRS case studies, 3-D Secure frontend requirements, SMS registration, asynchronous report generation and employee bulk-update API. Open the [Source-Based Examples Download Catalogue](examples/source-examples-downloads.md).
+
 ## Original-library HLD and BPMN public editions
 
 For two expanded **native DOCX HLD documents** (with RTF alternatives), four editable Draw.io diagrams, and a BPMN 2.0 file, open the [Editable HLD, BPMN & Diagram Sources catalogue](editable-source-diagrams.md). These are new anonymized editions based on STORAGE — not an unreviewed raw archive.
