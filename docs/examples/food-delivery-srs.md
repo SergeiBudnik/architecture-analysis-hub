@@ -5,7 +5,7 @@ sidebar_position: 8
 
 # Software Requirements Specification: Food Delivery App
 
-**Source:** \`SRS_EXAMPLE_1.docx\` from the author's STORAGE collection (v1.0.0, 2025-09-04). **Public edition:** a sanitized educational adaptation; it is not evidence of a live food-delivery business.
+**Source:** `SRS_EXAMPLE_1.docx` from the author's STORAGE collection (v1.0.0, 2025-09-04). **Public edition:** a sanitized educational adaptation; it is not evidence of a live food-delivery business.
 
 ## 1. Context and business objectives
 
