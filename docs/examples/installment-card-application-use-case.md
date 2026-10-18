@@ -5,7 +5,7 @@ sidebar_position: 17
 
 # Use Case: Applying for an Installment Card
 
-**Source:** \`USE_CASE_EXAMPLE_2.docx\`, authored STORAGE documentation (v1.0.0, September 2025). The original contains a **61-step banking application process** covering digital origination, customer/lead data, compliance checks, scoring and a branch-assisted alternative. The public version consolidates steps by business phase. **No private bank, core-system, endpoint, identity-document values or production reference numbers are reproduced.**
+**Source:** `USE_CASE_EXAMPLE_2.docx`, authored STORAGE documentation (v1.0.0, September 2025). The original contains a **61-step banking application process** covering digital origination, customer/lead data, compliance checks, scoring and a branch-assisted alternative. The public version consolidates steps by business phase. **No private bank, core-system, endpoint, identity-document values or production reference numbers are reproduced.**
 
 ## 1. Goal, scope and actors
 
@@ -29,13 +29,13 @@ The source references a specific low-code engine and card processor. The public 
 |---|---|---|
 | 1–5 | Find recent or active application | Source checks prior activity over a **30-day window** |
 | 6–7 | Show credit-card issuance terms and allowed limit | Customer selects limit, reads and accepts terms |
-| 8–14 | Find and normalize customer profile, initialise application | Missing data can trigger alternate customer data lookup; store \`NON_COMPLETE\` |
+| 8–14 | Find and normalize customer profile, initialise application | Missing data can trigger alternate customer data lookup; store `NON_COMPLETE` |
 | 15–23 | Select branch and check address, residency, age and mandatory fields | Mismatch may require supplying current address |
 | 24–34 | Create/update CRM lead and register customer in master system | Prevent duplicate cases; preserve lead reference |
 | 35–40 | Add work and repayment-card information | Apply eligibility rules to selected cards |
-| 41–45 | Initiate credit scoring/case processing | On successful request move to \`PENDING\`; failure handled separately |
+| 41–45 | Initiate credit scoring/case processing | On successful request move to `PENDING`; failure handled separately |
 
-**Status names \`NON_COMPLETE\` and \`PENDING\` are preserved from the source** and are shown here as example workflow states, not a standardized card-network state machine.
+**Status names `NON_COMPLETE` and `PENDING` are preserved from the source** and are shown here as example workflow states, not a standardized card-network state machine.
 
 ## 3. Assisted/branch application: original steps 46–61
 
