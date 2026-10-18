@@ -1,0 +1,50 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0 Arial;}{\f1 Consolas;}}\paperw11906\paperh16838\margl1080\margr1080\margt1000\margb1000
+\pard\sa180\fs17 Public educational adaptation | Sergei Budnik | CC BY 4.0\par
+\pard\sb180\sa160\b\fs31 Database Schema Design: FAQ, Modeling Choices and Review Checklist\b0\par
+\pard\sa100\fs19 Publication note: The source file DATABASE_DESIGN_FAQ.docx discusses schema types, logical/physical models, normalisation, naming and security. It also contains a section promoting Integrate.io, indicating third-party editorial material. The source prose is not republished or relicensed here. The explanations below are independently rewritten as an original educational guide.\b0\par
+\pard\sb200\sa100\b\fs25 What is a database schema?\b0\par
+\pard\sa100\fs19 A database schema specifies the structure and constraints of stored data. In a relational system it commonly defines tables, attributes, keys, types, indexes, constraints and relations between entities.\b0\par
+\pard\sb200\sa100\b\fs25 Logical versus physical schema\b0\par
+\pard\li180\sa75\fs18 Model  |  Describes  |  Review example\b0\par
+\pard\li180\sa75\fs18 Logical  |  Entities, relationships, cardinality, required information  |  Order is owned by a Customer; an Order has one or more Items\b0\par
+\pard\li180\sa75\fs18 Physical  |  Tables, data types, indexes, partitions and performance/retention mechanisms  |  food_order PK UUID; order_item.order_id FK; index on creation timestamp\b0\par
+\pard\sa100\fs19 A conceptual data model is useful before choosing a specific SQL engine. A physical design should also consider traffic, query plans, migration strategy and operational recovery.\b0\par
+\pard\sb200\sa100\b\fs25 What database schema styles are commonly discussed?\b0\par
+\pard\li180\sa75\fs18 Style  |  Typical usage  |  Limitations\b0\par
+\pard\li180\sa75\fs18 Flat  |  Small, simple tabular datasets  |  Limited entity separation\b0\par
+\pard\li180\sa75\fs18 Hierarchical  |  Tree-structured ownership  |  Difficult for cross-branch relationships\b0\par
+\pard\li180\sa75\fs18 Network  |  Explicit many-to-many record relationships  |  More complex traversal/maintenance\b0\par
+\pard\li180\sa75\fs18 Relational  |  Transactional applications, integrity  |  Schema migrations and cross-table joins\b0\par
+\pard\li180\sa75\fs18 Star  |  Analytical fact + dimensions  |  Denormalisation/ETL governance\b0\par
+\pard\li180\sa75\fs18 Snowflake  |  Normalised dimension tables in analytics  |  Extra joins and transformation complexity\b0\par
+\pard\sa100\fs19 These six categories are discussed in the original FAQ, but selection guidance is independently authored for this public edition.\b0\par
+\pard\sb200\sa100\b\fs25 How should keys and relationships be chosen?\b0\par
+\pard\li240\sa75\fs19 \u8226? Identify stable primary keys and referenced foreign keys.\b0\par
+\pard\li240\sa75\fs19 \u8226? Record relationship cardinality and optionality before writing schema.\b0\par
+\pard\li240\sa75\fs19 \u8226? Define uniqueness for business identity in a clear scope (for example merchant_id + external_reference).\b0\par
+\pard\li240\sa75\fs19 \u8226? Do not confuse a human-visible reference with a globally unique technical ID.\b0\par
+\pard\li240\sa75\fs19 \u8226? Enforce concurrency and state-transition invariants transactionally.\b0\par
+\pard\sb200\sa100\b\fs25 When is database normalization useful?\b0\par
+\pard\sa100\fs19 Normalization is a way to reduce duplicated or contradictory data by representing independently changing facts separately. For transactional systems it often simplifies updates. Denormalization may still be justified for read performance or analytic workloads if update and reconciliation ownership is explicit.\b0\par
+\pard\sb200\sa100\b\fs25 Example schema \u8212? order and payment attempt\b0\par
+\pard\li180\sa75\fs18 Entity  |  Primary key  |  Key fields  |  Relation\b0\par
+\pard\li180\sa75\fs18 Customer  |  customer_id  |  profile reference  |  One to many Orders\b0\par
+\pard\li180\sa75\fs18 FoodOrder  |  order_id  |  merchant, amountMinor, currency, status  |  Many to one Customer\b0\par
+\pard\li180\sa75\fs18 OrderItem  |  item_id  |  orderId, dishId, quantity, unitPriceMinor  |  Many to one FoodOrder\b0\par
+\pard\li180\sa75\fs18 PaymentAttempt  |  attempt_id  |  orderId, processorRef, status, version  |  Many to one FoodOrder\b0\par
+\pard\li180\sa75\fs18 ReconciliationCase  |  case_id  |  attemptId, breakReason, owner  |  Linked operational exceptions\b0\par
+\pard\sa100\fs19 All identifiers are synthetic. For card payments, do not store CVV, and avoid raw PAN by using a provider-controlled token reference and proper PCI scope review.\b0\par
+\pard\sa100\fs19 Open editable food-order ER diagram.\b0\par
+\pard\sb200\sa100\b\fs25 Naming and governance checklist\b0\par
+\pard\li240\sa75\fs19 \u8226? [ ] Use meaningful table and field names; avoid reserved words.\b0\par
+\pard\li240\sa75\fs19 \u8226? [ ] Define NULLability, uniqueness, defaults and allowed business values.\b0\par
+\pard\li240\sa75\fs19 \u8226? [ ] Specify decimal/minor-unit handling for financial values.\b0\par
+\pard\li240\sa75\fs19 \u8226? [ ] Identify PII, encryption, access rights and masking.\b0\par
+\pard\li240\sa75\fs19 \u8226? [ ] Add audit, correction, deletion and retention rules.\b0\par
+\pard\li240\sa75\fs19 \u8226? [ ] Document high-volume query access paths and indexes.\b0\par
+\pard\li240\sa75\fs19 \u8226? [ ] Review backups, recovery, migration and rollback strategy.\b0\par
+\pard\li240\sa75\fs19 \u8226? [ ] Trace schema entities back to business requirements/API contracts.\b0\par
+\pard\sb200\sa100\b\fs25 About source rights\b0\par
+\pard\sa100\fs19 The original FAQ contains recognizable vendor-authored marketing material. It is not covered by this site's CC BY declaration merely by being stored in the author's source library. Only this independently written public guide is offered under CC BY 4.0.\b0\par
+\pard\sa100\fs19 Related: Database Design Template \u183? Food Ordering Database Example.\b0\par
+}

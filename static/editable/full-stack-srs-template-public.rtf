@@ -1,0 +1,60 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0 Arial;}{\f1 Consolas;}}\paperw11906\paperh16838\margl1080\margr1080\margt1000\margb1000
+\pard\sa180\fs17 Public educational adaptation | Sergei Budnik | CC BY 4.0\par
+\pard\sb180\sa160\b\fs31 Extended SRS: From Business Process to API and Data Model\b0\par
+\pard\sa100\fs19 Source basis: SRS_TEMPLATE_1.docx (STORAGE, v1.0.0, September 2025), a structured end-to-end SRS illustrated with a food delivery service. This is a new public teaching adaptation. Original embedded images, internal test URLs and old subscriber notices are not reproduced.\b0\par
+\pard\sa100\fs19 Unlike the standard SRS template, this source includes business analysis, UI specification, microservice architecture, database design and integration contracts in one delivery package.\b0\par
+\pard\sb200\sa100\b\fs25 1. Governance and requirements context\b0\par
+\pard\li180\sa75\fs18 Original source section  |  Information to capture\b0\par
+\pard\li180\sa75\fs18 Glossary  |  Domain entities and technical terms\b0\par
+\pard\li180\sa75\fs18 History of changes  |  Version, date, owner and change description\b0\par
+\pard\li180\sa75\fs18 Stakeholders  |  RACI responsibilities for analyst, developer, product owner and tester\b0\par
+\pard\li180\sa75\fs18 Problem  |  Business pain points, target audience and current process\b0\par
+\pard\li180\sa75\fs18 Development goal  |  Value, expected capabilities and business constraints\b0\par
+\pard\li180\sa75\fs18 Product description  |  Actors, functions, external dependencies\b0\par
+\pard\li180\sa75\fs18 Business processes  |  Process steps and business decisions\b0\par
+\pard\li180\sa75\fs18 CJM  |  User journey stages and friction\b0\par
+\pard\li180\sa75\fs18 BPMN  |  As-is/to-be flows, actors, gateways and exception paths\b0\par
+\pard\li180\sa75\fs18 AS-IS / TO-BE  |  How responsibilities and outcomes change\b0\par
+\pard\sa100\fs19 Source example: The food-delivery application aims to improve customer ordering convenience, restaurant reach and order coordination.\b0\par
+\pard\sb200\sa100\b\fs25 2. Requirements specification\b0\par
+\pard\sa100\fs19 The original separates user stories, use cases, functional requirements and non-functional requirements.\b0\par
+\pard\li180\sa75\fs18 Field  |  Use\b0\par
+\pard\li180\sa75\fs18 Story ID  |  Trace to epic and acceptance criteria\b0\par
+\pard\li180\sa75\fs18 Use Case ID  |  Trigger, preconditions, success and alternative flow\b0\par
+\pard\li180\sa75\fs18 FR ID  |  Observable system behavior\b0\par
+\pard\li180\sa75\fs18 NFR ID  |  Measurable cross-cutting constraint\b0\par
+\pard\li180\sa75\fs18 Test ID  |  Verification and test ownership\b0\par
+\pard\sa100\fs19 An adapted worksheet should record ID, actor, desired behavior, validation rule, error state and acceptance evidence. The related Food Delivery SRS example includes source-grounded sample functions.\b0\par
+\pard\sb200\sa100\b\fs25 3. Frontend implementation\b0\par
+\pard\sa100\fs19 The original source explicitly includes entry points, design, screen transitions, UI description, user interactions and caching.\b0\par
+\pard\li180\sa75\fs18 Screen / interaction  |  Data & action  |  Exception / verification\b0\par
+\pard\li180\sa75\fs18 Restaurant listing  |  Search and filter list; select restaurant  |  Empty/loading/error; search pagination\b0\par
+\pard\li180\sa75\fs18 Restaurant page  |  View menu and open dish details  |  Dish unavailable or changed\b0\par
+\pard\li180\sa75\fs18 Basket  |  Quantity changes and recalculated total  |  Price changed / duplicate tap\b0\par
+\pard\li180\sa75\fs18 Checkout  |  Start payment with selected method  |  UNKNOWN outcome and status recovery\b0\par
+\pard\sa100\fs19 The last column is additional design-review guidance, not a direct copy of source text.\b0\par
+\pard\sb200\sa100\b\fs25 4. Backend implementation\b0\par
+\pard\sa100\fs19 Original headings include Architecture (C4), Microservices, DB, ER diagram, Description of tables and fields, Database and API mapping, Sequence diagram, API and Message queue.\b0\par
+\pard\sa100\fs19 The source includes a conceptual delivery microservice responsible for order, restaurant and support workflows. The public edition makes ownership boundaries explicit; it does not claim they were independently deployed.\b0\par
+\pard\sb150\sa100\b\fs22 Component specification table\b0\par
+\pard\li180\sa75\fs18 Component  |  Owns  |  Interfaces\b0\par
+\pard\li180\sa75\fs18 Merchant Catalog  |  Restaurant and dish read model  |  REST / database\b0\par
+\pard\li180\sa75\fs18 Order Service  |  Commercial order, status changes  |  REST / outbox\b0\par
+\pard\li180\sa75\fs18 Payment Adapter  |  Processor interaction and status enquiry  |  Provider API\b0\par
+\pard\li180\sa75\fs18 Courier Dispatch  |  Delivery assignment and courier state  |  Event / REST\b0\par
+\pard\li180\sa75\fs18 Notification Consumer  |  Customer status messages  |  Queue / provider\b0\par
+\pard\li180\sa75\fs18 Reconciliation  |  External payment status/financial alignment  |  File/event\b0\par
+\pard\sa100\fs19 Source basis: UI and backend section categories, order/courier roles, data-to-API mapping and queue concepts. New additions: distinct payment/reconciliation ownership and resilient integration controls.\b0\par
+\pard\sb200\sa100\b\fs25 5. Status & role models\b0\par
+\pard\sa100\fs19 The source's example includes role permissions for Client, Courier and Technical Support Employee. The status model must reject unsupported direct jumps (for example, New \u8594? Delivered).\b0\par
+\pard\sa100\fs19 A new implementation should explicitly define permitted transitions, reason codes, transactional state ownership and role checks.\b0\par
+\pard\li240\sa75\fs19 \u8226? Editable payment/outcome state reference\b0\par
+\pard\li240\sa75\fs19 \u8226? Source-based Food Delivery SRS\b0\par
+\pard\li240\sa75\fs19 \u8226? Food Delivery BPMN\b0\par
+\pard\sb200\sa100\b\fs25 6. Template 1 vs Template 2\b0\par
+\pard\li180\sa75\fs18 SRS Template 1  |  SRS Template 2\b0\par
+\pard\li180\sa75\fs18 Full-stack BA \u8594? HLD \u8594? UI \u8594? backend implementation  |  Formal specification organized by quality categories\b0\par
+\pard\li180\sa75\fs18 CJM, BPMN, AS-IS/TO-BE, C4, ER, API and MQ  |  Functional, usability, reliability, performance, supportability\b0\par
+\pard\li180\sa75\fs18 Practical integrated delivery dossier  |  Formal cross-functional requirements baseline\b0\par
+\pard\sa100\fs19 Related: Download templates \u183? License. This page is an authored synthesis of the source structure with additions clearly identified.\b0\par
+}

@@ -1,0 +1,81 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0 Arial;}{\f1 Consolas;}}\paperw11906\paperh16838\margl1080\margr1080\margt1000\margb1000
+\pard\sa180\fs17 Public educational adaptation | Sergei Budnik | CC BY 4.0\par
+\pard\sb180\sa160\b\fs31 Food Delivery Marketplace: Functional and Non-Functional Requirements\b0\par
+\pard\sa100\fs19 Source: FT_NFT_EXAMPLE.docx, Example_2, STORAGE v1.0.0 (2025-09-04). Its eleven logical source groups are preserved below: A\u8211?I and K (the original uses K after I; no J section exists). Requirements and numeric values are sample targets, not measured production outcomes.\b0\par
+\pard\sb200\sa100\b\fs25 A. Catalog and Search\b0\par
+\pard\li180\sa75\fs18 ID  |  Source requirement\b0\par
+\pard\li180\sa75\fs18 FR-CAT-01  |  List restaurant name, delivery time, featured dishes, rating and current promotions\b0\par
+\pard\li180\sa75\fs18 FR-CAT-02  |  Search restaurant by name\b0\par
+\pard\li180\sa75\fs18 FR-CAT-03  |  Filter by cuisine, rating, time and price\b0\par
+\pard\li180\sa75\fs18 FR-CAT-04  |  Sort by delivery time, rating, relevance or promotion\b0\par
+\pard\li180\sa75\fs18 FR-CAT-05  |  Pagination or infinite-scroll / lazy loading\b0\par
+\pard\sb200\sa100\b\fs25 B. Menu and Dish Details\b0\par
+\pard\li180\sa75\fs18 ID  |  Source requirement\b0\par
+\pard\li180\sa75\fs18 FR-MENU-01  |  Show name, price, weight, calories and photo\b0\par
+\pard\li180\sa75\fs18 FR-ITEM-01  |  Dish details include description, macronutrients, calories and price\b0\par
+\pard\li180\sa75\fs18 FR-ITEM-02  |  Ingredients and allergens where available\b0\par
+\pard\li180\sa75\fs18 FR-ITEM-03  |  Dish variants, spice level, sauce and other modifiers\b0\par
+\pard\li180\sa75\fs18 FR-ITEM-04  |  Availability and related item recommendations\b0\par
+\pard\sb200\sa100\b\fs25 C. Basket and Pricing\b0\par
+\pard\li180\sa75\fs18 ID  |  Source requirement\b0\par
+\pard\li180\sa75\fs18 FR-CART-01 / 02  |  Add from menu or from dish page with selected quantity\b0\par
+\pard\li180\sa75\fs18 FR-CART-03  |  Basket lines, weight, unit price, delivery cost/time and total\b0\par
+\pard\li180\sa75\fs18 FR-CART-04 / 05  |  Increase/decrease quantity and remove items\b0\par
+\pard\li180\sa75\fs18 FR-CART-06  |  Promo code and amount recalculation\b0\par
+\pard\li180\sa75\fs18 FR-CART-07  |  Preset and custom tips\b0\par
+\pard\li180\sa75\fs18 FR-CART-08  |  Minimum order / area coverage, delivery address, ASAP or slot selection\b0\par
+\pard\sb200\sa100\b\fs25 D. Checkout and Payments\b0\par
+\pard\li180\sa75\fs18 ID  |  Source example requirement\b0\par
+\pard\li180\sa75\fs18 FR-PAY-01  |  Card online, cash to courier, card to courier (mPOS)\b0\par
+\pard\li180\sa75\fs18 FR-PAY-02  |  SCA/3-D Secure for online cards; status via webhooks\b0\par
+\pard\li180\sa75\fs18 FR-PAY-03  |  Confirm order and issue electronic receipt\b0\par
+\pard\li180\sa75\fs18 FR-PAY-04  |  Cancel before Preparing; issue partial/full refund\b0\par
+\pard\li180\sa75\fs18 FR-PAY-05  |  Optional card-on-file tokenized by processor\b0\par
+\pard\li180\sa75\fs18 NFR-PAY-01  |  Example target: PCI DSS SAQ-A scope, TLS 1.2+, signed provider callback\b0\par
+\pard\li180\sa75\fs18 NFR-PAY-02  |  Example p95 payment initiation \u8804? 600 ms, webhook confirmation \u8804? 3 sec\b0\par
+\pard\li180\sa75\fs18 NFR-PAY-03  |  Payment availability 99.95%; API/DB idempotency; logs \u8805? 6 years\b0\par
+\pard\sa100\fs19 Source-quality warning: SAQ-A eligibility depends on the actual integration and PCI responsibilities; it cannot be guaranteed by stating a requirement. Financial data retention also depends on applicable laws/contracts.\b0\par
+\pard\sb200\sa100\b\fs25 E\u8211?G. Support, Tracking and Notifications\b0\par
+\pard\li180\sa75\fs18 Area  |  Source requirements\b0\par
+\pard\li180\sa75\fs18 Chat FR-SUP-01/02  |  Online/offline support, reply alerts, virus-scanned attachments\b0\par
+\pard\li180\sa75\fs18 NFR-SUP-AVAIL-01  |  99.9% monthly chat availability\b0\par
+\pard\li180\sa75\fs18 NFR-SUP-RET-01  |  Chat 12-month online and 24-month archive history; deletion example \u8804? 30 days\b0\par
+\pard\li180\sa75\fs18 NFR-SUP-FILE-01  |  Up to 25 MB/file, 100 MB/conversation\b0\par
+\pard\li180\sa75\fs18 FR-TRK-01  |  Live courier position/ETA on a map\b0\par
+\pard\li180\sa75\fs18 NFR-TRACK-01  |  Courier position updates at least once per 15 sec; GPS smoothing\b0\par
+\pard\li180\sa75\fs18 FR-NOTIF-01  |  Push, SMS or email on key order state changes\b0\par
+\pard\li180\sa75\fs18 NFR-NOTIF-01  |  Delivery according to platform monitoring/queue SLO\b0\par
+\pard\sb200\sa100\b\fs25 H. Authentication, Addresses and Coverage\b0\par
+\pard\li180\sa75\fs18 ID  |  Source requirement\b0\par
+\pard\li180\sa75\fs18 FR-AUTH-01/02  |  Email/password or phone OTP signup/login; optional Apple/Google login\b0\par
+\pard\li180\sa75\fs18 FR-AUTH-03\u8211?05  |  Password reset, optional MFA, sign out all devices\b0\par
+\pard\li180\sa75\fs18 FR-ADDR-01\u8211?04  |  Address CRUD/default, geocoding, coverage and saved locations\b0\par
+\pard\li180\sa75\fs18 NFR-AUTH-01  |  bcrypt/argon2, JWT/session rotation and rate limits\b0\par
+\pard\li180\sa75\fs18 NFR-AUTH-02  |  p95 login \u8804? 500 ms, address ops \u8804? 300 ms\b0\par
+\pard\li180\sa75\fs18 NFR-ADDR-01  |  Manual address entry if geocoder unavailable\b0\par
+\pard\sb200\sa100\b\fs25 I. Ratings, ETA and Order Status\b0\par
+\pard\li180\sa75\fs18 ID  |  Source requirement\b0\par
+\pard\li180\sa75\fs18 FR-RATE-01\u8211?03  |  1\u8211?5 ratings, one review per order, moderation, official replies, aggregation\b0\par
+\pard\li180\sa75\fs18 FR-ETA-01  |  ETA displayed in restaurant card and basket; dynamic recalculation\b0\par
+\pard\li180\sa75\fs18 FR-STAT-01  |  Order: NEW \u8594? CONFIRMED \u8594? PREPARING \u8594? READY_FOR_PICKUP \u8594? PICKED_UP \u8594? (NEARBY) \u8594? DELIVERED\b0\par
+\pard\li180\sa75\fs18 FR-STAT-02  |  Reassign courier or pause restaurant with ETA/notification updates\b0\par
+\pard\li180\sa75\fs18 NFR-RATE-01  |  Review cannot publish until \u8805? 15 min post-delivery; abuse controls\b0\par
+\pard\li180\sa75\fs18 NFR-RATE-02  |  p95 publish/aggregate \u8804? 300 ms; eventual consistency \u8804? 1 min\b0\par
+\pard\li180\sa75\fs18 NFR-ETA-01  |  ETA MAE \u8804? 6 min for distance \u8804? 5 km; recalc at least every 30 sec\b0\par
+\pard\li180\sa75\fs18 NFR-STAT-01  |  Immutable, attributable history of status transitions\b0\par
+\pard\sa100\fs19 Source exception statuses include CANCELLED_USER, CANCELLED_RESTAURANT, FAILED_PAYMENT and REFUNDED. These are example order/payment outcomes, not a single universal transition chain.\b0\par
+\pard\sb200\sa100\b\fs25 K. Shared Platform NFRs\b0\par
+\pard\li180\sa75\fs18 ID  |  Source target\b0\par
+\pard\li180\sa75\fs18 NFR-PLAT-01/02  |  iOS/Android + responsive web; RU and EN\b0\par
+\pard\li180\sa75\fs18 NFR-PLAT-03/04  |  HTTPS/TLS 1.2+, distinct User/Courier RBAC\b0\par
+\pard\li180\sa75\fs18 NFR-PERF-01  |  1 million active users/day, 10,000 RPS sustained and 20,000 RPS burst as example assumptions\b0\par
+\pard\li180\sa75\fs18 NFR-SLO-01  |  Core API 99.9% monthly, p95 catalog 200 ms, cart 300 ms, order 400 ms, 5xx \u8804? 0.2%\b0\par
+\pard\li180\sa75\fs18 NFR-A11Y-01  |  WCAG 2.2 AA\b0\par
+\pard\li180\sa75\fs18 NFR-OBS-01  |  Latency/errors, webhook delivery, ETA accuracy and queue metrics\b0\par
+\pard\li180\sa75\fs18 NFR-DR-01  |  RPO \u8804? 5 min, RTO \u8804? 30 min, quarterly drills\b0\par
+\pard\li180\sa75\fs18 NFR-SEC-01  |  Mask PII; 90-day online logs plus \u8805? 365-day archive\b0\par
+\pard\sb200\sa100\b\fs25 Architectural interpretation (added)\b0\par
+\pard\sa100\fs19 These numeric expectations are not mutually validated by the source. Before using them in a real solution, a team must establish concurrent-active load, request mix, seasonal peaks, payment-provider boundaries, cost, actual data retention duties and verification methods.\b0\par
+\pard\sa100\fs19 For a filled functional SRS see Food Delivery SRS. For the source's first support-console example see Support Console FR/NFR. For an editable sheet use the Source Downloads.\b0\par
+\pard\sa100\fs19 License: CC BY 4.0.\b0\par
+}

@@ -1,0 +1,34 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0 Arial;}{\f1 Consolas;}}\paperw11906\paperh16838\margl1080\margr1080\margt1000\margb1000
+\pard\sa180\fs17 Public educational adaptation | Sergei Budnik | CC BY 4.0\par
+\pard\sb180\sa160\b\fs31 Apple Pay Provisioning: Tokenization and Issuer Verification\b0\par
+\pard\sa100\fs19 STORAGE source: SEQUENCE_EXAMPLES.docx, Example #2, titled Apple Pay Tokenization (Visa) \u8212? Wallet-Initiated (Issuer-Assisted). The original diagram has 24 numbered interactions among cardholder, Wallet/PassKit, provisioning APIs, Visa Token Service, issuer tokenization service and secure device storage.\b0\par
+\pard\sa100\fs19 This publication is a generalized learning model, not a verified or certified Apple/Visa API contract. The source includes provider-internal messages and cryptographic/key-material descriptions. The public diagram removes those implementation-specific payloads rather than asserting that they are publicly available APIs.\b0\par
+\pard\sb200\sa100\b\fs25 Source participants and responsibilities\b0\par
+\pard\li180\sa75\fs18 Source actor  |  Public logical role\b0\par
+\pard\li180\sa75\fs18 Cardholder  |  Requests to add an existing card to a device\b0\par
+\pard\li180\sa75\fs18 Apple Wallet / PassKit  |  Customer-facing card provisioning UI\b0\par
+\pard\li180\sa75\fs18 Apple provisioning services  |  Manages platform-side provisioning session\b0\par
+\pard\li180\sa75\fs18 Network tokenization service (VTS in source)  |  Processes token request and token lifecycle\b0\par
+\pard\li180\sa75\fs18 Issuer token service  |  Makes eligibility/risk and step-up decisions\b0\par
+\pard\li180\sa75\fs18 Device secure storage  |  Holds authorized device payment credential\b0\par
+\pard\sb200\sa100\b\fs25 Lifecycle preserved from the source\b0\par
+\pard\sa100\fs19 1. Enrollment start: cardholder selects Add Card; device capabilities and session context are checked.\b0\par
+\pard\sa100\fs19 2. Card submission: Wallet sends protected provisioning information to relevant platform/network services.\b0\par
+\pard\sa100\fs19 3. Issuer decision: issuer checks eligibility/risk and determines whether additional verification is required.\b0\par
+\pard\sa100\fs19 4. Step-up path: SMS/call/email one-time code or redirect to issuer banking application, subject to supported methods.\b0\par
+\pard\sa100\fs19 5. No-step-up path: issuer/network confirm eligibility according to applicable risk decisions.\b0\par
+\pard\sa100\fs19 6. Provisioning: tokenization platform and Wallet complete secure credential activation.\b0\par
+\pard\sa100\fs19 7. Completion: user sees that the card has been added; provisioning status is synchronized.\b0\par
+\pard\sa100\fs19 The original depicts tokenized PAN and wrapped key material. Their exact contract is outside this public reference. Do not treat either as plaintext business data that integrators should store.\b0\par
+\pard\sb200\sa100\b\fs25 Architecture review and recovery\b0\par
+\pard\li180\sa75\fs18 Risk  |  Design review consideration\b0\par
+\pard\li180\sa75\fs18 Wallet UI reports success but token activation unfinished  |  Query authoritative token status rather than assuming active\b0\par
+\pard\li180\sa75\fs18 OTP challenge expired or failed  |  Rate limit and use issuer-approved retry/step-up procedures\b0\par
+\pard\li180\sa75\fs18 Token created but provisioning callback lost  |  Correlate stable token/session reference; reconcile\b0\par
+\pard\li180\sa75\fs18 Device changed or removed  |  Token lifecycle suspension/deletion policies\b0\par
+\pard\li180\sa75\fs18 Duplicate provisioning attempts  |  Provider-controlled enrollment correlation and dedupe\b0\par
+\pard\sa100\fs19 These are new review questions, not claims of actual Visa/Apple backend behavior.\b0\par
+\pard\sb200\sa100\b\fs25 Editable sequence\b0\par
+\pard\sa100\fs19 Download generic Apple Pay provisioning sequence (.puml).\b0\par
+\pard\sa100\fs19 Source limitation: The actual issuer provisioning interfaces, message contracts and scheme requirements must be sourced from approved provider documentation. CC BY 4.0 for this public adaptation.\b0\par
+}
