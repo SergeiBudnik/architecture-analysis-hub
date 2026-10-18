@@ -13,6 +13,8 @@ To the extent authored by Sergei Budnik and subject to rights the author can lic
 
 - Original educational prose, blank templates, public case-study adaptations and worked examples in `docs/`.
 - The eight **public, sanitized, Word-compatible RTF templates** in `static/downloads/`.
+- Newly authored or sanitized downloadable **DOCX and RTF educational editions**, editable **Draw.io/BPMN** diagrams in `static/editable/`, and the public **XLSX/CSV** teaching template in `static/downloads/`, **only for the portions to which the author holds licensing rights**.
+- Independently authored illustrative API contract JSON and diagrams bundled with the public educational resources.
 - Original educational PlantUML reference diagrams in `diagrams/`.
 - Original architecture overview illustrations in `static/img/*-overview.svg`.
 
