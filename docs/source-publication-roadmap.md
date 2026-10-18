@@ -23,6 +23,8 @@ All new versions are sanitized adaptations; the original 2025 binaries and unrev
 
 **Release C:** Two further sanitized banking process examples: the 61-step installment card application use case grouped by stages, and card blocking with legacy/new client flow. Editable neutral PlantUML sequences have been released; bank-specific original Word binaries are not public.
 
+For the complete source-by-source matrix, see the [44-file Publication Inventory](source-inventory.md).
+
 ## Source inventory
 
 | Original format | Number of files | Status |

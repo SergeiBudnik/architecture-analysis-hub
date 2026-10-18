@@ -55,4 +55,4 @@ These examples abstract bank-specific internal names and response dictionaries. 
 
 All authored public adaptations are distributed under [CC BY 4.0](../license.md), subject to the rights and exclusions described there. Source example performance thresholds are **not independent benchmarks or verified results**.
 
-See [Editable HLD & BPMN Downloads](../editable-source-diagrams.md) and [Source Publication Roadmap](../source-publication-roadmap.md).
+See [Editable HLD & BPMN Downloads](../editable-source-diagrams.md) and [Source Publication Roadmap](../source-publication-roadmap.md). For remaining and partially adapted sources see the [44-file Inventory](../source-inventory.md).
