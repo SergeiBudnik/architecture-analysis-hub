@@ -175,7 +175,7 @@ The source's closing recommendations emphasize **API as a developer product**, *
 
 ## Downloadable reference
 
-- [Editable API parameterization guide (RTF)](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/api-parameterization-public.rtf)
+- [Editable API parameterization guide (RTF)](https://sergeibudnik.github.io/architecture-analysis-hub/editable/api-parameterization-public.docx)
 - [OpenAPI 3.1 payment-intent reference JSON](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/payment-intents-reference-openapi.json) (new, fictional educational contract)
 - [Employee Bulk Update API](../examples/employee-bulk-update-api.md), [Async Report Sequence](../examples/async-accounting-report-sequence.md), [Payment State Machine](../payments/state-machine.md).
 

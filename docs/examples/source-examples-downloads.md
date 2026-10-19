@@ -11,12 +11,12 @@ These public learning resources are **source-grounded, sanitized adaptations** o
 
 | STORAGE source | Public web edition | Editable Word file |
 |---|---|---|
-| `SRS_EXAMPLE_2.docx` — travel booking | [Travel Booking — Complete SRS](travel-platform-srs.md) | [Download DOCX](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/travel-platform-srs.docx) |
-| `SRS_EXAMPLE_1.docx` — food delivery | [Food Delivery — Complete SRS](food-delivery-srs.md) | [Download DOCX](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/food-delivery-srs.docx) |
-| `FRONT_SRS_EXAMPLE.docx` — security settings | [3-D Secure Email Settings — Frontend SRS](3ds-settings-frontend.md) | [Download DOCX](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/3ds-settings-frontend.docx) |
-| `USE_CASE_EXAMPLE_1.docx` — SMS registration | [SMS Registration — Use Case](sms-registration-use-case.md) | [Download DOCX](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/sms-registration-use-case.docx) |
-| `SEQUENCE_EXAMPLES.docx` — report generation, example 1 | [Asynchronous Accounting Report — Sequence](async-accounting-report-sequence.md) | [Download DOCX](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/async-accounting-report-sequence.docx) |
-| `API_EXAMPLE.docx` — second operation | [Employee Bulk Update — API Contract](employee-bulk-update-api.md) | [Download DOCX](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/employee-bulk-update-api.docx) |
+| `SRS_EXAMPLE_2.docx` — travel booking | [Travel Booking — Complete SRS](travel-platform-srs.md) | [Download DOCX](https://sergeibudnik.github.io/architecture-analysis-hub/editable/travel-platform-srs.docx) |
+| `SRS_EXAMPLE_1.docx` — food delivery | [Food Delivery — Complete SRS](food-delivery-srs.md) | [Download DOCX](https://sergeibudnik.github.io/architecture-analysis-hub/editable/food-delivery-srs.docx) |
+| `FRONT_SRS_EXAMPLE.docx` — security settings | [3-D Secure Email Settings — Frontend SRS](3ds-settings-frontend.md) | [Download DOCX](https://sergeibudnik.github.io/architecture-analysis-hub/editable/3ds-settings-frontend.docx) |
+| `USE_CASE_EXAMPLE_1.docx` — SMS registration | [SMS Registration — Use Case](sms-registration-use-case.md) | [Download DOCX](https://sergeibudnik.github.io/architecture-analysis-hub/editable/sms-registration-use-case.docx) |
+| `SEQUENCE_EXAMPLES.docx` — report generation, example 1 | [Asynchronous Accounting Report — Sequence](async-accounting-report-sequence.md) | [Download DOCX](https://sergeibudnik.github.io/architecture-analysis-hub/editable/async-accounting-report-sequence.docx) |
+| `API_EXAMPLE.docx` — second operation | [Employee Bulk Update — API Contract](employee-bulk-update-api.md) | [Download DOCX](https://sergeibudnik.github.io/architecture-analysis-hub/editable/employee-bulk-update-api.docx) |
 
 ### Editable UML sources
 
@@ -25,29 +25,29 @@ These public learning resources are **source-grounded, sanitized adaptations** o
 
 ## Release B — additional source-based documents
 
-These source-grounded examples are available as public Markdown pages **and downloadable Word-compatible RTF editions** (editable in Microsoft Word and convertible to DOCX). The original private Word files are not published.
+These source-grounded examples are available as public Markdown pages **and native editable DOCX downloads**. The original private Word files are not published.
 
 | Source | Public example |
 |---|---|
-| `USER_STORY_EXAMPLE.docx` | [Food Delivery User Stories](user-story-examples.md) · [RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/user-story-examples.rtf) |
-| `FT_NFT_EXAMPLE.docx` (Example 1) | [Support Console FR/NFR](support-console-fr-nfr.md) · [RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/support-console-fr-nfr.rtf) |
-| `BR_EXAMPLE.docx` | [PIM, Fulfilment and Store Discovery Business Requirements](product-catalog-business-requirements.md) · [RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/product-catalog-business-requirements.rtf) |
+| `USER_STORY_EXAMPLE.docx` | [Food Delivery User Stories](user-story-examples.md) · [DOCX](https://sergeibudnik.github.io/architecture-analysis-hub/editable/user-story-examples.docx) |
+| `FT_NFT_EXAMPLE.docx` (Example 1) | [Support Console FR/NFR](support-console-fr-nfr.md) · [DOCX](https://sergeibudnik.github.io/architecture-analysis-hub/editable/support-console-fr-nfr.docx) |
+| `BR_EXAMPLE.docx` | [PIM, Fulfilment and Store Discovery Business Requirements](product-catalog-business-requirements.md) · [DOCX](https://sergeibudnik.github.io/architecture-analysis-hub/editable/product-catalog-business-requirements.docx) |
 
 ## Release C — Banking-focused use cases (sanitized)
 
 | Source | Public example | Editable diagram |
 |---|---|---|
-| `USE_CASE_EXAMPLE_2.docx` (61-step workflow) | [Installment Card Application](installment-card-application-use-case.md) · [RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/installment-card-application-use-case.rtf) | [PlantUML sequence](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-installment-application-sequence.puml) |
-| `BACK_SRS_EXAMPLE_2.docx` | [Card Blocking — Backend SRS](card-block-backend-srs.md) · [RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/card-block-backend-srs.rtf) | [PlantUML sequence](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-card-block-backend-sequence.puml) |
+| `USE_CASE_EXAMPLE_2.docx` (61-step workflow) | [Installment Card Application](installment-card-application-use-case.md) · [DOCX](https://sergeibudnik.github.io/architecture-analysis-hub/editable/installment-card-application-use-case.docx) | [PlantUML sequence](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-installment-application-sequence.puml) |
+| `BACK_SRS_EXAMPLE_2.docx` | [Card Blocking — Backend SRS](card-block-backend-srs.md) · [DOCX](https://sergeibudnik.github.io/architecture-analysis-hub/editable/card-block-backend-srs.docx) | [PlantUML sequence](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-card-block-backend-sequence.puml) |
 
-These examples abstract bank-specific internal names and response dictionaries. These RTF versions are separate, editable **sanitized public editions**. The original Word documents have **not** been uploaded.
+These examples abstract bank-specific internal names and response dictionaries. These Word documents are separate, editable **sanitized public editions**. The original Word documents have **not** been uploaded.
 
 ## Release D — extended specifications, database and sequence examples
 
 | STORAGE source | Web guide and editable formats |
 |---|---|
-| `SRS_TEMPLATE_1.docx` | [Full-stack SRS template](../templates/full-stack-srs-outline.md) · [Editable RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/full-stack-srs-template-public.rtf) |
-| `FT_NFT_EXAMPLE.docx` (Example 2) | [Full Food Delivery FR/NFR](food-delivery-functional-nonfunctional.md) · [Editable RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/food-delivery-fr-nfr-public.rtf) |
+| `SRS_TEMPLATE_1.docx` | [Full-stack SRS template](../templates/full-stack-srs-outline.md) · [Download DOCX](https://sergeibudnik.github.io/architecture-analysis-hub/editable/full-stack-srs-template-public.docx) |
+| `FT_NFT_EXAMPLE.docx` (Example 2) | [Full Food Delivery FR/NFR](food-delivery-functional-nonfunctional.md) · [Download DOCX](https://sergeibudnik.github.io/architecture-analysis-hub/editable/food-delivery-fr-nfr-public.docx) |
 | `SEQUENCE_EXAMPLES.docx` (Example 2) | [Apple Pay Provisioning](apple-pay-provisioning-sequence.md) · [PlantUML](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-wallet-card-provisioning.puml) |
 | `SEQUENCE_EXAMPLES.docx` (Example 3) | [Kafka Risk Analysis / Signature](antifraud-kafka-signing-sequence.md) · [PlantUML](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-kafka-antifraud-signing.puml) |
 | `DATABASE_DESIGN_FAQ.docx` | [Original database-design FAQ, independently rewritten](../architecture/database-design-faq.md) |
@@ -57,11 +57,11 @@ These examples abstract bank-specific internal names and response dictionaries. 
 
 | Original source | Technical documentation | Editable download |
 |---|---|---|
-| `SRS_TEMPLATE_1.docx` | [Extended full-stack SRS](../templates/full-stack-srs-outline.md) | [RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/full-stack-srs-template-public.rtf) |
-| `DATABASE_DESIGN_FAQ.docx` | [New Database Design FAQ](../architecture/database-design-faq.md) | [RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/database-design-faq-public.rtf) |
-| `FT_NFT_EXAMPLE.docx`, Example 2 | [Food Delivery complete FR/NFR](food-delivery-functional-nonfunctional.md) | [RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/food-delivery-fr-nfr-public.rtf) |
-| `SEQUENCE_EXAMPLES.docx`, Example 2 | [Apple Pay card provisioning](apple-pay-provisioning-sequence.md) | [RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/apple-pay-provisioning-public.rtf) · [PlantUML](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-wallet-card-provisioning.puml) |
-| `SEQUENCE_EXAMPLES.docx`, Example 3 | [Kafka antifraud & signature](antifraud-kafka-signing-sequence.md) | [RTF](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/editable/antifraud-kafka-signing-public.rtf) · [PlantUML](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-kafka-antifraud-signing.puml) |
+| `SRS_TEMPLATE_1.docx` | [Extended full-stack SRS](../templates/full-stack-srs-outline.md) | [DOCX](https://sergeibudnik.github.io/architecture-analysis-hub/editable/full-stack-srs-template-public.docx) |
+| `DATABASE_DESIGN_FAQ.docx` | [New Database Design FAQ](../architecture/database-design-faq.md) | [DOCX](https://sergeibudnik.github.io/architecture-analysis-hub/editable/database-design-faq-public.docx) |
+| `FT_NFT_EXAMPLE.docx`, Example 2 | [Food Delivery complete FR/NFR](food-delivery-functional-nonfunctional.md) | [DOCX](https://sergeibudnik.github.io/architecture-analysis-hub/editable/food-delivery-fr-nfr-public.docx) |
+| `SEQUENCE_EXAMPLES.docx`, Example 2 | [Apple Pay card provisioning](apple-pay-provisioning-sequence.md) | [DOCX](https://sergeibudnik.github.io/architecture-analysis-hub/editable/apple-pay-provisioning-public.docx) · [PlantUML](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-wallet-card-provisioning.puml) |
+| `SEQUENCE_EXAMPLES.docx`, Example 3 | [Kafka antifraud & signature](antifraud-kafka-signing-sequence.md) | [DOCX](https://sergeibudnik.github.io/architecture-analysis-hub/editable/antifraud-kafka-signing-public.docx) · [PlantUML](https://github.com/SergeiBudnik/architecture-analysis-hub/blob/main/diagrams/storage-kafka-antifraud-signing.puml) |
 | `USER_STORY_TEMPLATE.xlsx` | [Source-based ten-field spreadsheet guide](../templates/user-story-excel-download.md) | [Download XLSX](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/downloads/User_Stories_Template_Public.xlsx) · [CSV](https://github.com/SergeiBudnik/architecture-analysis-hub/raw/refs/heads/main/static/downloads/User_Stories_Template_Public.csv) |
 
 **Available:** Both a native XLSX public workbook and a simpler CSV alternative. Both are adapted teaching editions rather than the original private source file.

@@ -5,7 +5,7 @@ sidebar_position: 5
 
 # Template Catalogue & Practical Guides
 
-**Want an editable Word-compatible file?** Start with [eight downloadable RTF templates](../downloads.md). These open in Word or LibreOffice and can be saved as DOCX.
+**Want an editable Word file?** Start with [eight downloadable DOCX templates](../downloads.md). These open directly in Microsoft Word or LibreOffice.
 
 These are **public, editable Markdown templates and guides**, adapted from Sergei Budnik's authored STORAGE library (2025). Click a title to open it; use **Edit this page** only if available, or copy the template text into your own document.
 
@@ -15,7 +15,7 @@ These are **public, editable Markdown templates and guides**, adapted from Serge
 |---|---|
 | [Business Requirements Document (BRD)](brd-template.md) | Template |
 | [Software Requirements Specification (SRS)](srs-template.md) | Template |
-| [Extended Full-Stack SRS Template 1](full-stack-srs-outline.md) | Adapted comprehensive SRS guide + editable RTF |
+| [Extended Full-Stack SRS Template 1](full-stack-srs-outline.md) | Adapted comprehensive SRS guide + editable DOCX |
 | [User Stories spreadsheet (Excel-compatible CSV)](user-story-excel-download.md) | Downloadable spreadsheet |
 | [Business vs Functional vs Non-Functional Requirements](requirements-types.md) | Guide |
 | [Use Case](use-case-template.md) | Template |
@@ -44,9 +44,9 @@ These are **public, editable Markdown templates and guides**, adapted from Serge
 
 ## Publication status
 
-**12 public materials** are available in web-readable form. Original Word, Excel, BPMN, draw.io and Visio downloads remain under individual review; they are **not yet published**. Selected worked examples are available below.
+Public web-readable templates, worked examples and reviewed native DOCX/XLSX/Draw.io/BPMN downloads are available. The unreviewed private source originals remain unpublished. Selected worked examples are available below.
 
-Markdown sources and new RTF templates can be downloaded via the linked repository. The full, original source archive is not published. Public release does not imply independent use or recognition by others.
+Markdown sources and new DOCX templates can be downloaded via the linked repository. The full, original source archive is not published. Public release does not imply independent use or recognition by others.
 
 ## Architecture case studies
 
@@ -62,7 +62,7 @@ Markdown sources and new RTF templates can be downloaded via the linked reposito
 - [Full-Stack SRS Template 1](full-stack-srs-outline.md) — BA, frontend, backend, API and DB design in one dossier.
 - [Database Design FAQ](../architecture/database-design-faq.md) — independent technical guidance based on the original topic list, without third-party promotional prose.
 - [Full Food Delivery FR/NFR](../examples/food-delivery-functional-nonfunctional.md) — complete second requirements example.
-- [User Stories editable spreadsheet (CSV)](user-story-excel-download.md) — follows the ten source columns and sample catalog-sorting story.
+- [User Stories editable spreadsheet (XLSX and CSV)](user-story-excel-download.md) — follows the ten source columns and sample catalog-sorting story.
 - [Apple Pay card provisioning](../examples/apple-pay-provisioning-sequence.md) and [Kafka antifraud + signing](../examples/antifraud-kafka-signing-sequence.md) — additional original-source sequence exercises.
 
 ## Worked examples
