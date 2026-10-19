@@ -4,7 +4,7 @@ from pathlib import Path
 import sys
 build=Path(__file__).resolve().parents[1]/"build"
 pages=["index","search","docs/intro","docs/downloads","docs/architecture/api-design-patterns","docs/architecture/bpmn-practical-faq","docs/templates/full-stack-srs-outline","docs/examples/source-examples-downloads","docs/library-versioning","docs/source-inventory"]
-assets=["downloads/User_Stories_Template_Public.xlsx","editable/HLD_Request_Management_Public.docx","editable/food-delivery-process.bpmn","editable/payment-intents-reference-openapi.json"]
+assets=["downloads/API_Specification_Template.docx","downloads/BRD_Template.docx","downloads/SRS_Template.docx","downloads/HLD_Template.docx","downloads/Backend_SRS_Template.docx","downloads/Frontend_SRS_Template.docx","downloads/Database_Design_Template.docx","downloads/Event_Driven_Integration_Template.docx","downloads/User_Stories_Template_Public.xlsx","editable/HLD_Request_Management_Public.docx","editable/food-delivery-process.bpmn","editable/payment-intents-reference-openapi.json"]
 errors=[]
 for name in pages:
     opts=[build/(name+".html"),build/name/"index.html"]

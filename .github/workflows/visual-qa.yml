@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - 'static/editable/**'
+      - 'static/downloads/*.docx'
       - 'diagrams/**'
       - '.github/workflows/visual-qa.yml'
   workflow_dispatch:
@@ -33,10 +34,10 @@ jobs:
       - name: Render downloadable Word documents
         run: |
           mkdir -p /tmp/docx-pdfs /tmp/docx-previews
-          libreoffice -env:UserInstallation=file:///tmp/lo_qa_profile --headless --convert-to pdf --outdir /tmp/docx-pdfs static/editable/*.docx
+          libreoffice -env:UserInstallation=file:///tmp/lo_qa_profile --headless --convert-to pdf --outdir /tmp/docx-pdfs static/downloads/*.docx static/editable/*.docx
           count=$(find /tmp/docx-pdfs -name '*.pdf' | wc -l)
           echo "DOCX documents rendered to PDF: $count"
-          test "$count" -ge 8
+          test "$count" -ge 27
           for file in /tmp/docx-pdfs/*.pdf; do
             pdfinfo "$file" | grep -E '^Pages:'
             name=$(basename "$file" .pdf)

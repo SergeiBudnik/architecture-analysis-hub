@@ -5,6 +5,13 @@ sidebar_position: 6
 
 # Release Notes
 
+## 2026-10-19 — Native Microsoft Word downloads
+
+- Published native, editable **DOCX counterparts for all 21 public RTF resources**; eight core template documents now have proper editable Word tables.
+- Replaced **38 old GitHub raw Word links** with direct DOCX downloads served by GitHub Pages.
+- Kept the original reviewed RTF editions as optional archival sources; private STORAGE originals remain unpublished.
+- Added repeatable Word conversion and structure verification to GitHub Actions; revised visual QA now checks all published DOCX examples and templates.
+
 ## 2026-10-18 — Stage 8: educator materials and community feedback
 
 - Published [For Educators & Practitioners](for-educators-practitioners.md) with three ready-to-use teaching paths.
