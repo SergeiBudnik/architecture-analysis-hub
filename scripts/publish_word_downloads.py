@@ -78,6 +78,7 @@ def main():
 
 def improve_template(file: Path):
     from docx import Document
+    from docx.enum.style import WD_STYLE_TYPE
     from docx.shared import Cm, Pt, RGBColor
     from docx.enum.text import WD_ALIGN_PARAGRAPH
     from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT
@@ -91,6 +92,10 @@ def improve_template(file: Path):
         sect.bottom_margin = Cm(1.7)
         sect.left_margin = Cm(1.9)
         sect.right_margin = Cm(1.9)
+    if "Hub Document Title" not in [style.name for style in document.styles]:
+        document.styles.add_style("Hub Document Title", WD_STYLE_TYPE.PARAGRAPH)
+    if "Hub Section Heading" not in [style.name for style in document.styles]:
+        document.styles.add_style("Hub Section Heading", WD_STYLE_TYPE.PARAGRAPH)
     normal = document.styles["Normal"]
     normal.font.name = "Aptos"
     normal.font.size = Pt(9.5)
@@ -103,7 +108,7 @@ def improve_template(file: Path):
         if not text:
             continue
         if not title_set:
-            p.style = document.styles["Title"]
+            p.style = document.styles["Hub Document Title"]
             p.paragraph_format.space_after = Pt(9)
             for run in p.runs:
                 run.font.name = "Aptos Display"
@@ -113,7 +118,7 @@ def improve_template(file: Path):
             title_set = True
             continue
         if text == "Document control" or re.match(r"^\d+\.\s+\S", text):
-            p.style = document.styles["Heading 1"]
+            p.style = document.styles["Hub Section Heading"]
             p.paragraph_format.space_before = Pt(10)
             p.paragraph_format.space_after = Pt(5)
             for run in p.runs:
@@ -131,7 +136,10 @@ def improve_template(file: Path):
         if len(columns) < 2:
             continue
         table = document.add_table(rows=1, cols=len(columns))
-        table.style = "Table Grid"
+        try:
+            table.style = "Table Grid"
+        except KeyError:
+            pass
         table.autofit = True
         for col, value in enumerate(columns):
             cell = table.cell(0, col)
