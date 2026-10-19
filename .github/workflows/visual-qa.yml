@@ -1,4 +1,4 @@
-name: Visual QA — Word and PlantUML
+name: Visual QA — Native Word DOCX and PlantUML
 on:
   push:
     branches: [main]
