@@ -1,0 +1,59 @@
+name: Publish Word DOCX Downloads
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/word-downloads.yml'
+      - 'scripts/publish_word_downloads.py'
+      - 'scripts/replace_word_links.py'
+      - 'static/downloads/*.rtf'
+      - 'static/editable/*.rtf'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: word-download-conversion
+  cancel-in-progress: false
+
+jobs:
+  convert-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install DOCX and rendering dependencies
+        run: |
+          python -m pip install --disable-pip-version-check python-docx==1.2.0
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends libreoffice-writer poppler-utils
+      - name: Convert public RTF templates to native Word documents
+        run: python scripts/publish_word_downloads.py
+      - name: Switch site links to real DOCX download URLs
+        run: python scripts/replace_word_links.py
+      - name: Render Word templates and check legible document output
+        run: |
+          mkdir -p /tmp/word-template-pdf
+          libreoffice -env:UserInstallation=file:///tmp/wordqa_profile --headless --convert-to pdf --outdir /tmp/word-template-pdf static/downloads/*.docx
+          test "$(find /tmp/word-template-pdf -type f -name '*.pdf' | wc -l)" -eq 8
+          for pdf in /tmp/word-template-pdf/*.pdf; do
+            pdfinfo "$pdf" | grep -E '^Pages:'
+          done
+      - name: Commit converted Word documents and updated download links
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add static/downloads static/editable docs README.md
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish 21 native Word DOCX downloads and replace RTF links"
+            git push origin HEAD:main
+          else
+            echo "All Word downloads and links are already current"
+          fi
