@@ -77,95 +77,111 @@ def main():
     print("Validated native DOCX for every published Word resource:", dict(original_count))
 
 def improve_template(file: Path):
+    """Generate a clean, native OOXML file from the existing public RTF paragraphs.
+
+    A fresh python-docx document avoids style/package compatibility issues found
+    in postprocessing some LibreOffice-generated RTF->DOCX conversions. Content
+    comes exclusively from the already-public source, in its existing order.
+    """
     from docx import Document
-    from docx.enum.style import WD_STYLE_TYPE
     from docx.shared import Cm, Pt, RGBColor
-    from docx.enum.text import WD_ALIGN_PARAGRAPH
     from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT
+    from docx.enum.text import WD_BREAK
     from docx.oxml import OxmlElement
     from docx.oxml.ns import qn
 
-    document = Document(file)
-    sections = document.sections
-    for sect in sections:
-        sect.top_margin = Cm(1.7)
-        sect.bottom_margin = Cm(1.7)
-        sect.left_margin = Cm(1.9)
-        sect.right_margin = Cm(1.9)
-    if "Hub Document Title" not in [style.name for style in document.styles]:
-        document.styles.add_style("Hub Document Title", WD_STYLE_TYPE.PARAGRAPH)
-    if "Hub Section Heading" not in [style.name for style in document.styles]:
-        document.styles.add_style("Hub Section Heading", WD_STYLE_TYPE.PARAGRAPH)
-    normal = document.styles["Normal"]
+    rtf_source = file.with_suffix(".rtf")
+    paragraphs = []
+    for raw_line in rtf_source.read_text(encoding="utf-8").splitlines():
+        if not raw_line.startswith("\\pard"):
+            continue
+        text = re.sub(r"\\[a-zA-Z]+-?\d* ?", "", raw_line)
+        text = text.replace("\\{", "{").replace("\\}", "}").replace("\\\\", "\\")
+        text = text.strip()
+        if text:
+            paragraphs.append(text)
+
+    if len(paragraphs) < 15:
+        raise RuntimeError(f"Unexpectedly short RTF teaching source: {rtf_source}")
+
+    doc = Document()
+    section = doc.sections[0]
+    section.top_margin = Cm(1.7)
+    section.bottom_margin = Cm(1.7)
+    section.left_margin = Cm(1.9)
+    section.right_margin = Cm(1.9)
+    section.page_width = Cm(21.0)
+    section.page_height = Cm(29.7)
+
+    styles = doc.styles
+    normal = styles["Normal"]
     normal.font.name = "Aptos"
     normal.font.size = Pt(9.5)
     normal.paragraph_format.space_after = Pt(5)
+    accent = RGBColor(10, 57, 80)
 
-    paragraphs = list(document.paragraphs)
-    title_set = False
-    for p in paragraphs:
-        text = p.text.strip()
-        if not text:
-            continue
-        if not title_set:
-            p.style = document.styles["Hub Document Title"]
-            p.paragraph_format.space_after = Pt(9)
+    for idx, text in enumerate(paragraphs):
+        if idx == 0:
+            p = doc.add_paragraph(style="Title")
+            p.add_run(text)
+            p.paragraph_format.space_after = Pt(10)
             for run in p.runs:
                 run.font.name = "Aptos Display"
                 run.font.size = Pt(17)
                 run.font.bold = True
-                run.font.color.rgb = RGBColor(10, 57, 80)
-            title_set = True
-            continue
-        if text == "Document control" or re.match(r"^\d+\.\s+\S", text):
-            p.style = document.styles["Hub Section Heading"]
+                run.font.color.rgb = accent
+        elif text == "Document control" or re.match(r"^\d+\.\s+\S", text):
+            p = doc.add_paragraph(style="Heading 1")
+            p.add_run(text)
             p.paragraph_format.space_before = Pt(10)
-            p.paragraph_format.space_after = Pt(5)
+            p.paragraph_format.space_after = Pt(4)
             for run in p.runs:
                 run.font.name = "Aptos"
                 run.font.size = Pt(11)
-                run.font.color.rgb = RGBColor(10, 57, 80)
-            continue
-        for run in p.runs:
-            run.font.name = "Aptos"
-            if run.font.size and run.font.size.pt > 12:
-                run.font.size = Pt(9.5)
-        if " | " not in text:
-            continue
-        columns = [s.strip() for s in text.split(" | ")]
-        if len(columns) < 2:
-            continue
-        table = document.add_table(rows=1, cols=len(columns))
-        try:
+                run.font.color.rgb = accent
+        elif " | " in text:
+            columns = [value.strip() for value in text.split(" | ")]
+            table = doc.add_table(rows=1, cols=len(columns))
             table.style = "Table Grid"
-        except KeyError:
-            pass
-        table.autofit = True
-        for col, value in enumerate(columns):
-            cell = table.cell(0, col)
-            cell.text = value
-            cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
-            for par in cell.paragraphs:
-                par.paragraph_format.space_after = Pt(2)
-                for run in par.runs:
-                    run.font.name = "Aptos"
-                    run.font.size = Pt(8)
-                    if col == 0:
-                        run.font.bold = True
-            if col == 0:
-                tcPr = cell._tc.get_or_add_tcPr()
-                shade = OxmlElement("w:shd")
-                shade.set(qn("w:fill"), "E7F0F4")
-                tcPr.append(shade)
-        # Position the native table precisely where the pipe-delimited source was.
-        p._p.addnext(table._tbl)
-        p._element.getparent().remove(p._element)
+            table.autofit = True
+            for col, value in enumerate(columns):
+                cell = table.cell(0, col)
+                cell.text = value
+                cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
+                for p in cell.paragraphs:
+                    p.paragraph_format.space_after = Pt(2)
+                    for run in p.runs:
+                        run.font.name = "Aptos"
+                        run.font.size = Pt(8)
+                        if col == 0:
+                            run.font.bold = True
+                if col == 0:
+                    tcPr = cell._tc.get_or_add_tcPr()
+                    shading = OxmlElement("w:shd")
+                    shading.set(qn("w:fill"), "E7F0F4")
+                    tcPr.append(shading)
+            doc.add_paragraph().paragraph_format.space_after = Pt(0)
+        else:
+            p = doc.add_paragraph()
+            p.add_run(text)
+            if idx in (1, 2) or idx == len(paragraphs)-1:
+                for run in p.runs:
+                    run.italic = True
+                    run.font.size = Pt(8.5)
+                    run.font.color.rgb = RGBColor(89, 109, 119)
 
-    document.core_properties.title = document.paragraphs[0].text
-    document.core_properties.author = "Sergei Budnik"
-    document.core_properties.last_modified_by = "Architecture & Analysis Hub"
-    document.core_properties.comments = "Sanitized educational Word template. CC BY 4.0."
-    document.save(file)
+    footer = section.footer.paragraphs[0]
+    footer.text = "Architecture & Analysis Hub  |  Sergei Budnik  |  CC BY 4.0"
+    footer.alignment = 2
+    for run in footer.runs:
+        run.font.size = Pt(7.5)
+        run.font.color.rgb = RGBColor(89, 109, 119)
+
+    doc.core_properties.title = paragraphs[0]
+    doc.core_properties.author = "Sergei Budnik"
+    doc.core_properties.last_modified_by = "Architecture & Analysis Hub"
+    doc.core_properties.comments = "Original sanitized educational Word template, CC BY 4.0."
+    doc.save(file)
 
 def validate_word(file: Path):
     from docx import Document
