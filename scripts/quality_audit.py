@@ -65,8 +65,19 @@ for p in S.rglob("*"):
                             error(p.relative_to(R),"unlicensed private notice")
                         if ext==".docx" and re.search(rb"<w:(ins|del|commentReference)(?=[\s>/])",content):
                             error(p.relative_to(R),"tracked changes/comment markup")
-                if any(x.startswith(("xl/externalLinks/","word/embeddings/","customXml/")) for x in names):
+                if any(x.startswith(("xl/externalLinks/","word/embeddings/")) for x in names):
                     error(p.relative_to(R),"embedded/external data")
+                custom={x for x in names if x.startswith("customXml/")}
+                if custom:
+                    # The python-docx standard blank document has one empty
+                    # Microsoft bibliography item. Whitelist only this exact
+                    # harmless shape, never third-party/custom embedded data.
+                    allowed={"customXml/item1.xml","customXml/itemProps1.xml","customXml/_rels/item1.xml.rels"}
+                    data=z.read("customXml/item1.xml") if "customXml/item1.xml" in names else b""
+                    safe=(custom==allowed and b'officeDocument/2006/bibliography' in data
+                          and not re.search(rb'<b:Source(?=[\s>/])',data))
+                    if not safe:
+                        error(p.relative_to(R),"unreviewed custom XML data")
                 if any(re.search(r"(comments|people)\d*\.xml$",x) for x in names):
                     error(p.relative_to(R),"review metadata")
         elif ext==".drawio":
